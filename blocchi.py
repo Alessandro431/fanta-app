@@ -15,6 +15,7 @@ LISTONE_CSV = "listone_fantacalcio_2026_2027.csv"
 N_BLOCCHI = 10
 DIM_BLOCCO = {"P": 6, "D": 8, "C": 10, "A": 6}
 NOME_RUOLO = {"P": "Portieri", "D": "Difensori", "C": "Centrocampisti", "A": "Attaccanti"}
+SOGLIA_SQUADRA = 3  # da questo numero in su, un blocco ha "troppi" giocatori della stessa squadra
 SINGOLARE = {"P": "portiere", "D": "difensore", "C": "centrocampista", "A": "attaccante"}
 CARTELLA_CAMPIONATI = "campionati"
 
@@ -243,6 +244,18 @@ for tab, ruolo in zip(tabs, DIM_BLOCCO):
                     if attuali:
                         sub = df_r[df_r["Label"].isin(attuali)][["#", "Nome", "Squadra", "Qt.A", "FVM"]]
                         st.dataframe(sub, hide_index=True, width="stretch", column_config=COLONNE)
+                        conteggio = sub["Squadra"].value_counts()
+                        parti = []
+                        for sq, n in conteggio.items():
+                            if n >= SOGLIA_SQUADRA:
+                                parti.append(f":red[**{sq} ×{n}**]")
+                            elif n == 2:
+                                parti.append(f":orange[{sq} ×{n}]")
+                            else:
+                                parti.append(f"{sq} ×{n}")
+                        troppi = [f"{sq} ({n})" for sq, n in conteggio.items() if n >= SOGLIA_SQUADRA]
+                        avviso = f"  ⚠️ troppi della stessa squadra: {', '.join(troppi)}" if troppi else ""
+                        st.caption("Squadre: " + " · ".join(parti) + avviso)
 
 ORDINAMENTI = {
     "FVM ↓": (["FVM", "Qt.A"], [False, False]),

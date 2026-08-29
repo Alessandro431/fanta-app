@@ -601,6 +601,27 @@ with tab_sc:
                 pulisci_widget_blocchi()
                 st.rerun()
 
+    with st.container(border=True):
+        st.markdown("**➕ Aggiungi a un blocco (posti liberi)**")
+        dim_r = DIM_BLOCCO[ruolo_sc]
+        blocchi_liberi = [i for i in range(N_BLOCCHI) if len(blocchi[ruolo_sc][i]) < dim_r]
+        if not blocchi_liberi:
+            st.caption("Tutti i blocchi di questo ruolo sono pieni.")
+        else:
+            i_add = st.selectbox(
+                "Blocco", blocchi_liberi, index=None, key="add_blocco", placeholder="scegli il blocco…",
+                format_func=lambda i: f"{ruolo_sc}{i + 1} — {len(blocchi[ruolo_sc][i])}/{dim_r} "
+                                      f"({dim_r - len(blocchi[ruolo_sc][i])} liberi) — FVM {fvm_blocco(ruolo_sc, i)}")
+            p_add = st.selectbox("Giocatore (dal listone rimanente)", liberi_r, index=None, format_func=etichetta,
+                                 key="add_giocatore", placeholder="scrivi per cercare…")
+            if i_add is not None and p_add:
+                if st.button("Aggiungi", type="primary", key="btn_add"):
+                    blocchi[ruolo_sc][i_add].append(p_add)
+                    st.session_state.setdefault("storico", []).append(
+                        ("aggiunta", ruolo_sc, i_add, None, None, p_add, datetime.now().strftime("%d/%m %H:%M")))
+                    pulisci_widget_blocchi()
+                    st.rerun()
+
     storico = st.session_state.get("storico", [])
     if storico:
         st.markdown(f"**Storico operazioni ({len(storico)})** — viene salvato con il campionato")
@@ -609,6 +630,8 @@ with tab_sc:
             quando = f"`{voce[6]}` " if len(voce) > 6 else ""
             if tipo == "scambio":
                 st.write(f"{quando}🔁 {x} ({r}{i1 + 1}) ⇄ {y} ({r}{i2 + 1})")
+            elif tipo == "aggiunta":
+                st.write(f"{quando}➕ {r}{i1 + 1}: aggiunto {y}")
             else:
                 st.write(f"{quando}🔄 {r}{i1 + 1}: esce {x}, entra {y}")
         if st.button("↩️ Annulla ultima operazione", key="btn_undo"):
@@ -616,6 +639,9 @@ with tab_sc:
             if tipo == "scambio":
                 blocchi[r][i1][blocchi[r][i1].index(y)] = x
                 blocchi[r][i2][blocchi[r][i2].index(x)] = y
+            elif tipo == "aggiunta":
+                if y in blocchi[r][i1]:
+                    blocchi[r][i1].remove(y)
             else:
                 blocchi[r][i1][blocchi[r][i1].index(y)] = x
             pulisci_widget_blocchi()

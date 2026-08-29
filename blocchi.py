@@ -66,11 +66,41 @@ def blocchi_vuoti():
     return {r: [[] for _ in range(N_BLOCCHI)] for r in DIM_BLOCCO}
 
 
+PORTIERI_PER_SQUADRA = 3  # titolare, secondo, terzo
+
+
+def blocchi_portieri_per_squadra(df):
+    """Blocchi portieri = 2 squadre complete (primo, secondo e terzo portiere di ciascuna).
+    Il costo di una squadra e' la somma delle Qt.A dei suoi 3 portieri; le squadre vengono
+    ordinate per costo e accoppiate la piu' cara con la piu' economica, la seconda con la
+    penultima, ecc., cosi' ogni blocco ha un costo simile."""
+    df_p = df[df["R"] == "P"].sort_values(["Qt.A", "FVM"], ascending=False)
+    squadre = []
+    for sq, g in df_p.groupby("Squadra", sort=False):
+        top = g.head(PORTIERI_PER_SQUADRA)
+        squadre.append((sq, int(top["Qt.A"].sum()), top["Label"].tolist()))
+    squadre.sort(key=lambda t: t[1], reverse=True)
+    blocchi_p = []
+    while len(squadre) >= 2:
+        cara, economica = squadre.pop(0), squadre.pop(-1)
+        blocchi_p.append(cara[2] + economica[2])
+    if squadre:  # numero dispari di squadre: l'ultima va nel blocco piu' economico
+        blocchi_p[-1] += squadre[0][2]
+    blocchi_p = blocchi_p[:N_BLOCCHI]
+    while len(blocchi_p) < N_BLOCCHI:
+        blocchi_p.append([])
+    return blocchi_p
+
+
 def blocchi_serpentina(df):
     """Pre-popola i blocchi a serpentina per FVM decrescente: i primi 10 vanno
-    nei blocchi 1..10, i successivi 10 nei blocchi 10..1, e cosi' via."""
+    nei blocchi 1..10, i successivi 10 nei blocchi 10..1, e cosi' via.
+    I portieri fanno eccezione: 2 squadre complete per blocco (vedi blocchi_portieri_per_squadra)."""
     out = blocchi_vuoti()
+    out["P"] = blocchi_portieri_per_squadra(df)
     for ruolo, dim in DIM_BLOCCO.items():
+        if ruolo == "P":
+            continue
         labels = (df[df["R"] == ruolo]
                   .sort_values("#")["Label"]
                   .head(N_BLOCCHI * dim).tolist())
@@ -143,7 +173,7 @@ if col_r.button("🗑️ Svuota", width="stretch"):
     pulisci_widget_blocchi()
     st.rerun()
 if st.sidebar.button("⚖️ Pre-popola equilibrato (serpentina per FVM)", width="stretch",
-                     help="Sostituisce i blocchi attuali. Ordina per FVM: 1°-10° nei blocchi 1-10, 11°-20° nei blocchi 10-1, e così via."):
+                     help="Sostituisce i blocchi attuali. D/C/A: serpentina per FVM (1°-10° nei blocchi 1-10, 11°-20° nei blocchi 10-1, ...). Portieri: 2 squadre complete per blocco (3 portieri ciascuna), accoppiate per bilanciare la Qt.A."):
     st.session_state.blocchi = blocchi_serpentina(df)
     pulisci_widget_blocchi()
     st.rerun()
@@ -245,15 +275,17 @@ for tab, ruolo in zip(tabs, DIM_BLOCCO):
                         sub = df_r[df_r["Label"].isin(attuali)][["#", "Nome", "Squadra", "Qt.A", "FVM"]]
                         st.dataframe(sub, hide_index=True, width="stretch", column_config=COLONNE)
                         conteggio = sub["Squadra"].value_counts()
+                        # per i portieri 3 per squadra e' voluto: l'avviso scatta solo oltre
+                        soglia = PORTIERI_PER_SQUADRA + 1 if ruolo == "P" else SOGLIA_SQUADRA
                         parti = []
                         for sq, n in conteggio.items():
-                            if n >= SOGLIA_SQUADRA:
+                            if n >= soglia:
                                 parti.append(f":red[**{sq} ×{n}**]")
-                            elif n == 2:
+                            elif n == 2 and ruolo != "P":
                                 parti.append(f":orange[{sq} ×{n}]")
                             else:
                                 parti.append(f"{sq} ×{n}")
-                        troppi = [f"{sq} ({n})" for sq, n in conteggio.items() if n >= SOGLIA_SQUADRA]
+                        troppi = [f"{sq} ({n})" for sq, n in conteggio.items() if n >= soglia]
                         avviso = f"  ⚠️ troppi della stessa squadra: {', '.join(troppi)}" if troppi else ""
                         st.caption("Squadre: " + " · ".join(parti) + avviso)
 

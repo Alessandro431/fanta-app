@@ -148,7 +148,7 @@ def listone_iniziale_rif(base):
         ini = pd.read_csv(FILE_RIFERIMENTO)
         if "Fuori" not in ini.columns:
             ini["Fuori"] = 0
-        ini["Fuori"] = ini["Fuori"].fillna(0).astype(int)
+        ini["Fuori"] = 0  # nel listone iniziale tutti contano come attivi: chi oggi ha l'asterisco finisce in Out
         return listone_corrente_rif(ini)
     return listone_corrente_rif(base)
 
@@ -677,13 +677,10 @@ with tabs[-2]:
     tabella_listone("completo", solo_liberi=False)
 
 with tabs[-1]:
-    st.caption("Confronto tra il listone di riferimento del campionato (istantanea presa quando l'hai creato o "
-               "aggiornato l'ultima volta) e il listone scaricato adesso. Cosi', quando riscarichi i dati, vedi "
-               "chi e' andato via dai tuoi blocchi e chi e' arrivato di nuovo.")
-    c_ref1, c_ref2 = st.columns([1, 2])
-    with c_ref1:
-        if st.button("🔄 Aggiorna listone da Fantacalcio.it", type="primary", width="stretch",
-                     help="Scarica le quotazioni live dal sito, conserva la versione precedente e mostra le differenze qui sotto."):
+    quando_csv = datetime.fromtimestamp(os.path.getmtime(LISTONE_CSV)).strftime("%d/%m %H:%M")
+    c1, c2 = st.columns([1, 5])
+    with c1:
+        if st.button("🔄 Aggiorna", help="Scarica il listone live da Fantacalcio.it e ricalcola Out/In."):
             try:
                 import shutil
                 from scarica_listone import scarica_listone as _scarica
@@ -692,37 +689,21 @@ with tabs[-1]:
                     shutil.copyfile(LISTONE_CSV, FILE_PRECEDENTE)
                 nuovo_df.to_csv(LISTONE_CSV, index=False)
                 st.cache_data.clear()
-                st.session_state.msg_refresh = (f"Listone aggiornato: {len(nuovo_df)} giocatori, "
-                                                f"{int(nuovo_df['Fuori'].sum())} fuori dalla Serie A. "
-                                                f"Le differenze sotto sono rispetto al riferimento del campionato.")
+                st.session_state.msg_refresh = f"Aggiornato: {len(nuovo_df)} giocatori, {int(nuovo_df['Fuori'].sum())} fuori."
                 st.rerun()
             except Exception as e:  # noqa: BLE001
                 st.error(f"Aggiornamento fallito: {e}")
-    with c_ref2:
-        quando_csv = datetime.fromtimestamp(os.path.getmtime(LISTONE_CSV)).strftime("%d/%m/%Y %H:%M")
-        st.caption(f"Listone in uso scaricato il **{quando_csv}** ({len(df_base)} giocatori, {n_fuori} fuori). "
-                   f"Riferimento del campionato: {len(rif)} giocatori.")
-    if st.session_state.get("msg_refresh"):
-        st.success(st.session_state.pop("msg_refresh"))
-    if os.path.exists(FILE_RIFERIMENTO):
-        if st.button("🏁 Riporta il riferimento al listone iniziale (29/08/2026 10:46)",
-                     help="Confronta con la prima lista scaricata, quella su cui sono stati costruiti i blocchi."):
-            st.session_state.listone_rif = listone_iniziale_rif(df_base)
-            st.rerun()
-    if os.path.exists(FILE_PRECEDENTE):
-        quando_prec = datetime.fromtimestamp(os.path.getmtime(FILE_PRECEDENTE)).strftime("%d/%m/%Y %H:%M")
-        if st.button(f"📅 Usa come riferimento il listone precedente ({FILE_PRECEDENTE}, del {quando_prec})",
-                     help="Il file viene creato automaticamente da scarica_listone.py con la versione precedente del listone."):
-            prec = pd.read_csv(FILE_PRECEDENTE)
-            if "Fuori" not in prec.columns:
-                prec["Fuori"] = 0
-            st.session_state.listone_rif = listone_corrente_rif(prec)
-            st.rerun()
+    with c2:
+        st.caption(f"Listone del **{quando_csv}** · confronto con la lista iniziale del 29/08 10:46"
+                   + (f" · {st.session_state.pop('msg_refresh')}" if st.session_state.get("msg_refresh") else ""))
+
     c_out, c_in = st.columns(2)
     with c_out:
         st.subheader(f"📤 Out ({len(usciti)})")
         if usciti:
-            st.dataframe(pd.DataFrame(usciti).sort_values(["Blocco", "R"]), hide_index=True, width="stretch")
+            st.dataframe(pd.DataFrame(usciti)[["Giocatore", "R", "Blocco", "Trasferimento"]].sort_values(["Blocco", "R"]),
+                         hide_index=True, width="stretch", height=520,
+                         column_config={"Trasferimento": st.column_config.TextColumn("Dove è andato", width="large")})
             if n_out_blocchi and st.button(f"🗑️ Togli dai blocchi i {n_out_blocchi} usciti", type="primary"):
                 labels_out = {u["Giocatore"] for u in usciti if u["Blocco"] != "—"}
                 for r in blocchi:
@@ -731,22 +712,34 @@ with tabs[-1]:
                 pulisci_widget_blocchi()
                 st.rerun()
         else:
-            st.success("Nessun giocatore uscito.")
+            st.caption("Nessuno.")
     with c_in:
         st.subheader(f"📥 In ({len(nuovi)})")
         if nuovi:
-            st.dataframe(pd.DataFrame(nuovi).sort_values(["R", "FVM"], ascending=[True, False]),
-                         hide_index=True, width="stretch", column_config=COLONNE)
-            st.caption("Per inserirli usa la tab Scambi (Sostituisci) o il menu del blocco.")
+            st.dataframe(pd.DataFrame(nuovi)[["Giocatore", "R", "Qt.A", "FVM", "Trasferimento"]]
+                         .sort_values(["R", "FVM"], ascending=[True, False]),
+                         hide_index=True, width="stretch", height=520,
+                         column_config={**COLONNE, "Trasferimento": st.column_config.TextColumn("Da dove arriva", width="large")})
         else:
-            st.success("Nessun giocatore nuovo.")
+            st.caption("Nessuno.")
     if trasferiti:
-        st.subheader(f"🔀 Cambiato squadra in Serie A ({len(trasferiti)})")
+        st.subheader(f"🔀 Cambiato squadra ({len(trasferiti)})")
         st.dataframe(pd.DataFrame([{"Giocatore": n, "Da": a, "A": b, "R": r} for _, o, n, a, b, r in trasferiti]),
                      hide_index=True, width="stretch")
-        st.caption("Le etichette nei blocchi sono state aggiornate automaticamente con la nuova squadra.")
-    st.divider()
-    if st.button("✅ Ho gestito tutto: aggiorna il listone di riferimento a quello attuale"):
-        st.session_state.listone_rif = listone_corrente_rif(df_base)
-        st.rerun()
-    st.caption("Il riferimento viene salvato con il campionato (Salva / Scarica JSON).")
+
+    with st.expander("⚙️ Opzioni riferimento"):
+        st.caption("Out/In sono calcolati rispetto a un listone di riferimento, salvato con il campionato.")
+        if os.path.exists(FILE_RIFERIMENTO) and st.button("🏁 Lista iniziale (29/08 10:46)"):
+            st.session_state.listone_rif = listone_iniziale_rif(df_base)
+            st.rerun()
+        if os.path.exists(FILE_PRECEDENTE):
+            quando_prec = datetime.fromtimestamp(os.path.getmtime(FILE_PRECEDENTE)).strftime("%d/%m %H:%M")
+            if st.button(f"📅 Listone precedente ({quando_prec})"):
+                prec = pd.read_csv(FILE_PRECEDENTE)
+                if "Fuori" not in prec.columns:
+                    prec["Fuori"] = 0
+                st.session_state.listone_rif = listone_corrente_rif(prec)
+                st.rerun()
+        if st.button("✅ Segna tutto come gestito (riferimento = oggi)"):
+            st.session_state.listone_rif = listone_corrente_rif(df_base)
+            st.rerun()

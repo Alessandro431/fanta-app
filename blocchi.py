@@ -119,7 +119,7 @@ def percorso(nome):
 def salva(nome, blocchi):
     os.makedirs(CARTELLA_CAMPIONATI, exist_ok=True)
     with open(percorso(nome), "w", encoding="utf-8") as f:
-        json.dump({"nome": nome, "blocchi": blocchi}, f, ensure_ascii=False, indent=2)
+        json.dump({"nome": nome, "blocchi": blocchi, "rinomine": st.session_state.get("rinomine", {})}, f, ensure_ascii=False, indent=2)
 
 
 def carica(nome):
@@ -138,10 +138,67 @@ def campionati_salvati():
     return out
 
 
-df = carica_listone()
-if df is None:
+FILE_RINOMINE = "rinomine.json"
+
+
+def carica_rinomine():
+    if os.path.exists(FILE_RINOMINE):
+        with open(FILE_RINOMINE, encoding="utf-8") as f:
+            return json.load(f)
+    return {}
+
+
+def salva_rinomine(rin):
+    with open(FILE_RINOMINE, "w", encoding="utf-8") as f:
+        json.dump(rin, f, ensure_ascii=False, indent=2)
+
+
+def applica_rinomine(base, rin):
+    """rin: {label originale del CSV: nuovo nome}. Ritorna una copia del listone con i nomi corretti."""
+    d = base.copy()
+    d["LabelBase"] = d["Label"]
+    if rin:
+        nuovi = d["LabelBase"].map(rin)
+        d["Nome"] = nuovi.fillna(d["Nome"])
+        d["Label"] = d["Nome"] + " (" + d["Squadra"] + ")"
+        d["_cerca"] = (d["Nome"] + " " + d["Squadra"]).map(lambda x: unidecode(str(x)).lower())
+    return d
+
+
+def rinomina_giocatore(ruolo, i):
+    """Callback del data_editor: applica la modifica del nome a listone e blocchi."""
+    stato = st.session_state.get(f"ed_{ruolo}_{i}", {})
+    righe = st.session_state.get(f"righe_{ruolo}_{i}", [])
+    for idx, cambi in stato.get("edited_rows", {}).items():
+        if "Nome" not in cambi or int(idx) >= len(righe):
+            continue
+        label_base, squadra = righe[int(idx)]
+        nuovo = str(cambi["Nome"]).strip()
+        if not nuovo:
+            continue
+        rin = st.session_state.rinomine
+        vecchio_nome = rin.get(label_base, label_base.rsplit(" (", 1)[0])
+        vecchia_label = f"{vecchio_nome} ({squadra})"
+        nuova_label = f"{nuovo} ({squadra})"
+        if nuova_label == vecchia_label:
+            continue
+        rin[label_base] = nuovo
+        for r in st.session_state.blocchi:
+            for b in st.session_state.blocchi[r]:
+                for k, p in enumerate(b):
+                    if p == vecchia_label:
+                        b[k] = nuova_label
+        salva_rinomine(rin)
+    pulisci_widget_blocchi()
+
+
+df_base = carica_listone()
+if df_base is None:
     st.error(f"Listone non trovato: {LISTONE_CSV}. Esegui prima `python scarica_listone.py`.")
     st.stop()
+if "rinomine" not in st.session_state:
+    st.session_state.rinomine = carica_rinomine()
+df = applica_rinomine(df_base, st.session_state.rinomine)
 
 # ---------------- Sidebar: gestione campionato ----------------
 st.sidebar.header("Campionato")
@@ -182,7 +239,7 @@ st.sidebar.divider()
 st.sidebar.caption("Su Streamlit Cloud i salvataggi non sono permanenti: scarica il file e ricaricalo quando serve.")
 st.sidebar.download_button(
     "⬇️ Scarica campionato (JSON)",
-    data=json.dumps({"nome": nome, "blocchi": blocchi}, ensure_ascii=False, indent=2),
+    data=json.dumps({"nome": nome, "blocchi": blocchi, "rinomine": st.session_state.rinomine}, ensure_ascii=False, indent=2),
     file_name=f"{re.sub(r'[^a-z0-9]+', '_', nome.lower()).strip('_')}.json",
     mime="application/json", width="stretch",
 )
@@ -191,12 +248,35 @@ if caricato is not None and st.session_state.get("upload_fatto") != caricato.fil
     try:
         dati = json.load(caricato)
         st.session_state.blocchi = dati["blocchi"]
+        if dati.get("rinomine"):
+            st.session_state.rinomine.update(dati["rinomine"])
+            salva_rinomine(st.session_state.rinomine)
         st.session_state.upload_fatto = caricato.file_id
         pulisci_widget_blocchi()
         st.sidebar.success(f"Caricato: {dati.get('nome', '')}")
         st.rerun()
     except Exception as e:  # noqa: BLE001
         st.sidebar.error(f"File non valido: {e}")
+
+rin = st.session_state.rinomine
+with st.sidebar.expander(f"✏️ Nomi corretti ({len(rin)})"):
+    if not rin:
+        st.caption("Nessuna correzione. Fai doppio click su un nome nella tabella di un blocco per modificarlo.")
+    for base, nuovo in list(rin.items()):
+        c1, c2 = st.columns([4, 1])
+        c1.write(f"{base.rsplit(' (', 1)[0]} → **{nuovo}**")
+        if c2.button("↩", key=f"undo_rin_{base}", help="Ripristina il nome originale"):
+            squadra = base.rsplit(" (", 1)[1][:-1]
+            vecchia_label = f"{nuovo} ({squadra})"
+            for r in blocchi:
+                for b in blocchi[r]:
+                    for k, p_ in enumerate(b):
+                        if p_ == vecchia_label:
+                            b[k] = base
+            del rin[base]
+            salva_rinomine(rin)
+            pulisci_widget_blocchi()
+            st.rerun()
 
 # ---------------- Stato: giocatori assegnati ----------------
 assegnati = {p for r in blocchi for b in blocchi[r] for p in b}
@@ -272,8 +352,15 @@ for tab, ruolo in zip(tabs, DIM_BLOCCO):
                         args=(ruolo, i),
                     )
                     if attuali:
-                        sub = df_r[df_r["Label"].isin(attuali)][["#", "Nome", "Squadra", "Qt.A", "FVM"]]
-                        st.dataframe(sub, hide_index=True, width="stretch", column_config=COLONNE)
+                        sub = df_r[df_r["Label"].isin(attuali)][["#", "Nome", "Squadra", "Qt.A", "FVM", "LabelBase"]]
+                        st.session_state[f"righe_{ruolo}_{i}"] = list(zip(sub["LabelBase"], sub["Squadra"]))
+                        st.data_editor(
+                            sub.drop(columns=["LabelBase"]), hide_index=True, width="stretch",
+                            column_config={**COLONNE, "Nome": st.column_config.TextColumn(
+                                "Nome ✏️", help="Doppio click per correggere il nome. La modifica vale ovunque e viene salvata.")},
+                            disabled=["#", "Squadra", "Qt.A", "FVM"],
+                            key=f"ed_{ruolo}_{i}", on_change=rinomina_giocatore, args=(ruolo, i),
+                        )
                         conteggio = sub["Squadra"].value_counts()
                         # per i portieri 3 per squadra e' voluto: l'avviso scatta solo oltre
                         soglia = PORTIERI_PER_SQUADRA + 1 if ruolo == "P" else SOGLIA_SQUADRA

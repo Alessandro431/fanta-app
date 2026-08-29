@@ -15,6 +15,7 @@ LISTONE_CSV = "listone_fantacalcio_2026_2027.csv"
 N_BLOCCHI = 10
 DIM_BLOCCO = {"P": 6, "D": 8, "C": 10, "A": 6}
 NOME_RUOLO = {"P": "Portieri", "D": "Difensori", "C": "Centrocampisti", "A": "Attaccanti"}
+SINGOLARE = {"P": "portiere", "D": "difensore", "C": "centrocampista", "A": "attaccante"}
 CARTELLA_CAMPIONATI = "campionati"
 
 # Tooltip (mostrati passando il mouse sull'intestazione della colonna)
@@ -183,14 +184,50 @@ for tab, ruolo in zip(tabs, DIM_BLOCCO):
         liberi = df_r[~df_r["Label"].isin(assegnati)]["Label"].tolist()
         st.caption(f"{len(liberi)} {NOME_RUOLO[ruolo].lower()} ancora disponibili nel listone")
 
+        # ---- ricerca: evidenzia il blocco in cui si trova il giocatore ----
+        with st.form(key=f"form_blk_{ruolo}", border=False):
+            f1, f2, f3 = st.columns([4, 1, 1])
+            testo_b = f1.text_input("Trova in quale blocco sta un giocatore", key=f"testo_blk_{ruolo}",
+                                    placeholder="es. dimarco — poi premi Cerca o Invio", label_visibility="collapsed")
+            invia_b = f2.form_submit_button("🔎 Cerca", width="stretch")
+            azzera_b = f3.form_submit_button("✖ Azzera", width="stretch")
+        if invia_b:
+            st.session_state[f"cerca_blk_{ruolo}"] = testo_b
+        if azzera_b:
+            st.session_state[f"cerca_blk_{ruolo}"] = ""
+        cerca_b = unidecode(st.session_state.get(f"cerca_blk_{ruolo}", "")).lower().strip()
+        trovati_per_blocco = {}
+        if cerca_b:
+            match = set(df_r[df_r["_cerca"].str.contains(cerca_b, regex=False, na=False)]["Label"])
+            for i in range(N_BLOCCHI):
+                hit = [p for p in blocchi[ruolo][i] if p in match]
+                if hit:
+                    trovati_per_blocco[i] = hit
+            liberi_match = [p for p in liberi if p in match]
+            if trovati_per_blocco:
+                dove = ", ".join(f"**{ruolo}{i + 1}** ({', '.join(h)})" for i, h in trovati_per_blocco.items())
+                st.success(f"🎯 Trovato in: {dove}")
+            elif liberi_match:
+                st.warning(f"Nessun blocco: {', '.join(liberi_match)} è ancora nel listone rimanente.")
+            else:
+                st.error(f"Nessun {SINGOLARE[ruolo]} trovato per «{cerca_b}».")
+
         colonne = st.columns(2)
         for i in range(N_BLOCCHI):
             with colonne[i % 2]:
                 attuali = blocchi[ruolo][i]
                 pieno = len(attuali) >= dim
                 titolo = f"Blocco {ruolo}{i + 1} — {len(attuali)}/{dim}" + (" ✅" if pieno else "")
-                with st.container(border=True):
-                    st.markdown(f"**{titolo}**")
+                evidenzia = i in trovati_per_blocco
+                if cerca_b and trovati_per_blocco and not evidenzia:
+                    contenitore = st.expander(titolo, expanded=False)   # blocchi non pertinenti: compressi
+                else:
+                    contenitore = st.container(border=True)
+                with contenitore:
+                    if evidenzia:
+                        st.markdown(f"🎯 **{titolo}** — :green[**{', '.join(trovati_per_blocco[i])}**]")
+                    elif not (cerca_b and trovati_per_blocco):
+                        st.markdown(f"**{titolo}**")
                     opzioni = attuali + liberi  # i propri giocatori + quelli liberi
                     # lo stato dei blocchi e' l'unica fonte di verita': lo scrivo nel widget PRIMA di crearlo
                     st.session_state[f"ms_{ruolo}_{i}"] = list(attuali)

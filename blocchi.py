@@ -268,19 +268,28 @@ st.sidebar.download_button(
     mime="application/json", width="stretch",
 )
 caricato = st.sidebar.file_uploader("⬆️ Carica campionato (JSON)", type="json", key="upload_json")
+importa_portieri = st.sidebar.checkbox("Importa anche i portieri", value=False,
+                                       help="Spento: dal file vengono presi solo Difensori, Centrocampisti e Attaccanti; "
+                                            "i blocchi Portieri attuali restano com'erano.")
 if caricato is not None and st.session_state.get("upload_fatto") != caricato.file_id:
     try:
         dati = json.load(caricato)
-        st.session_state.blocchi = dati["blocchi"]
+        nuovi_blocchi = blocchi_vuoti()
+        nuovi_blocchi.update({r: v for r, v in dati["blocchi"].items() if r in DIM_BLOCCO})
+        if not importa_portieri:
+            nuovi_blocchi["P"] = st.session_state.blocchi["P"]  # ignora i portieri del file
+        st.session_state.blocchi = nuovi_blocchi
         if dati.get("rinomine"):
             st.session_state.rinomine.update(dati["rinomine"])
             salva_rinomine(st.session_state.rinomine)
         st.session_state.upload_fatto = caricato.file_id
         pulisci_widget_blocchi()
-        st.sidebar.success(f"Caricato: {dati.get('nome', '')}")
+        st.session_state.msg_upload = f"Caricato: {dati.get('nome', '')}" + ("" if importa_portieri else " (portieri ignorati)")
         st.rerun()
     except Exception as e:  # noqa: BLE001
         st.sidebar.error(f"File non valido: {e}")
+if st.session_state.get("msg_upload"):
+    st.sidebar.success(st.session_state.pop("msg_upload"))
 
 rin = st.session_state.rinomine
 with st.sidebar.expander(f"✏️ Nomi corretti ({len(rin)})"):

@@ -73,13 +73,18 @@ def blocchi_vuoti():
 
 
 PORTIERI_PER_SQUADRA = 3  # titolare, secondo, terzo
+# Coppie di squadre FISSE per i blocchi portieri (P1..P10). Se una squadra non e' in listone,
+# il blocco resta parziale; le squadre non elencate vengono accoppiate automaticamente in coda.
+COPPIE_PORTIERI = [
+    ("JUV", "TOR"), ("ROM", "MON"), ("INT", "FRO"), ("COM", "VEN"), ("ATA", "SAS"),
+    ("MIL", "GEN"), ("NAP", "UDI"), ("LEC", "PAR"), ("FIO", "CAG"), ("BOL", "LAZ"),
+]
 
 
 def blocchi_portieri_per_squadra(df):
-    """Blocchi portieri = 2 squadre complete (primo, secondo e terzo portiere di ciascuna).
-    Il costo di una squadra e' la somma delle Qt.A dei suoi 3 portieri; le squadre vengono
-    ordinate per costo e accoppiate la piu' cara con la piu' economica, la seconda con la
-    penultima, ecc., cosi' ogni blocco ha un costo simile."""
+    """Blocchi portieri = 2 squadre complete (primo, secondo e terzo portiere di ciascuna),
+    secondo le coppie fisse COPPIE_PORTIERI. Eventuali squadre non elencate vengono accoppiate
+    per costo (somma Qt.A dei 3 portieri): la piu' cara con la piu' economica."""
     df_p = df[df["R"] == "P"].sort_values(["Qt.A", "FVM"], ascending=False)
     squadre = []
     for sq, g in df_p.groupby("Squadra", sort=False):
@@ -87,11 +92,16 @@ def blocchi_portieri_per_squadra(df):
         squadre.append((sq, int(top["Qt.A"].sum()), top["Label"].tolist()))
     squadre.sort(key=lambda t: t[1], reverse=True)
     blocchi_p = []
-    while len(squadre) >= 2:
+    per_sigla = {sq: labels for sq, _, labels in squadre}
+    for a, b in COPPIE_PORTIERI:  # prima le coppie fisse
+        blocchi_p.append(per_sigla.pop(a, []) + per_sigla.pop(b, []))
+    squadre = [t for t in squadre if t[0] in per_sigla]  # eventuali squadre rimaste
+    while len(squadre) >= 2 and len(blocchi_p) < N_BLOCCHI:
         cara, economica = squadre.pop(0), squadre.pop(-1)
         blocchi_p.append(cara[2] + economica[2])
-    if squadre:  # numero dispari di squadre: l'ultima va nel blocco piu' economico
-        blocchi_p[-1] += squadre[0][2]
+    if squadre and blocchi_p:  # squadre avanzate: nell'ultimo blocco
+        for t in squadre:
+            blocchi_p[-1] += t[2]
     blocchi_p = blocchi_p[:N_BLOCCHI]
     while len(blocchi_p) < N_BLOCCHI:
         blocchi_p.append([])
@@ -244,7 +254,7 @@ if col_r.button("🗑️ Svuota", width="stretch"):
     pulisci_widget_blocchi()
     st.rerun()
 if st.sidebar.button("⚖️ Pre-popola equilibrato (serpentina per FVM)", width="stretch",
-                     help="Sostituisce i blocchi attuali. D/C/A: serpentina per FVM (1°-10° nei blocchi 1-10, 11°-20° nei blocchi 10-1, ...). Portieri: 2 squadre complete per blocco (3 portieri ciascuna), accoppiate per bilanciare la Qt.A."):
+                     help="Sostituisce i blocchi attuali. D/C/A: serpentina per FVM (1°-10° nei blocchi 1-10, 11°-20° nei blocchi 10-1, ...). Portieri: 2 squadre complete per blocco (3 portieri ciascuna) secondo le coppie fisse JUV+TOR, ROM+MON, INT+FRO, COM+VEN, ATA+SAS, MIL+GEN, NAP+UDI, LEC+PAR, FIO+CAG, BOL+LAZ."):
     st.session_state.blocchi = blocchi_serpentina(df_pool)
     pulisci_widget_blocchi()
     st.rerun()

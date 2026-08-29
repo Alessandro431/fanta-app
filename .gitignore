@@ -3,3 +3,4 @@ __pycache__/
 campionati/
 *.xlsx
 rinomine.json
+listone_precedente.csv

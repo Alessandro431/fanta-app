@@ -133,13 +133,20 @@ def percorso(nome):
     return os.path.join(CARTELLA_CAMPIONATI, f"{slug}.json")
 
 
+def listone_corrente_rif(base):
+    """Istantanea del listone (per Id) da salvare nel campionato come riferimento per In/Out."""
+    return {str(r.Id): {"Nome": r.Nome, "Squadra": r.Squadra, "R": r.R, "Fuori": int(r.Fuori)}
+            for r in base.itertuples()}
+
+
 def dati_campionato(nome, blocchi):
-    """Tutto cio' che va salvato/esportato: blocchi, nomi corretti e storico scambi della sessione."""
+    """Tutto cio' che va salvato/esportato: blocchi, nomi corretti, storico scambi e listone di riferimento."""
     return {
         "nome": nome,
         "blocchi": blocchi,
         "rinomine": st.session_state.get("rinomine", {}),
         "scambi": st.session_state.get("storico", []),
+        "listone_rif": st.session_state.get("listone_rif", {}),
     }
 
 
@@ -153,6 +160,7 @@ def carica(nome):
     with open(percorso(nome), encoding="utf-8") as f:
         dati = json.load(f)
     st.session_state.storico = [tuple(x) for x in dati.get("scambi", [])]
+    st.session_state.listone_rif = dati.get("listone_rif") or listone_corrente_rif(df_base)
     return dati["blocchi"]
 
 
@@ -229,115 +237,165 @@ if "rinomine" not in st.session_state:
     st.session_state.rinomine = carica_rinomine()
 df = applica_rinomine(df_base, st.session_state.rinomine)
 
-# ---------------- Sidebar: gestione campionato ----------------
-st.sidebar.header("Campionato")
-esistenti = campionati_salvati()
-scelta = st.sidebar.selectbox("Carica campionato", ["— nuovo —"] + esistenti)
-nome_nuovo = st.sidebar.text_input("Nome nuovo campionato", "") if scelta == "— nuovo —" else scelta
+# ---------------- Sidebar: due tab (Scambi | Campionato) ----------------
+st.markdown("<style>[data-testid='stSidebar']{min-width:430px;max-width:430px}</style>", unsafe_allow_html=True)
+main = st.container()
+tab_sc, tab_camp = st.sidebar.tabs(["🔁 Scambi", "🏆 Campionato"])
+with tab_camp:
+    # ---------------- Sidebar: gestione campionato ----------------
+    st.header("Campionato")
+    esistenti = campionati_salvati()
+    scelta = st.selectbox("Carica campionato", ["— nuovo —"] + esistenti)
+    nome_nuovo = st.text_input("Nome nuovo campionato", "") if scelta == "— nuovo —" else scelta
 
-if "campionato" not in st.session_state or st.session_state.campionato != nome_nuovo:
-    st.session_state.campionato = nome_nuovo
-    if nome_nuovo in esistenti:
-        st.session_state.blocchi = carica(nome_nuovo)
-    else:
-        st.session_state.blocchi = blocchi_vuoti()
-        st.session_state.storico = []
-    pulisci_widget_blocchi()
-
-blocchi = st.session_state.blocchi
-nome = st.session_state.campionato
-
-if not nome:
-    st.info("Inserisci il nome del campionato nella barra laterale per iniziare.")
-    st.stop()
-
-st.title(f"🏆 {nome}")
-st.caption(LEGENDA)
-
-n_fuori = int(df["Fuori"].sum())
-mostra_fuori = st.sidebar.toggle(
-    f"Mostra anche i {n_fuori} giocatori fuori dalla Serie A ⚠️", value=False,
-    help="Sul sito Fantacalcio.it sono marcati con * (\"Non gioca più in Serie A\"): ceduti all'estero o svincolati. "
-         "Di default sono esclusi da listoni, pre-popolamento e menu.")
-df_pool = df if mostra_fuori else df[df["Fuori"] == 0]
-FUORI_SET = set(df[df["Fuori"] == 1]["Label"])
-
-col_s, col_r = st.sidebar.columns(2)
-if col_s.button("💾 Salva", width="stretch"):
-    salva(nome, blocchi)
-    st.sidebar.success("Salvato")
-if col_r.button("🗑️ Svuota", width="stretch"):
-    st.session_state.blocchi = blocchi_vuoti()
-    pulisci_widget_blocchi()
-    st.rerun()
-if st.sidebar.button("⚖️ Pre-popola equilibrato (serpentina per FVM)", width="stretch",
-                     help="Sostituisce i blocchi attuali. D/C/A: serpentina per FVM (1°-10° nei blocchi 1-10, 11°-20° nei blocchi 10-1, ...). Portieri: 2 squadre complete per blocco (3 portieri ciascuna) secondo le coppie fisse JUV+TOR, ROM+MON, INT+FRO, COM+VEN, ATA+SAS, MIL+GEN, NAP+UDI, LEC+PAR, FIO+CAG, BOL+LAZ."):
-    st.session_state.blocchi = blocchi_serpentina(df_pool)
-    pulisci_widget_blocchi()
-    st.rerun()
-
-st.sidebar.divider()
-st.sidebar.caption("Su Streamlit Cloud i salvataggi non sono permanenti: scarica il file e ricaricalo quando serve.")
-st.sidebar.download_button(
-    "⬇️ Scarica campionato (JSON)",
-    data=json.dumps(dati_campionato(nome, blocchi), ensure_ascii=False, indent=2),
-    file_name=f"{re.sub(r'[^a-z0-9]+', '_', nome.lower()).strip('_')}.json",
-    mime="application/json", width="stretch",
-)
-caricato = st.sidebar.file_uploader("⬆️ Carica campionato (JSON)", type="json", key="upload_json")
-importa_portieri = st.sidebar.checkbox("Importa anche i portieri", value=False,
-                                       help="Spento: dal file vengono presi solo Difensori, Centrocampisti e Attaccanti; "
-                                            "i blocchi Portieri attuali restano com'erano.")
-if caricato is not None and st.session_state.get("upload_fatto") != caricato.file_id:
-    try:
-        dati = json.load(caricato)
-        nuovi_blocchi = blocchi_vuoti()
-        nuovi_blocchi.update({r: v for r, v in dati["blocchi"].items() if r in DIM_BLOCCO})
-        if not importa_portieri:
-            nuovi_blocchi["P"] = st.session_state.blocchi["P"]  # ignora i portieri del file
-        st.session_state.blocchi = nuovi_blocchi
-        st.session_state.storico = [tuple(x) for x in dati.get("scambi", [])]
-        if dati.get("rinomine"):
-            st.session_state.rinomine.update(dati["rinomine"])
-            salva_rinomine(st.session_state.rinomine)
-        st.session_state.upload_fatto = caricato.file_id
+    if "campionato" not in st.session_state or st.session_state.campionato != nome_nuovo:
+        st.session_state.campionato = nome_nuovo
+        if nome_nuovo in esistenti:
+            st.session_state.blocchi = carica(nome_nuovo)
+        else:
+            st.session_state.blocchi = blocchi_vuoti()
+            st.session_state.storico = []
+            st.session_state.listone_rif = listone_corrente_rif(df_base)
         pulisci_widget_blocchi()
-        st.session_state.msg_upload = f"Caricato: {dati.get('nome', '')}" + ("" if importa_portieri else " (portieri ignorati)")
+
+    blocchi = st.session_state.blocchi
+    nome = st.session_state.campionato
+
+    if not nome:
+        main.info("Inserisci il nome del campionato nella barra laterale (tab 🏆 Campionato) per iniziare.")
+        st.stop()
+
+    main.title(f"🏆 {nome}")
+    main.caption(LEGENDA)
+
+    n_fuori = int(df["Fuori"].sum())
+    mostra_fuori = st.toggle(
+        f"Mostra anche i {n_fuori} giocatori fuori dalla Serie A ⚠️", value=False,
+        help="Sul sito Fantacalcio.it sono marcati con * (\"Non gioca più in Serie A\"): ceduti all'estero o svincolati. "
+             "Di default sono esclusi da listoni, pre-popolamento e menu.")
+    df_pool = df if mostra_fuori else df[df["Fuori"] == 0]
+    FUORI_SET = set(df[df["Fuori"] == 1]["Label"])
+
+    col_s, col_r = st.columns(2)
+    if col_s.button("💾 Salva", width="stretch"):
+        salva(nome, blocchi)
+        st.success("Salvato")
+    if col_r.button("🗑️ Svuota", width="stretch"):
+        st.session_state.blocchi = blocchi_vuoti()
+        pulisci_widget_blocchi()
         st.rerun()
-    except Exception as e:  # noqa: BLE001
-        st.sidebar.error(f"File non valido: {e}")
-if st.session_state.get("msg_upload"):
-    st.sidebar.success(st.session_state.pop("msg_upload"))
+    if st.button("⚖️ Pre-popola equilibrato (serpentina per FVM)", width="stretch",
+                         help="Sostituisce i blocchi attuali. D/C/A: serpentina per FVM (1°-10° nei blocchi 1-10, 11°-20° nei blocchi 10-1, ...). Portieri: 2 squadre complete per blocco (3 portieri ciascuna) secondo le coppie fisse JUV+TOR, ROM+MON, INT+FRO, COM+VEN, ATA+SAS, MIL+GEN, NAP+UDI, LEC+PAR, FIO+CAG, BOL+LAZ."):
+        st.session_state.blocchi = blocchi_serpentina(df_pool)
+        pulisci_widget_blocchi()
+        st.rerun()
 
-rin = st.session_state.rinomine
-with st.sidebar.expander(f"✏️ Nomi corretti ({len(rin)})"):
-    if not rin:
-        st.caption("Nessuna correzione. Fai doppio click su un nome nella tabella di un blocco per modificarlo.")
-    for base, nuovo in list(rin.items()):
-        c1, c2 = st.columns([4, 1])
-        c1.write(f"{base.rsplit(' (', 1)[0]} → **{nuovo}**")
-        if c2.button("↩", key=f"undo_rin_{base}", help="Ripristina il nome originale"):
-            squadra = base.rsplit(" (", 1)[1][:-1]
-            vecchia_label = f"{nuovo} ({squadra})"
-            for r in blocchi:
-                for b in blocchi[r]:
-                    for k, p_ in enumerate(b):
-                        if p_ == vecchia_label:
-                            b[k] = base
-            del rin[base]
-            salva_rinomine(rin)
+    st.divider()
+    st.caption("Su Streamlit Cloud i salvataggi non sono permanenti: scarica il file e ricaricalo quando serve.")
+    st.download_button(
+        "⬇️ Scarica campionato (JSON)",
+        data=json.dumps(dati_campionato(nome, blocchi), ensure_ascii=False, indent=2),
+        file_name=f"{re.sub(r'[^a-z0-9]+', '_', nome.lower()).strip('_')}.json",
+        mime="application/json", width="stretch",
+    )
+    caricato = st.file_uploader("⬆️ Carica campionato (JSON)", type="json", key="upload_json")
+    importa_portieri = st.checkbox("Importa anche i portieri", value=True,
+                                           help="Acceso (default): importa tutti i ruoli. Spento: solo Difensori, Centrocampisti e Attaccanti; "
+                                                "i blocchi Portieri attuali restano com'erano.")
+    if caricato is not None and st.session_state.get("upload_fatto") != caricato.file_id:
+        try:
+            dati = json.load(caricato)
+            nuovi_blocchi = blocchi_vuoti()
+            nuovi_blocchi.update({r: v for r, v in dati["blocchi"].items() if r in DIM_BLOCCO})
+            if not importa_portieri:
+                nuovi_blocchi["P"] = st.session_state.blocchi["P"]  # ignora i portieri del file
+            st.session_state.blocchi = nuovi_blocchi
+            st.session_state.storico = [tuple(x) for x in dati.get("scambi", [])]
+            if dati.get("listone_rif"):
+                st.session_state.listone_rif = dati["listone_rif"]
+            if dati.get("rinomine"):
+                st.session_state.rinomine.update(dati["rinomine"])
+                salva_rinomine(st.session_state.rinomine)
+            st.session_state.upload_fatto = caricato.file_id
             pulisci_widget_blocchi()
+            st.session_state.msg_upload = f"Caricato: {dati.get('nome', '')}" + ("" if importa_portieri else " (portieri ignorati)")
             st.rerun()
+        except Exception as e:  # noqa: BLE001
+            st.error(f"File non valido: {e}")
+    if st.session_state.get("msg_upload"):
+        st.success(st.session_state.pop("msg_upload"))
 
-# ---------------- Stato: giocatori assegnati ----------------
-assegnati = {p for r in blocchi for b in blocchi[r] for p in b}
-tot = sum(len(b) for r in blocchi for b in blocchi[r])
-tot_max = N_BLOCCHI * sum(DIM_BLOCCO.values())
-st.sidebar.metric("Giocatori assegnati", f"{tot} / {tot_max}")
-st.sidebar.metric("Rimasti nel listone", len(df) - tot)
+    rin = st.session_state.rinomine
+    with st.expander(f"✏️ Nomi corretti ({len(rin)})"):
+        if not rin:
+            st.caption("Nessuna correzione. Fai doppio click su un nome nella tabella di un blocco per modificarlo.")
+        for base, nuovo in list(rin.items()):
+            c1, c2 = st.columns([4, 1])
+            c1.write(f"{base.rsplit(' (', 1)[0]} → **{nuovo}**")
+            if c2.button("↩", key=f"undo_rin_{base}", help="Ripristina il nome originale"):
+                squadra = base.rsplit(" (", 1)[1][:-1]
+                vecchia_label = f"{nuovo} ({squadra})"
+                for r in blocchi:
+                    for b in blocchi[r]:
+                        for k, p_ in enumerate(b):
+                            if p_ == vecchia_label:
+                                b[k] = base
+                del rin[base]
+                salva_rinomine(rin)
+                pulisci_widget_blocchi()
+                st.rerun()
+
+    # ---------------- Stato: giocatori assegnati ----------------
+    assegnati = {p for r in blocchi for b in blocchi[r] for p in b}
+    tot = sum(len(b) for r in blocchi for b in blocchi[r])
+    tot_max = N_BLOCCHI * sum(DIM_BLOCCO.values())
+    st.metric("Giocatori assegnati", f"{tot} / {tot_max}")
+    st.metric("Rimasti nel listone", len(df) - tot)
+
+# ---------------- Confronto listone di riferimento vs attuale (In / Out) ----------------
+rif = st.session_state.get("listone_rif") or {}
+cur = {str(r.Id): {"Nome": r.Nome, "Squadra": r.Squadra, "R": r.R, "Fuori": int(r.Fuori)} for r in df_base.itertuples()}
+nome_rin = st.session_state.rinomine
+
+
+def label_di(info):
+    base = f"{info['Nome']} ({info['Squadra']})"
+    return f"{nome_rin[base]} ({info['Squadra']})" if base in nome_rin else base
+
+
+_by_id = df_base.assign(_id=df_base["Id"].astype(str)).set_index("_id")
+in_blocchi = {p: f"{r}{i + 1}" for r in blocchi for i, b in enumerate(blocchi[r]) for p in b}
+usciti, nuovi, trasferiti = [], [], []
+for pid, old_ in rif.items():
+    now = cur.get(pid)
+    lab_old = label_di(old_)
+    if now is None or (old_["Fuori"] == 0 and now["Fuori"] == 1):
+        if old_["Fuori"] == 0:
+            usciti.append({"Giocatore": lab_old, "R": old_["R"], "Blocco": in_blocchi.get(lab_old, "—"),
+                           "Motivo": "rimosso dal listone" if now is None else "non gioca più in Serie A (*)"})
+    elif now["Squadra"] != old_["Squadra"]:
+        trasferiti.append((pid, lab_old, label_di(now), old_["Squadra"], now["Squadra"], now["R"]))
+for pid, now in cur.items():
+    old_ = rif.get(pid)
+    if now["Fuori"] == 0 and (old_ is None or old_["Fuori"] == 1):
+        riga = _by_id.loc[pid]
+        nuovi.append({"Giocatore": label_di(now), "R": now["R"], "Squadra": now["Squadra"],
+                      "Qt.A": int(riga["Qt.A"]), "FVM": int(riga["FVM"]),
+                      "Motivo": "nuovo in listone" if old_ is None else "rientrato in Serie A"})
+
+# trasferimenti dentro la Serie A: la label cambia squadra -> aggiorno i blocchi automaticamente
+for pid, lab_old, lab_new, sq_old, sq_new, r_ in trasferiti:
+    for r in blocchi:
+        for b in blocchi[r]:
+            for k, p_ in enumerate(b):
+                if p_ == lab_old:
+                    b[k] = lab_new
+in_blocchi = {p: f"{r}{i + 1}" for r in blocchi for i, b in enumerate(blocchi[r]) for p in b}
+n_out_blocchi = sum(1 for u in usciti if u["Blocco"] != "—")
+badge_inout = f"📤 Out {len(usciti)} / 📥 In {len(nuovi)}" + (" ⚠️" if n_out_blocchi else "")
 
 # ---------------- Tab per ruolo ----------------
-tabs = st.tabs([f"{NOME_RUOLO[r]} ({DIM_BLOCCO[r]}×{N_BLOCCHI})" for r in DIM_BLOCCO] + ["🔁 Scambi", "📋 Listone rimanente", "📚 Listone completo"])
+tabs = st.tabs([f"{NOME_RUOLO[r]} ({DIM_BLOCCO[r]}×{N_BLOCCHI})" for r in DIM_BLOCCO] + ["📋 Listone rimanente", "📚 Listone completo", badge_inout])
 
 for tab, ruolo in zip(tabs, DIM_BLOCCO):
     with tab:
@@ -497,17 +555,16 @@ def trova_blocco(label):
     return r, None
 
 
-with tabs[-3]:
-    st.caption("Modifica i blocchi dopo averli creati: scambia due giocatori di blocchi diversi "
-               "oppure sostituisci un giocatore con uno del listone rimanente. Ricordati di **Salvare** dopo.")
+with tab_sc:
+    st.caption("Scambia due giocatori di blocchi diversi o sostituisci con uno del listone rimanente. "
+               "I blocchi a destra si aggiornano subito; ricordati di **Salvare**.")
     ruolo_sc = st.radio("Ruolo", list(DIM_BLOCCO), format_func=NOME_RUOLO.get, horizontal=True, key="ruolo_scambi")
     df_sc = df[df["R"] == ruolo_sc].sort_values("#")
     assegnati_r = [l for l in df_sc["Label"] if l in blocco_di]
     pool_labels = set(df_pool["Label"])
     liberi_r = [l for l in df_sc["Label"] if l not in blocco_di and l in pool_labels]
 
-    c_sx, c_dx = st.columns(2)
-    with c_sx, st.container(border=True):
+    with st.container(border=True):
         st.markdown("**🔁 Scambia due giocatori di blocchi diversi**")
         a = st.selectbox("Giocatore A", assegnati_r, index=None, format_func=etichetta, key="sc_a",
                          placeholder="scrivi per cercare…")
@@ -527,7 +584,7 @@ with tabs[-3]:
                 pulisci_widget_blocchi()
                 st.rerun()
 
-    with c_dx, st.container(border=True):
+    with st.container(border=True):
         st.markdown("**🔄 Sostituisci con un giocatore del listone rimanente**")
         esce = st.selectbox("Esce (dal blocco)", assegnati_r, index=None, format_func=etichetta, key="sc_esce",
                             placeholder="scrivi per cercare…")
@@ -564,10 +621,49 @@ with tabs[-3]:
             pulisci_widget_blocchi()
             st.rerun()
 
-with tabs[-2]:
+with tabs[-3]:
     st.caption("Solo i giocatori NON ancora assegnati a un blocco.")
     tabella_listone("rimanente", solo_liberi=True)
 
-with tabs[-1]:
-    st.caption("Tutto il listone originale (553 giocatori). La colonna Blocco indica dove è stato assegnato ciascun giocatore.")
+with tabs[-2]:
+    st.caption(f"Tutto il listone ({len(df_pool)} giocatori). La colonna Blocco indica dove è stato assegnato ciascun giocatore.")
     tabella_listone("completo", solo_liberi=False)
+
+with tabs[-1]:
+    st.caption("Confronto tra il listone di riferimento del campionato (istantanea presa quando l'hai creato o "
+               "aggiornato l'ultima volta) e il listone scaricato adesso. Cosi', quando riscarichi i dati, vedi "
+               "chi e' andato via dai tuoi blocchi e chi e' arrivato di nuovo.")
+    if not rif:
+        st.info("Nessun listone di riferimento: viene creato al primo salvataggio.")
+    c_out, c_in = st.columns(2)
+    with c_out:
+        st.subheader(f"📤 Out ({len(usciti)})")
+        if usciti:
+            st.dataframe(pd.DataFrame(usciti).sort_values(["Blocco", "R"]), hide_index=True, width="stretch")
+            if n_out_blocchi and st.button(f"🗑️ Togli dai blocchi i {n_out_blocchi} usciti", type="primary"):
+                labels_out = {u["Giocatore"] for u in usciti if u["Blocco"] != "—"}
+                for r in blocchi:
+                    for b in blocchi[r]:
+                        b[:] = [p_ for p_ in b if p_ not in labels_out]
+                pulisci_widget_blocchi()
+                st.rerun()
+        else:
+            st.success("Nessun giocatore uscito.")
+    with c_in:
+        st.subheader(f"📥 In ({len(nuovi)})")
+        if nuovi:
+            st.dataframe(pd.DataFrame(nuovi).sort_values(["R", "FVM"], ascending=[True, False]),
+                         hide_index=True, width="stretch", column_config=COLONNE)
+            st.caption("Per inserirli usa la tab Scambi (Sostituisci) o il menu del blocco.")
+        else:
+            st.success("Nessun giocatore nuovo.")
+    if trasferiti:
+        st.subheader(f"🔀 Cambiato squadra in Serie A ({len(trasferiti)})")
+        st.dataframe(pd.DataFrame([{"Giocatore": n, "Da": a, "A": b, "R": r} for _, o, n, a, b, r in trasferiti]),
+                     hide_index=True, width="stretch")
+        st.caption("Le etichette nei blocchi sono state aggiornate automaticamente con la nuova squadra.")
+    st.divider()
+    if st.button("✅ Ho gestito tutto: aggiorna il listone di riferimento a quello attuale"):
+        st.session_state.listone_rif = listone_corrente_rif(df_base)
+        st.rerun()
+    st.caption("Il riferimento viene salvato con il campionato (Salva / Scarica JSON).")

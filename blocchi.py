@@ -6,6 +6,7 @@ Avvio:  streamlit run blocchi.py
 import json
 import os
 import re
+from datetime import datetime
 
 import pandas as pd
 import streamlit as st
@@ -132,15 +133,27 @@ def percorso(nome):
     return os.path.join(CARTELLA_CAMPIONATI, f"{slug}.json")
 
 
+def dati_campionato(nome, blocchi):
+    """Tutto cio' che va salvato/esportato: blocchi, nomi corretti e storico scambi della sessione."""
+    return {
+        "nome": nome,
+        "blocchi": blocchi,
+        "rinomine": st.session_state.get("rinomine", {}),
+        "scambi": st.session_state.get("storico", []),
+    }
+
+
 def salva(nome, blocchi):
     os.makedirs(CARTELLA_CAMPIONATI, exist_ok=True)
     with open(percorso(nome), "w", encoding="utf-8") as f:
-        json.dump({"nome": nome, "blocchi": blocchi, "rinomine": st.session_state.get("rinomine", {})}, f, ensure_ascii=False, indent=2)
+        json.dump(dati_campionato(nome, blocchi), f, ensure_ascii=False, indent=2)
 
 
 def carica(nome):
     with open(percorso(nome), encoding="utf-8") as f:
-        return json.load(f)["blocchi"]
+        dati = json.load(f)
+    st.session_state.storico = [tuple(x) for x in dati.get("scambi", [])]
+    return dati["blocchi"]
 
 
 def campionati_salvati():
@@ -224,7 +237,11 @@ nome_nuovo = st.sidebar.text_input("Nome nuovo campionato", "") if scelta == "�
 
 if "campionato" not in st.session_state or st.session_state.campionato != nome_nuovo:
     st.session_state.campionato = nome_nuovo
-    st.session_state.blocchi = carica(nome_nuovo) if nome_nuovo in esistenti else blocchi_vuoti()
+    if nome_nuovo in esistenti:
+        st.session_state.blocchi = carica(nome_nuovo)
+    else:
+        st.session_state.blocchi = blocchi_vuoti()
+        st.session_state.storico = []
     pulisci_widget_blocchi()
 
 blocchi = st.session_state.blocchi
@@ -263,7 +280,7 @@ st.sidebar.divider()
 st.sidebar.caption("Su Streamlit Cloud i salvataggi non sono permanenti: scarica il file e ricaricalo quando serve.")
 st.sidebar.download_button(
     "⬇️ Scarica campionato (JSON)",
-    data=json.dumps({"nome": nome, "blocchi": blocchi, "rinomine": st.session_state.rinomine}, ensure_ascii=False, indent=2),
+    data=json.dumps(dati_campionato(nome, blocchi), ensure_ascii=False, indent=2),
     file_name=f"{re.sub(r'[^a-z0-9]+', '_', nome.lower()).strip('_')}.json",
     mime="application/json", width="stretch",
 )
@@ -279,6 +296,7 @@ if caricato is not None and st.session_state.get("upload_fatto") != caricato.fil
         if not importa_portieri:
             nuovi_blocchi["P"] = st.session_state.blocchi["P"]  # ignora i portieri del file
         st.session_state.blocchi = nuovi_blocchi
+        st.session_state.storico = [tuple(x) for x in dati.get("scambi", [])]
         if dati.get("rinomine"):
             st.session_state.rinomine.update(dati["rinomine"])
             salva_rinomine(st.session_state.rinomine)
@@ -505,7 +523,7 @@ with tabs[-3]:
             if st.button("Scambia", type="primary", key="btn_scambia"):
                 blocchi[ruolo_sc][ia][blocchi[ruolo_sc][ia].index(a)] = b
                 blocchi[ruolo_sc][ib][blocchi[ruolo_sc][ib].index(b)] = a
-                st.session_state.setdefault("storico", []).append(("scambio", ruolo_sc, ia, a, ib, b))
+                st.session_state.setdefault("storico", []).append(("scambio", ruolo_sc, ia, a, ib, b, datetime.now().strftime("%d/%m %H:%M")))
                 pulisci_widget_blocchi()
                 st.rerun()
 
@@ -522,20 +540,22 @@ with tabs[-3]:
             st.info(f"{ruolo_sc}{ie + 1}: FVM {fe} → {fe + d}")
             if st.button("Sostituisci", type="primary", key="btn_sost"):
                 blocchi[ruolo_sc][ie][blocchi[ruolo_sc][ie].index(esce)] = entra
-                st.session_state.setdefault("storico", []).append(("sostituzione", ruolo_sc, ie, esce, None, entra))
+                st.session_state.setdefault("storico", []).append(("sostituzione", ruolo_sc, ie, esce, None, entra, datetime.now().strftime("%d/%m %H:%M")))
                 pulisci_widget_blocchi()
                 st.rerun()
 
     storico = st.session_state.get("storico", [])
     if storico:
-        st.markdown("**Storico operazioni (questa sessione)**")
-        for tipo, r, i1, x, i2, y in reversed(storico[-10:]):
+        st.markdown(f"**Storico operazioni ({len(storico)})** — viene salvato con il campionato")
+        for voce in reversed(storico[-15:]):
+            tipo, r, i1, x, i2, y = voce[:6]
+            quando = f"`{voce[6]}` " if len(voce) > 6 else ""
             if tipo == "scambio":
-                st.write(f"🔁 {x} ({r}{i1 + 1}) ⇄ {y} ({r}{i2 + 1})")
+                st.write(f"{quando}🔁 {x} ({r}{i1 + 1}) ⇄ {y} ({r}{i2 + 1})")
             else:
-                st.write(f"🔄 {r}{i1 + 1}: esce {x}, entra {y}")
+                st.write(f"{quando}🔄 {r}{i1 + 1}: esce {x}, entra {y}")
         if st.button("↩️ Annulla ultima operazione", key="btn_undo"):
-            tipo, r, i1, x, i2, y = storico.pop()
+            tipo, r, i1, x, i2, y = storico.pop()[:6]
             if tipo == "scambio":
                 blocchi[r][i1][blocchi[r][i1].index(y)] = x
                 blocchi[r][i2][blocchi[r][i2].index(x)] = y

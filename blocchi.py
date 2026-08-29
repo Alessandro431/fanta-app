@@ -146,6 +146,26 @@ if st.sidebar.button("⚖️ Pre-popola equilibrato (serpentina per FVM)", width
     pulisci_widget_blocchi()
     st.rerun()
 
+st.sidebar.divider()
+st.sidebar.caption("Su Streamlit Cloud i salvataggi non sono permanenti: scarica il file e ricaricalo quando serve.")
+st.sidebar.download_button(
+    "⬇️ Scarica campionato (JSON)",
+    data=json.dumps({"nome": nome, "blocchi": blocchi}, ensure_ascii=False, indent=2),
+    file_name=f"{re.sub(r'[^a-z0-9]+', '_', nome.lower()).strip('_')}.json",
+    mime="application/json", width="stretch",
+)
+caricato = st.sidebar.file_uploader("⬆️ Carica campionato (JSON)", type="json", key="upload_json")
+if caricato is not None and st.session_state.get("upload_fatto") != caricato.file_id:
+    try:
+        dati = json.load(caricato)
+        st.session_state.blocchi = dati["blocchi"]
+        st.session_state.upload_fatto = caricato.file_id
+        pulisci_widget_blocchi()
+        st.sidebar.success(f"Caricato: {dati.get('nome', '')}")
+        st.rerun()
+    except Exception as e:  # noqa: BLE001
+        st.sidebar.error(f"File non valido: {e}")
+
 # ---------------- Stato: giocatori assegnati ----------------
 assegnati = {p for r in blocchi for b in blocchi[r] for p in b}
 tot = sum(len(b) for r in blocchi for b in blocchi[r])

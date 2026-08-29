@@ -23,7 +23,9 @@ def scarica_listone():
         def cella(k):
             td = tr.select_one(f'[data-col-key="{k}"]')
             return td.get_text(strip=True) if td else None
+        fuori = tr.select_one("span.out-of-game") is not None  # asterisco: "Non gioca più in Serie A"
         righe.append({
+            "Fuori": int(fuori),
             "Id": link["href"].rstrip("/").split("/")[-1] if link else None,
             "Nome": nome.get_text(strip=True),
             "Squadra": cella("sq"),
@@ -42,6 +44,6 @@ if __name__ == "__main__":
     df = scarica_listone()
     df.to_excel("listone_fantacalcio_2026_2027.xlsx", index=False)
     df.to_csv("listone_fantacalcio_2026_2027.csv", index=False)
-    print(f"{len(df)} giocatori, {df['Squadra'].nunique()} squadre")
+    print(f"{len(df)} giocatori, {df['Squadra'].nunique()} squadre, {int(df['Fuori'].sum())} fuori dalla Serie A (asterisco)")
     print(df["R"].value_counts().to_dict())
     print(df.head(10).to_string())

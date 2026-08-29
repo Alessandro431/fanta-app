@@ -43,8 +43,14 @@ def carica_listone():
         return None
     df = pd.read_csv(LISTONE_CSV)
     df["Label"] = df["Nome"] + " (" + df["Squadra"] + ")"
+    if "Fuori" not in df.columns:
+        df["Fuori"] = 0
+    df["Fuori"] = df["Fuori"].fillna(0).astype(int)
     df = df.sort_values(["FVM", "Qt.A"], ascending=False).reset_index(drop=True)
-    df["#"] = df.groupby("R").cumcount() + 1  # posizione FVM nel proprio ruolo (fissa)
+    # posizione FVM nel proprio ruolo (fissa), calcolata solo sui giocatori ancora in Serie A
+    attivi = df[df["Fuori"] == 0]
+    df["#"] = attivi.groupby("R").cumcount() + 1
+    df["#"] = df["#"].astype("Int64")
     df["_cerca"] = (df["Nome"] + " " + df["Squadra"]).map(lambda x: unidecode(str(x)).lower())
     return df
 
@@ -221,6 +227,14 @@ if not nome:
 st.title(f"🏆 {nome}")
 st.caption(LEGENDA)
 
+n_fuori = int(df["Fuori"].sum())
+mostra_fuori = st.sidebar.toggle(
+    f"Mostra anche i {n_fuori} giocatori fuori dalla Serie A ⚠️", value=False,
+    help="Sul sito Fantacalcio.it sono marcati con * (\"Non gioca più in Serie A\"): ceduti all'estero o svincolati. "
+         "Di default sono esclusi da listoni, pre-popolamento e menu.")
+df_pool = df if mostra_fuori else df[df["Fuori"] == 0]
+FUORI_SET = set(df[df["Fuori"] == 1]["Label"])
+
 col_s, col_r = st.sidebar.columns(2)
 if col_s.button("💾 Salva", width="stretch"):
     salva(nome, blocchi)
@@ -231,7 +245,7 @@ if col_r.button("🗑️ Svuota", width="stretch"):
     st.rerun()
 if st.sidebar.button("⚖️ Pre-popola equilibrato (serpentina per FVM)", width="stretch",
                      help="Sostituisce i blocchi attuali. D/C/A: serpentina per FVM (1°-10° nei blocchi 1-10, 11°-20° nei blocchi 10-1, ...). Portieri: 2 squadre complete per blocco (3 portieri ciascuna), accoppiate per bilanciare la Qt.A."):
-    st.session_state.blocchi = blocchi_serpentina(df)
+    st.session_state.blocchi = blocchi_serpentina(df_pool)
     pulisci_widget_blocchi()
     st.rerun()
 
@@ -292,7 +306,11 @@ for tab, ruolo in zip(tabs, DIM_BLOCCO):
     with tab:
         dim = DIM_BLOCCO[ruolo]
         df_r = df[df["R"] == ruolo].sort_values("#")
-        liberi = df_r[~df_r["Label"].isin(assegnati)]["Label"].tolist()
+        liberi = df_r[~df_r["Label"].isin(assegnati) & df_r["Label"].isin(df_pool["Label"])]["Label"].tolist()
+        fuori_nei_blocchi = [p for b in blocchi[ruolo] for p in b if p in FUORI_SET]
+        if fuori_nei_blocchi:
+            st.warning("⚠️ Nei blocchi ci sono giocatori che non giocano più in Serie A: "
+                       + ", ".join(fuori_nei_blocchi) + ". Sostituiscili dalla tab Scambi o rifai il pre-popolamento.")
         st.caption(f"{len(liberi)} {NOME_RUOLO[ruolo].lower()} ancora disponibili nel listone")
 
         # ---- ricerca: evidenzia il blocco in cui si trova il giocatore ----
@@ -352,7 +370,9 @@ for tab, ruolo in zip(tabs, DIM_BLOCCO):
                         args=(ruolo, i),
                     )
                     if attuali:
-                        sub = df_r[df_r["Label"].isin(attuali)][["#", "Nome", "Squadra", "Qt.A", "FVM", "LabelBase"]]
+                        sub = df_r[df_r["Label"].isin(attuali)][["#", "Nome", "Squadra", "Qt.A", "FVM", "LabelBase", "Fuori"]].copy()
+                        sub["Squadra"] = sub["Squadra"].where(sub["Fuori"] == 0, sub["Squadra"] + " ⚠️")
+                        sub = sub.drop(columns=["Fuori"])
                         st.session_state[f"righe_{ruolo}_{i}"] = list(zip(sub["LabelBase"], sub["Squadra"]))
                         st.data_editor(
                             sub.drop(columns=["LabelBase"]), hide_index=True, width="stretch",
@@ -403,8 +423,9 @@ def tabella_listone(chiave, solo_liberi):
     if azzera:
         st.session_state[stato_key] = ""
     cerca = st.session_state.get(stato_key, "")
-    v = df.copy()
+    v = df_pool.copy()
     v["Blocco"] = v["Label"].map(blocco_di).fillna("")
+    v["Nome"] = v["Nome"].where(v["Fuori"] == 0, "⚠️ " + v["Nome"])
     if solo_liberi:
         v = v[v["Blocco"] == ""]
     v = v[v["R"].isin(filtro_r)]
@@ -445,7 +466,8 @@ with tabs[-3]:
     ruolo_sc = st.radio("Ruolo", list(DIM_BLOCCO), format_func=NOME_RUOLO.get, horizontal=True, key="ruolo_scambi")
     df_sc = df[df["R"] == ruolo_sc].sort_values("#")
     assegnati_r = [l for l in df_sc["Label"] if l in blocco_di]
-    liberi_r = [l for l in df_sc["Label"] if l not in blocco_di]
+    pool_labels = set(df_pool["Label"])
+    liberi_r = [l for l in df_sc["Label"] if l not in blocco_di and l in pool_labels]
 
     c_sx, c_dx = st.columns(2)
     with c_sx, st.container(border=True):

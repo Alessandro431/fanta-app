@@ -76,12 +76,12 @@ for tab, ruolo in zip(tabs, ruoli_presenti):
             with colonne[i % 2]:
                 with st.container(border=True):
                     st.markdown(f"**Blocco {ruolo}{i + 1}** — {len(gruppo)} giocatori")
-                    sub = df_r[df_r["Label"].isin(gruppo)][["#", "Nome", "Squadra", "Qt.A", "FVM"]]
+                    sub = df_r[df_r["Label"].isin(gruppo)][["Nome", "Squadra", "Qt.A", "FVM"]]
                     # mantieni l'ordine dei giocatori come nel blocco
                     if not sub.empty:
                         sub = sub.set_index("Nome").reindex(
                             [g.rsplit(" (", 1)[0] for g in gruppo]).reset_index()
-                        sub = sub[["#", "Nome", "Squadra", "Qt.A", "FVM"]]
+                        sub = sub[["Nome", "Squadra", "Qt.A", "FVM"]]
                     st.dataframe(sub, hide_index=True, width="stretch", column_config=COLONNE)
                     if not sub.empty:
                         conteggio = sub["Squadra"].value_counts()

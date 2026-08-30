@@ -1,6 +1,6 @@
 """Frontend Streamlit per creare un campionato Fantacalcio a blocchi.
 Per ogni ruolo ci sono 10 blocchi con un numero fisso di giocatori:
-P=6, D=10, C=10, A=6. Un giocatore assegnato a un blocco sparisce dal listone.
+P=6, D=10, C=10, A=8. Un giocatore assegnato a un blocco sparisce dal listone.
 Avvio:  streamlit run blocchi.py
 """
 import json
@@ -14,7 +14,7 @@ from unidecode import unidecode
 
 LISTONE_CSV = "listone_fantacalcio_2026_2027.csv"
 N_BLOCCHI = 10
-DIM_BLOCCO = {"P": 6, "D": 10, "C": 10, "A": 6}
+DIM_BLOCCO = {"P": 6, "D": 10, "C": 10, "A": 8}
 NOME_RUOLO = {"P": "Portieri", "D": "Difensori", "C": "Centrocampisti", "A": "Attaccanti"}
 SOGLIA_SQUADRA = 3  # da questo numero in su, un blocco ha "troppi" giocatori della stessa squadra
 SINGOLARE = {"P": "portiere", "D": "difensore", "C": "centrocampista", "A": "attaccante"}

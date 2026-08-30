@@ -262,15 +262,30 @@ with tab_camp:
     scelta = st.selectbox("Carica campionato", ["— nuovo —"] + esistenti)
     nome_nuovo = st.text_input("Nome nuovo campionato", "") if scelta == "— nuovo —" else scelta
 
-    if "campionato" not in st.session_state or st.session_state.campionato != nome_nuovo:
-        st.session_state.campionato = nome_nuovo
+    if "blocchi" not in st.session_state:
+        st.session_state.blocchi = blocchi_vuoti()
+        st.session_state.setdefault("storico", [])
+        st.session_state.setdefault("listone_rif", listone_iniziale_rif(df_base))
+    blocchi_esistono = any(st.session_state.blocchi[r][i]
+                           for r in st.session_state.blocchi for i in range(N_BLOCCHI))
+    if st.session_state.get("campionato") != nome_nuovo:
         if nome_nuovo in esistenti:
+            # carico un campionato salvato: sostituisce i blocchi
+            st.session_state.campionato = nome_nuovo
             st.session_state.blocchi = carica(nome_nuovo)
-        else:
+            pulisci_widget_blocchi()
+        elif not blocchi_esistono:
+            # nessun blocco da perdere: inizializzo un campionato vuoto
+            st.session_state.campionato = nome_nuovo
             st.session_state.blocchi = blocchi_vuoti()
             st.session_state.storico = []
             st.session_state.listone_rif = listone_iniziale_rif(df_base)
-        pulisci_widget_blocchi()
+            pulisci_widget_blocchi()
+        elif nome_nuovo:
+            # ci sono blocchi composti e cambia solo il nome (o il file e' sparito su cloud):
+            # NON svuoto i blocchi, aggiorno solo il nome del campionato
+            st.session_state.campionato = nome_nuovo
+        # nome_nuovo vuoto + blocchi presenti: non tocco nulla (protezione anti-svuotamento)
 
     blocchi = st.session_state.blocchi
     nome = st.session_state.campionato

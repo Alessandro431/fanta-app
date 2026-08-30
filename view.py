@@ -61,9 +61,13 @@ if rinomine:
     df["Nome"] = df.apply(lambda r: rinomine.get(r["Label"], r["Nome"]), axis=1)
     df["Label"] = df["Nome"] + " (" + df["Squadra"] + ")"
 
-st.title(f"🏆 {dati.get('nome', 'Campionato')} — Blocchi")
-st.caption("Vista di sola lettura per i partecipanti. **Qt.A** = quotazione attuale · "
-           "**FVM** = Fantavalore di Mercato (quanto è conteso all'asta).")
+st.title("🏆 Fanta-Family Blocchi")
+st.markdown(
+    "- **Qt.A** = quotazione attuale del giocatore (crediti di listino)\n"
+    "- **FVM** = Fantavalore di Mercato: quanto il giocatore è conteso all'asta (scala 1-1000)\n"
+    "- 👉 Se lo schermo è piccolo, le schede dei ruoli qui sotto (Portieri, Difensori, "
+    "Centrocampisti, Attaccanti) sono **scorrevoli lateralmente**: trascina o usa la rotellina per vederle tutte."
+)
 
 ruoli_presenti = [r for r in NOME_RUOLO if r in blocchi]
 tabs = st.tabs([f"{NOME_RUOLO[r]} ({len(blocchi[r])} blocchi)" for r in ruoli_presenti])

@@ -72,22 +72,36 @@ st.markdown(
 ruoli_presenti = [r for r in NOME_RUOLO if r in blocchi]
 tabs = st.tabs([f"{NOME_RUOLO[r]} ({len(blocchi[r])} blocchi)" for r in ruoli_presenti])
 
+# Qt.A / FVM per etichetta dal listone (per arricchire i blocchi dove il giocatore è presente)
+val_per_label = df.set_index("Label")[["Qt.A", "FVM"]].to_dict("index")
+
+
+def scomponi(label):
+    """Da 'Nome (SQ)' ricava (Nome, Squadra); la squadra è sempre nell'etichetta del blocco,
+    così anche i giocatori entrati dopo (non presenti nel CSV) mostrano nome e squadra."""
+    if label.endswith(")") and " (" in label:
+        nome, sq = label.rsplit(" (", 1)
+        return nome, sq[:-1]
+    return label, ""
+
+
 for tab, ruolo in zip(tabs, ruoli_presenti):
     with tab:
-        df_r = df[df["R"] == ruolo]
         colonne = st.columns(2)
         for i, gruppo in enumerate(blocchi[ruolo]):
             with colonne[i % 2]:
                 with st.container(border=True):
                     st.markdown(f"**Blocco {ruolo}{i + 1}** — {len(gruppo)} giocatori")
-                    sub = df_r[df_r["Label"].isin(gruppo)][["Nome", "Squadra", "Qt.A", "FVM"]]
-                    # mantieni l'ordine dei giocatori come nel blocco
-                    if not sub.empty:
-                        sub = sub.set_index("Nome").reindex(
-                            [g.rsplit(" (", 1)[0] for g in gruppo]).reset_index()
-                        sub = sub[["Nome", "Squadra", "Qt.A", "FVM"]]
+                    righe = []
+                    for label in gruppo:  # ordine come nel blocco
+                        nome, sq = scomponi(label)
+                        v = val_per_label.get(label, {})
+                        righe.append({"Nome": nome, "Squadra": sq,
+                                      "Qt.A": v.get("Qt.A"), "FVM": v.get("FVM")})
+                    sub = pd.DataFrame(righe, columns=["Nome", "Squadra", "Qt.A", "FVM"])
                     st.dataframe(sub, hide_index=True, width="stretch", column_config=COLONNE)
                     if not sub.empty:
                         conteggio = sub["Squadra"].value_counts()
+                        fvm_tot = int(sub["FVM"].fillna(0).sum())
                         st.caption("Squadre: " + " · ".join(f"{sq} ×{n}" for sq, n in conteggio.items())
-                                   + f"  ·  FVM totale: {int(sub['FVM'].sum())}")
+                                   + f"  ·  FVM totale: {fvm_tot}")

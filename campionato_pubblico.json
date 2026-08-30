@@ -1,0 +1,4454 @@
+{
+  "nome": "test",
+  "blocchi": {
+    "P": [
+      [
+        "Vicario (JUV)",
+        "Pinsoglio (JUV)",
+        "Grabara (JUV)",
+        "Mascardi (TOR)",
+        "Paleari (TOR)",
+        "Siviero (TOR)"
+      ],
+      [
+        "Svilar (ROM)",
+        "De Marzi (ROM)",
+        "Gollini (ROM)",
+        "Thiam (MON)",
+        "Strajnar (MON)"
+      ],
+      [
+        "Martinez Jo. (INT)",
+        "Provedel (INT)",
+        "Di Gennaro (INT)",
+        "Palmisani (FRO)",
+        "Desplanches (FRO)",
+        "Lolic (FRO)"
+      ],
+      [
+        "Butez (COM)",
+        "Tornqvist (COM)",
+        "Vigorito (COM)",
+        "Stankovic F. (VEN)",
+        "Grandi (VEN)",
+        "Pozzi (VEN)"
+      ],
+      [
+        "Carnesecchi (ATA)",
+        "Sportiello (ATA)",
+        "Vismara (ATA)",
+        "Muric (SAS)",
+        "Russo A. (SAS)",
+        "Turati (SAS)"
+      ],
+      [
+        "Maignan (MIL)",
+        "Terracciano (MIL)",
+        "Torriani (MIL)",
+        "Bijlow (GEN)",
+        "Sommariva (GEN)",
+        "Stolz (GEN)"
+      ],
+      [
+        "Meret (NAP)",
+        "Milinkovic-Savic V. (NAP)",
+        "Contini (NAP)",
+        "Okoye (UDI)",
+        "Padelli (UDI)",
+        "Piana (UDI)"
+      ],
+      [
+        "Falcone (LEC)",
+        "Penev (LEC)",
+        "Bleve (LEC)",
+        "Daffara (PAR)",
+        "Corvi (PAR)"
+      ],
+      [
+        "De Gea (FIO)",
+        "Christensen O. (FIO)",
+        "Lezzerini (FIO)",
+        "Caprile (CAG)",
+        "Sherri (CAG)",
+        "Radunovic (CAG)"
+      ],
+      [
+        "Skorupski (BOL)",
+        "Happonen (BOL)",
+        "Pessina Mas. (BOL)",
+        "Mandas (LAZ)",
+        "Motta (LAZ)",
+        "Renzetti (LAZ)"
+      ]
+    ],
+    "D": [
+      [
+        "Dimarco (INT)",
+        "Stones (INT)",
+        "Chalobah T. (COM)",
+        "Tiago Gabriel (LEC)",
+        "Mina (CAG)",
+        "Heggem (BOL)",
+        "Mangas (MON)",
+        "Kempf (COM)",
+        "Doig (SAS)",
+        "Ziolkowski (ROM)"
+      ],
+      [
+        "Wesley (ROM)",
+        "Gila (MIL)",
+        "Scalvini (ATA)",
+        "Dodò (FIO)",
+        "Kristensen T. (ATA)",
+        "Buongiorno (NAP)",
+        "Obrador (SAS)",
+        "Zè Pedro (CAG)",
+        "Doekhi (LAZ)",
+        "Fortini (TOR)"
+      ],
+      [
+        "Molina N. (ROM)",
+        "Vasquez (GEN)",
+        "Dragusin (FIO)",
+        "Valle (COM)",
+        "Marusic (LAZ)",
+        "Obert (CAG)",
+        "Pedraza (LAZ)",
+        "De Winter (MIL)",
+        "Pongracic (FIO)",
+        "Ranieri L. (FIO)"
+      ],
+      [
+        "Bremer (JUV)",
+        "Ramon (COM)",
+        "Hermoso (ROM)",
+        "Badiashile (NAP)",
+        "Zappacosta (ATA)",
+        "Celik (JUV)",
+        "Coco (TOR)",
+        "Bella-Kotchap (VEN)",
+        "Pellegrini Lu. (LAZ)",
+        "Holm (BOL)"
+      ],
+      [
+        "Akanji (INT)",
+        "Bisseck (INT)",
+        "Couto (COM)",
+        "Delprato (PAR)",
+        "Vojvoda (UDI)",
+        "Bracaglia (FRO)",
+        "Gatti (JUV)",
+        "Comuzzo (TOR)",
+        "Smolcic I. (COM)",
+        "Balerdi (ROM)"
+      ],
+      [
+        "Rrahmani (NAP)",
+        "Spence (INT)",
+        "Cambiaso (JUV)",
+        "Norton-Cuffy (GEN)",
+        "Idzes (SAS)",
+        "Kelly L. (JUV)",
+        "Marcandalli (GEN)",
+        "Gallo (LEC)",
+        "Kossounou (ATA)",
+        "Tavares N. (LAZ)"
+      ],
+      [
+        "Mancini (ROM)",
+        "Di Lorenzo (NAP)",
+        "Spinazzola (NAP)",
+        "Romagnoli (LAZ)",
+        "Theate (BOL)",
+        "Leysen F. (SAS)",
+        "Pavard (INT)",
+        "Monterisi (FRO)",
+        "Birindelli (MON)",
+        "Beukema (NAP)"
+      ],
+      [
+        "Pavlovic (MIL)",
+        "Ostigard (GEN)",
+        "Carlos Augusto (INT)",
+        "Bartesaghi (MIL)",
+        "Zortea (BOL)",
+        "Bellanova (ATA)",
+        "Kolasinac (ATA)",
+        "Ismajli (TOR)",
+        "Comert (TOR)",
+        "Veiga D. (LEC)"
+      ],
+      [
+        "Kalulu (JUV)",
+        "Bastoni (INT)",
+        "Miranda J. (BOL)",
+        "Jimenez A. (FIO)",
+        "Lucumì (JUV)",
+        "Koulierakis (ROM)",
+        "Rodriguez Ju. (CAG)",
+        "Estupinan (MIL)",
+        "Rensch (ROM)",
+        "Lucchesi (MON)"
+      ],
+      [
+        "Solet (UDI)",
+        "N'Dicka (ROM)",
+        "Valeri (PAR)",
+        "Gabbia (MIL)",
+        "Bernasconi (ATA)",
+        "Valdepenas (FIO)",
+        "Troilo (PAR)",
+        "Provstgaard (LAZ)",
+        "Joao Mario (FIO)",
+        "Gaspar K. (LEC)"
+      ]
+    ],
+    "C": [
+      [
+        "Paz N. (COM)",
+        "Mastantuono (FIO)",
+        "Douglas Luiz (JUV)",
+        "Bernabè (PAR)",
+        "Locatelli (JUV)",
+        "Isaksen (LAZ)",
+        "Fagioli (FIO)",
+        "El Aynaoui (ROM)",
+        "Fitz-Jim (TOR)",
+        "Musah (MIL)"
+      ],
+      [
+        "Calhanoglu (INT)",
+        "Taylor K. (LAZ)",
+        "Moreira (MIL)",
+        "Saelemaekers (MIL)",
+        "Casadei (TOR)",
+        "Ferguson (BOL)",
+        "Lobotka (NAP)",
+        "Loftus-Cheek (MIL)",
+        "Odgaard (BOL)",
+        "Alajbegovic (JUV)"
+      ],
+      [
+        "McTominay (NAP)",
+        "Conceicao (JUV)",
+        "Ederson D.S. (ATA)",
+        "Thuram K. (JUV)",
+        "Rodriguez Je. (COM)",
+        "Volpato (SAS)",
+        "Chukwueze (MIL)",
+        "Messias (GEN)",
+        "Coulibaly L. (LEC)",
+        "Mandragora (FIO)"
+      ],
+      [
+        "Orsolini (BOL)",
+        "Frattesi (LAZ)",
+        "Jones C. (INT)",
+        "Perrone (COM)",
+        "Baldanzi (GEN)",
+        "Dele-Bashiru (LAZ)",
+        "Cambiaghi (BOL)",
+        "Basic (VEN)",
+        "Pisilli (ROM)",
+        "Piotrowski (UDI)"
+      ],
+      [
+        "Pulisic (MIL)",
+        "McKennie (JUV)",
+        "Zambo Anguissa (NAP)",
+        "Thorstvedt (SAS)",
+        "Bernardeschi (BOL)",
+        "Fazzini (CAG)",
+        "Sucic P. (INT)",
+        "Pierotti (LEC)",
+        "Luis Henrique (INT)",
+        "Keita M. (PAR)"
+      ],
+      [
+        "Rabiot (MIL)",
+        "Vlasic (TOR)",
+        "Modric (MIL)",
+        "Vergara (NAP)",
+        "Gaetano (ATA)",
+        "Pasalic (ATA)",
+        "Liberali (COM)",
+        "Cacciamani (TOR)",
+        "Busio (VEN)",
+        "Mkhitaryan (INT)"
+      ],
+      [
+        "De Bruyne (NAP)",
+        "Barella (INT)",
+        "Zielinski (INT)",
+        "Jashari (MIL)",
+        "Cristante (ROM)",
+        "Cissè A. (MIL)",
+        "De Roon (ATA)",
+        "Zhegrova (JUV)",
+        "Folorunsho (MON)",
+        "Fini (FRO)"
+      ],
+      [
+        "Baturina (COM)",
+        "Zaniolo (UDI)",
+        "Ekkelenkamp (UDI)",
+        "Gudmundsson A. (FIO)",
+        "Cancellieri (LAZ)",
+        "Calò (FRO)",
+        "Romano (CAG)",
+        "Koopmeiners (JUV)",
+        "Rovella (LAZ)",
+        "Kessiè (ATA)"
+      ],
+      [
+        "Mora (ROM)",
+        "Atta (FIO)",
+        "Rowe (BOL)",
+        "Samardzic (ATA)",
+        "Schmid (FRO)",
+        "Ndour (FIO)",
+        "Frendrup (GEN)",
+        "Milla (COM)",
+        "Politano (NAP)",
+        "Gonzalez N. (JUV)"
+      ],
+      [
+        "Zaccagni (LAZ)",
+        "Da Cunha (COM)",
+        "Diouf (INT)",
+        "Konè M. (ROM)",
+        "Elmas (ATA)",
+        "Pellegrini Lo. (ROM)",
+        "Karlstrom (UDI)",
+        "Zalewski (ATA)",
+        "Adzic (SAS)",
+        "Colpani (MON)"
+      ]
+    ],
+    "A": [
+      [
+        "Malen (ROM)",
+        "Dovbyk (BOL)",
+        "Mendy P. (CAG)",
+        "Cutrone (MON)",
+        "Mota (MON)",
+        "Borrelli (CAG)",
+        "Colombo (GEN)"
+      ],
+      [
+        "Martinez L. (INT)",
+        "Raspadori (ATA)",
+        "Santos A. (NAP)",
+        "Esposito Se. (SAS)",
+        "Yeboah J. (VEN)",
+        "Ratkov (LAZ)",
+        "Giovane (NAP)"
+      ],
+      [
+        "Pellegrino M. (FIO)",
+        "Simeone (TOR)",
+        "Castro S. (ROM)",
+        "Ghedjemis (FRO)",
+        "N'Dri (LEC)",
+        "Raimondo (FRO)",
+        "Geubbels (LEC)"
+      ],
+      [
+        "Hojlund (NAP)",
+        "Laurientè (SAS)",
+        "Lontani (PAR)",
+        "Piccoli (BOL)",
+        "Varela G. (MON)",
+        "Vitinha O. (GEN)",
+        "Gueye (UDI)"
+      ],
+      [
+        "Ramos G. (MIL)",
+        "Dybala (ROM)",
+        "Pinamonti (LAZ)",
+        "David (JUV)",
+        "Adams C. (TOR)",
+        "Sulemana K. (ATA)",
+        "Ekhator (JUV)"
+      ],
+      [
+        "Kolo Muani (JUV)",
+        "De Ketelaere (ATA)",
+        "Thuram (INT)",
+        "Romero D. (PAR)",
+        "Elphege (PAR)",
+        "Kvernadze (FRO)",
+        "Lang (NAP)"
+      ],
+      [
+        "Soulè (ROM)",
+        "Krstovic (ATA)",
+        "Diao (COM)",
+        "Kevin Carlos (CAG)",
+        "Maldini (CAG)",
+        "Neres (NAP)",
+        "Lucca (NAP)"
+      ],
+      [
+        "Douvikas (COM)",
+        "Berardi (SAS)",
+        "Kean (FIO)",
+        "Vaz (ROM)",
+        "Camarda (MIL)",
+        "Noslin (LAZ)",
+        "Milik (JUV)"
+      ],
+      [
+        "Yildiz (JUV)",
+        "Esposito F.P. (INT)",
+        "Adams A. (VEN)",
+        "Bowie (SAS)",
+        "Boga (JUV)",
+        "Zapata D. (TOR)",
+        "Bonny (INT)"
+      ],
+      [
+        "Scamacca (ATA)",
+        "Davis K. (UDI)",
+        "Tourè E. (PAR)",
+        "Dia (LAZ)",
+        "Bayo V. (UDI)",
+        "Kuhn (COM)",
+        "Stulic (LEC)"
+      ]
+    ]
+  },
+  "rinomine": {},
+  "scambi": [
+    [
+      "sostituzione",
+      "D",
+      1,
+      "Kaiki (COM)",
+      null,
+      "Bracaglia (FRO)"
+    ],
+    [
+      "sostituzione",
+      "D",
+      4,
+      "Kaiki (COM)",
+      null,
+      "Bracaglia (FRO)",
+      "29/08 17:32"
+    ],
+    [
+      "sostituzione",
+      "D",
+      2,
+      "Holm (BOL)",
+      null,
+      "De Winter (MIL)",
+      "29/08 17:36"
+    ],
+    [
+      "sostituzione",
+      "D",
+      8,
+      "Kouadio (MON)",
+      null,
+      "Estupinan (MIL)",
+      "29/08 17:37"
+    ],
+    [
+      "sostituzione",
+      "D",
+      5,
+      "Doekhi (LAZ)",
+      null,
+      "Kelly L. (JUV)",
+      "29/08 17:40"
+    ],
+    [
+      "sostituzione",
+      "D",
+      7,
+      "Rensch (ROM)",
+      null,
+      "Kolasinac (ATA)",
+      "29/08 17:43"
+    ],
+    [
+      "sostituzione",
+      "D",
+      4,
+      "Ahanor (ATA)",
+      null,
+      "Gatti (JUV)",
+      "30/08 10:15"
+    ],
+    [
+      "aggiunta",
+      "D",
+      5,
+      null,
+      null,
+      "Kossounou (ATA)",
+      "30/08 10:20"
+    ],
+    [
+      "aggiunta",
+      "D",
+      4,
+      null,
+      null,
+      "Smolcic I. (COM)",
+      "30/08 10:21"
+    ],
+    [
+      "sostituzione",
+      "D",
+      6,
+      "Viery (FIO)",
+      null,
+      "Leysen F. (SAS)",
+      "30/08 10:24"
+    ],
+    [
+      "aggiunta",
+      "D",
+      6,
+      null,
+      null,
+      "Birindelli (MON)",
+      "30/08 10:25"
+    ],
+    [
+      "aggiunta",
+      "D",
+      7,
+      null,
+      null,
+      "Comert (TOR)",
+      "30/08 10:26"
+    ],
+    [
+      "aggiunta",
+      "D",
+      8,
+      null,
+      null,
+      "Rensch (ROM)",
+      "30/08 10:27"
+    ],
+    [
+      "aggiunta",
+      "D",
+      9,
+      null,
+      null,
+      "Joao Mario (FIO)",
+      "30/08 10:28"
+    ],
+    [
+      "aggiunta",
+      "D",
+      9,
+      null,
+      null,
+      "Gaspar K. (LEC)",
+      "30/08 10:28"
+    ],
+    [
+      "aggiunta",
+      "D",
+      8,
+      null,
+      null,
+      "Lucchesi (MON)",
+      "30/08 10:29"
+    ],
+    [
+      "aggiunta",
+      "D",
+      7,
+      null,
+      null,
+      "Veiga D. (LEC)",
+      "30/08 10:30"
+    ],
+    [
+      "aggiunta",
+      "D",
+      6,
+      null,
+      null,
+      "Beukema (NAP)",
+      "30/08 10:31"
+    ],
+    [
+      "aggiunta",
+      "D",
+      5,
+      null,
+      null,
+      "Tavares N. (LAZ)",
+      "30/08 10:32"
+    ],
+    [
+      "aggiunta",
+      "D",
+      4,
+      null,
+      null,
+      "Hien (ATA)",
+      "30/08 10:33"
+    ],
+    [
+      "aggiunta",
+      "D",
+      3,
+      null,
+      null,
+      "Pellegrini Lu. (LAZ)",
+      "30/08 10:34"
+    ],
+    [
+      "aggiunta",
+      "D",
+      2,
+      null,
+      null,
+      "Pongracic (FIO)",
+      "30/08 10:35"
+    ],
+    [
+      "aggiunta",
+      "D",
+      2,
+      null,
+      null,
+      "Ranieri L. (FIO)",
+      "30/08 10:35"
+    ],
+    [
+      "aggiunta",
+      "D",
+      1,
+      null,
+      null,
+      "Doekhi (LAZ)",
+      "30/08 10:36"
+    ],
+    [
+      "aggiunta",
+      "D",
+      0,
+      null,
+      null,
+      "Doig (SAS)",
+      "30/08 10:37"
+    ],
+    [
+      "aggiunta",
+      "D",
+      3,
+      null,
+      null,
+      "Holm (BOL)",
+      "30/08 10:38"
+    ],
+    [
+      "aggiunta",
+      "D",
+      1,
+      null,
+      null,
+      "Fortini (TOR)",
+      "30/08 10:38"
+    ],
+    [
+      "aggiunta",
+      "D",
+      0,
+      null,
+      null,
+      "Ziolkowski (ROM)",
+      "30/08 10:39"
+    ],
+    [
+      "sostituzione",
+      "C",
+      8,
+      "Pessina (MON)",
+      null,
+      "Gonzalez N. (JUV)",
+      "30/08 10:46"
+    ],
+    [
+      "sostituzione",
+      "C",
+      7,
+      "Sow (GEN)",
+      null,
+      "Kessiè (ATA)",
+      "30/08 10:47"
+    ],
+    [
+      "sostituzione",
+      "C",
+      5,
+      "Caqueret (COM)",
+      null,
+      "Busio (VEN)",
+      "30/08 10:51"
+    ],
+    [
+      "sostituzione",
+      "C",
+      6,
+      "Winks (CAG)",
+      null,
+      "Fini (FRO)",
+      "30/08 10:54"
+    ],
+    [
+      "sostituzione",
+      "C",
+      7,
+      "Oulai (FIO)",
+      null,
+      "Koopmeiners (JUV)",
+      "30/08 10:57"
+    ],
+    [
+      "scambio",
+      "C",
+      6,
+      "Politano (NAP)",
+      8,
+      "Nicolussi Caviglia (PAR)",
+      "30/08 11:02"
+    ],
+    [
+      "sostituzione",
+      "C",
+      5,
+      "Matic (SAS)",
+      null,
+      "Mkhitaryan (INT)",
+      "30/08 11:07"
+    ],
+    [
+      "sostituzione",
+      "C",
+      4,
+      "Unai Gomez (UDI)",
+      null,
+      "Luis Henrique (INT)",
+      "30/08 11:09"
+    ],
+    [
+      "sostituzione",
+      "C",
+      6,
+      "Nicolussi Caviglia (PAR)",
+      null,
+      "Jashari (MIL)",
+      "30/08 11:14"
+    ],
+    [
+      "sostituzione",
+      "C",
+      2,
+      "Ellertsson (GEN)",
+      null,
+      "Messias (GEN)",
+      "30/08 11:16"
+    ],
+    [
+      "sostituzione",
+      "A",
+      0,
+      "Leao (MIL)",
+      null,
+      "Mendy P. (CAG)",
+      "30/08 13:11"
+    ],
+    [
+      "aggiunta",
+      "A",
+      0,
+      null,
+      null,
+      "Stulic (LEC)",
+      "30/08 13:12"
+    ],
+    [
+      "aggiunta",
+      "A",
+      1,
+      null,
+      null,
+      "Giovane (NAP)",
+      "30/08 13:13"
+    ],
+    [
+      "aggiunta",
+      "A",
+      2,
+      null,
+      null,
+      "Lucca (NAP)",
+      "30/08 13:13"
+    ],
+    [
+      "aggiunta",
+      "A",
+      3,
+      null,
+      null,
+      "Gueye (UDI)",
+      "30/08 13:15"
+    ],
+    [
+      "aggiunta",
+      "A",
+      6,
+      null,
+      null,
+      "Sulemana K. (ATA)",
+      "30/08 13:15"
+    ],
+    [
+      "scambio",
+      "A",
+      6,
+      "Sulemana K. (ATA)",
+      4,
+      "Fatah (LEC)",
+      "30/08 13:16"
+    ],
+    [
+      "aggiunta",
+      "A",
+      4,
+      null,
+      null,
+      "Ekhator (JUV)",
+      "30/08 13:17"
+    ],
+    [
+      "aggiunta",
+      "A",
+      5,
+      null,
+      null,
+      "Lang (NAP)",
+      "30/08 13:18"
+    ],
+    [
+      "aggiunta",
+      "A",
+      7,
+      null,
+      null,
+      "Milik (JUV)",
+      "30/08 13:18"
+    ],
+    [
+      "aggiunta",
+      "A",
+      8,
+      null,
+      null,
+      "Adorante (VEN)",
+      "30/08 13:19"
+    ],
+    [
+      "aggiunta",
+      "A",
+      9,
+      null,
+      null,
+      "Kuhn (COM)",
+      "30/08 13:19"
+    ],
+    [
+      "aggiunta",
+      "A",
+      8,
+      null,
+      null,
+      "Bayo V. (UDI)",
+      "30/08 13:23"
+    ],
+    [
+      "sostituzione",
+      "A",
+      5,
+      "Geubbels (LEC)",
+      null,
+      "Elphege (PAR)",
+      "30/08 13:26"
+    ],
+    [
+      "scambio",
+      "A",
+      1,
+      "Dia (LAZ)",
+      9,
+      "Esposito Se. (SAS)",
+      "30/08 13:32"
+    ],
+    [
+      "scambio",
+      "A",
+      9,
+      "Bonny (INT)",
+      8,
+      "Bayo V. (UDI)",
+      "30/08 13:35"
+    ],
+    [
+      "aggiunta",
+      "A",
+      9,
+      null,
+      null,
+      "Lontani (PAR)",
+      "30/08 13:36"
+    ],
+    [
+      "aggiunta",
+      "A",
+      7,
+      null,
+      null,
+      "Vaz (ROM)",
+      "30/08 13:37"
+    ],
+    [
+      "aggiunta",
+      "A",
+      6,
+      null,
+      null,
+      "Geubbels (LEC)",
+      "30/08 13:37"
+    ],
+    [
+      "aggiunta",
+      "A",
+      5,
+      null,
+      null,
+      "Mota (MON)",
+      "30/08 13:38"
+    ],
+    [
+      "scambio",
+      "A",
+      6,
+      "Kean (FIO)",
+      7,
+      "Soulè (ROM)",
+      "30/08 13:40"
+    ],
+    [
+      "scambio",
+      "A",
+      1,
+      "N'Dri (LEC)",
+      2,
+      "Ratkov (LAZ)",
+      "30/08 13:44"
+    ],
+    [
+      "scambio",
+      "A",
+      5,
+      "Pellegrino M. (FIO)",
+      2,
+      "Thuram (INT)",
+      "30/08 13:46"
+    ],
+    [
+      "sostituzione",
+      "A",
+      0,
+      "Birligea (FRO)",
+      null,
+      "Borrelli (CAG)",
+      "30/08 13:50"
+    ],
+    [
+      "aggiunta",
+      "A",
+      4,
+      null,
+      null,
+      "Ekhator (JUV)",
+      "30/08 13:56"
+    ],
+    [
+      "scambio",
+      "A",
+      6,
+      "Geubbels (LEC)",
+      2,
+      "Lucca (NAP)",
+      "30/08 13:58"
+    ],
+    [
+      "scambio",
+      "A",
+      0,
+      "Castro S. (ROM)",
+      2,
+      "Dovbyk (BOL)",
+      "30/08 14:00"
+    ],
+    [
+      "sostituzione",
+      "A",
+      0,
+      "Osmajic (GEN)",
+      null,
+      "Mota (MON)",
+      "30/08 14:00"
+    ],
+    [
+      "scambio",
+      "A",
+      0,
+      "Stulic (LEC)",
+      3,
+      "Colombo (GEN)",
+      "30/08 14:01"
+    ],
+    [
+      "scambio",
+      "A",
+      3,
+      "Stulic (LEC)",
+      9,
+      "Lontani (PAR)",
+      "30/08 14:03"
+    ],
+    [
+      "scambio",
+      "A",
+      8,
+      "Varela G. (MON)",
+      3,
+      "Boga (JUV)",
+      "30/08 14:03"
+    ],
+    [
+      "sostituzione",
+      "A",
+      7,
+      "Bobcek (FRO)",
+      null,
+      "Vaz (ROM)",
+      "30/08 14:07"
+    ],
+    [
+      "scambio",
+      "A",
+      2,
+      "Adams C. (TOR)",
+      4,
+      "Ghedjemis (FRO)",
+      "30/08 14:09"
+    ],
+    [
+      "sostituzione",
+      "D",
+      4,
+      "Hien (ATA)",
+      null,
+      "Balerdi (ROM)",
+      "30/08 14:12"
+    ],
+    [
+      "sostituzione",
+      "D",
+      6,
+      "Sutalo J. (LAZ)",
+      null,
+      "Theate (BOL)",
+      "30/08 14:13"
+    ],
+    [
+      "sostituzione",
+      "C",
+      2,
+      "Perez K. (VEN)",
+      null,
+      "Dele-Bashiru (LAZ)",
+      "30/08 14:16"
+    ],
+    [
+      "scambio",
+      "C",
+      3,
+      "Mandragora (FIO)",
+      2,
+      "Dele-Bashiru (LAZ)",
+      "30/08 14:17"
+    ],
+    [
+      "scambio",
+      "C",
+      0,
+      "Alajbegovic (JUV)",
+      1,
+      "Douglas Luiz (JUV)",
+      "30/08 14:20"
+    ],
+    [
+      "sostituzione",
+      "C",
+      6,
+      "Konè I. (SAS)",
+      null,
+      "De Roon (ATA)",
+      "30/08 14:22"
+    ],
+    [
+      "sostituzione",
+      "C",
+      2,
+      "Thuram K. (JUV)",
+      null,
+      "Fofana Y. (MIL)",
+      "30/08 14:25"
+    ],
+    [
+      "sostituzione",
+      "C",
+      2,
+      "Fofana Y. (MIL)",
+      null,
+      "Thuram K. (JUV)",
+      "30/08 14:30"
+    ]
+  ],
+  "listone_rif": {
+    "5585": {
+      "Nome": "Malen",
+      "Squadra": "ROM",
+      "R": "A",
+      "Fuori": 0
+    },
+    "2764": {
+      "Nome": "Martinez L.",
+      "Squadra": "INT",
+      "R": "A",
+      "Fuori": 0
+    },
+    "254": {
+      "Nome": "Dimarco",
+      "Squadra": "INT",
+      "R": "D",
+      "Fuori": 0
+    },
+    "6875": {
+      "Nome": "Paz N.",
+      "Squadra": "COM",
+      "R": "C",
+      "Fuori": 0
+    },
+    "2194": {
+      "Nome": "Calhanoglu",
+      "Squadra": "INT",
+      "R": "C",
+      "Fuori": 0
+    },
+    "4871": {
+      "Nome": "Thuram",
+      "Squadra": "INT",
+      "R": "A",
+      "Fuori": 0
+    },
+    "4777": {
+      "Nome": "McTominay",
+      "Squadra": "NAP",
+      "R": "C",
+      "Fuori": 0
+    },
+    "6397": {
+      "Nome": "Ramos G.",
+      "Squadra": "MIL",
+      "R": "A",
+      "Fuori": 0
+    },
+    "6052": {
+      "Nome": "Hojlund",
+      "Squadra": "NAP",
+      "R": "A",
+      "Fuori": 0
+    },
+    "2167": {
+      "Nome": "Orsolini",
+      "Squadra": "BOL",
+      "R": "C",
+      "Fuori": 0
+    },
+    "2097": {
+      "Nome": "Kean",
+      "Squadra": "FIO",
+      "R": "A",
+      "Fuori": 0
+    },
+    "5951": {
+      "Nome": "Kolo Muani",
+      "Squadra": "JUV",
+      "R": "A",
+      "Fuori": 0
+    },
+    "2423": {
+      "Nome": "Pulisic",
+      "Squadra": "MIL",
+      "R": "C",
+      "Fuori": 0
+    },
+    "2379": {
+      "Nome": "Rabiot",
+      "Squadra": "MIL",
+      "R": "C",
+      "Fuori": 0
+    },
+    "6434": {
+      "Nome": "Yildiz",
+      "Squadra": "JUV",
+      "R": "A",
+      "Fuori": 0
+    },
+    "7017": {
+      "Nome": "Douvikas",
+      "Squadra": "COM",
+      "R": "A",
+      "Fuori": 0
+    },
+    "6435": {
+      "Nome": "Krstovic",
+      "Squadra": "ATA",
+      "R": "A",
+      "Fuori": 0
+    },
+    "2137": {
+      "Nome": "Scamacca",
+      "Squadra": "ATA",
+      "R": "A",
+      "Fuori": 0
+    },
+    "7126": {
+      "Nome": "Baturina",
+      "Squadra": "COM",
+      "R": "C",
+      "Fuori": 0
+    },
+    "5637": {
+      "Nome": "Davis K.",
+      "Squadra": "UDI",
+      "R": "A",
+      "Fuori": 0
+    },
+    "7556": {
+      "Nome": "Mora",
+      "Squadra": "ROM",
+      "R": "C",
+      "Fuori": 0
+    },
+    "5559": {
+      "Nome": "Da Cunha",
+      "Squadra": "COM",
+      "R": "C",
+      "Fuori": 0
+    },
+    "4510": {
+      "Nome": "Leao",
+      "Squadra": "MIL",
+      "R": "A",
+      "Fuori": 0
+    },
+    "5841": {
+      "Nome": "Svilar",
+      "Squadra": "ROM",
+      "R": "P",
+      "Fuori": 0
+    },
+    "531": {
+      "Nome": "Berardi",
+      "Squadra": "SAS",
+      "R": "A",
+      "Fuori": 0
+    },
+    "2766": {
+      "Nome": "Zaniolo",
+      "Squadra": "UDI",
+      "R": "C",
+      "Fuori": 0
+    },
+    "4998": {
+      "Nome": "Molina N.",
+      "Squadra": "ROM",
+      "R": "D",
+      "Fuori": 0
+    },
+    "5995": {
+      "Nome": "De Ketelaere",
+      "Squadra": "ATA",
+      "R": "A",
+      "Fuori": 0
+    },
+    "5116": {
+      "Nome": "Martinez Jo.",
+      "Squadra": "INT",
+      "R": "P",
+      "Fuori": 0
+    },
+    "1870": {
+      "Nome": "Barella",
+      "Squadra": "INT",
+      "R": "C",
+      "Fuori": 0
+    },
+    "7071": {
+      "Nome": "Esposito F.P.",
+      "Squadra": "INT",
+      "R": "A",
+      "Fuori": 0
+    },
+    "4973": {
+      "Nome": "McKennie",
+      "Squadra": "JUV",
+      "R": "C",
+      "Fuori": 0
+    },
+    "7181": {
+      "Nome": "Wesley",
+      "Squadra": "ROM",
+      "R": "D",
+      "Fuori": 0
+    },
+    "4431": {
+      "Nome": "Carnesecchi",
+      "Squadra": "ATA",
+      "R": "P",
+      "Fuori": 0
+    },
+    "6966": {
+      "Nome": "Butez",
+      "Squadra": "COM",
+      "R": "P",
+      "Fuori": 0
+    },
+    "6908": {
+      "Nome": "Atta",
+      "Squadra": "FIO",
+      "R": "C",
+      "Fuori": 0
+    },
+    "4159": {
+      "Nome": "Akanji",
+      "Squadra": "INT",
+      "R": "D",
+      "Fuori": 0
+    },
+    "2788": {
+      "Nome": "Bremer",
+      "Squadra": "JUV",
+      "R": "D",
+      "Fuori": 0
+    },
+    "632": {
+      "Nome": "Zaccagni",
+      "Squadra": "LAZ",
+      "R": "C",
+      "Fuori": 0
+    },
+    "2517": {
+      "Nome": "De Bruyne",
+      "Squadra": "NAP",
+      "R": "C",
+      "Fuori": 0
+    },
+    "4964": {
+      "Nome": "Vicario",
+      "Squadra": "JUV",
+      "R": "P",
+      "Fuori": 0
+    },
+    "6675": {
+      "Nome": "Dovbyk",
+      "Squadra": "BOL",
+      "R": "A",
+      "Fuori": 0
+    },
+    "4312": {
+      "Nome": "Maignan",
+      "Squadra": "MIL",
+      "R": "P",
+      "Fuori": 0
+    },
+    "2296": {
+      "Nome": "Mancini",
+      "Squadra": "ROM",
+      "R": "D",
+      "Fuori": 0
+    },
+    "309": {
+      "Nome": "Dybala",
+      "Squadra": "ROM",
+      "R": "A",
+      "Fuori": 0
+    },
+    "6060": {
+      "Nome": "Laurientè",
+      "Squadra": "SAS",
+      "R": "A",
+      "Fuori": 0
+    },
+    "2061": {
+      "Nome": "Simeone",
+      "Squadra": "TOR",
+      "R": "A",
+      "Fuori": 0
+    },
+    "4371": {
+      "Nome": "Raspadori",
+      "Squadra": "ATA",
+      "R": "A",
+      "Fuori": 0
+    },
+    "2120": {
+      "Nome": "Bastoni",
+      "Squadra": "INT",
+      "R": "D",
+      "Fuori": 0
+    },
+    "5022": {
+      "Nome": "Pavlovic",
+      "Squadra": "MIL",
+      "R": "D",
+      "Fuori": 0
+    },
+    "4409": {
+      "Nome": "Rrahmani",
+      "Squadra": "NAP",
+      "R": "D",
+      "Fuori": 0
+    },
+    "7351": {
+      "Nome": "Santos A.",
+      "Squadra": "NAP",
+      "R": "A",
+      "Fuori": 0
+    },
+    "7023": {
+      "Nome": "Pellegrino M.",
+      "Squadra": "FIO",
+      "R": "A",
+      "Fuori": 0
+    },
+    "6572": {
+      "Nome": "Castro S.",
+      "Squadra": "ROM",
+      "R": "A",
+      "Fuori": 0
+    },
+    "4463": {
+      "Nome": "Esposito Se.",
+      "Squadra": "CAG",
+      "R": "A",
+      "Fuori": 0
+    },
+    "5800": {
+      "Nome": "Gudmundsson A.",
+      "Squadra": "FIO",
+      "R": "C",
+      "Fuori": 0
+    },
+    "4976": {
+      "Nome": "Kalulu",
+      "Squadra": "JUV",
+      "R": "D",
+      "Fuori": 0
+    },
+    "7314": {
+      "Nome": "Taylor K.",
+      "Squadra": "LAZ",
+      "R": "C",
+      "Fuori": 0
+    },
+    "4728": {
+      "Nome": "Nkunku",
+      "Squadra": "MIL",
+      "R": "A",
+      "Fuori": 0
+    },
+    "4317": {
+      "Nome": "N'Dicka",
+      "Squadra": "ROM",
+      "R": "D",
+      "Fuori": 0
+    },
+    "2038": {
+      "Nome": "Pinamonti",
+      "Squadra": "LAZ",
+      "R": "A",
+      "Fuori": 0
+    },
+    "5687": {
+      "Nome": "Vlasic",
+      "Squadra": "TOR",
+      "R": "C",
+      "Fuori": 0
+    },
+    "6956": {
+      "Nome": "Solet",
+      "Squadra": "UDI",
+      "R": "D",
+      "Fuori": 0
+    },
+    "7547": {
+      "Nome": "Kevin Carlos",
+      "Squadra": "CAG",
+      "R": "A",
+      "Fuori": 0
+    },
+    "5792": {
+      "Nome": "Ederson D.S.",
+      "Squadra": "ATA",
+      "R": "C",
+      "Fuori": 0
+    },
+    "5119": {
+      "Nome": "Samardzic",
+      "Squadra": "ATA",
+      "R": "C",
+      "Fuori": 0
+    },
+    "7129": {
+      "Nome": "Rodriguez Je.",
+      "Squadra": "COM",
+      "R": "C",
+      "Fuori": 0
+    },
+    "2521": {
+      "Nome": "De Gea",
+      "Squadra": "FIO",
+      "R": "P",
+      "Fuori": 0
+    },
+    "6217": {
+      "Nome": "Bisseck",
+      "Squadra": "INT",
+      "R": "D",
+      "Fuori": 0
+    },
+    "2514": {
+      "Nome": "Stones",
+      "Squadra": "INT",
+      "R": "D",
+      "Fuori": 0
+    },
+    "7436": {
+      "Nome": "Alajbegovic",
+      "Squadra": "JUV",
+      "R": "C",
+      "Fuori": 0
+    },
+    "6884": {
+      "Nome": "Conceicao",
+      "Squadra": "JUV",
+      "R": "C",
+      "Fuori": 0
+    },
+    "5833": {
+      "Nome": "Gila",
+      "Squadra": "MIL",
+      "R": "D",
+      "Fuori": 0
+    },
+    "2606": {
+      "Nome": "Modric",
+      "Squadra": "MIL",
+      "R": "C",
+      "Fuori": 0
+    },
+    "2816": {
+      "Nome": "Di Lorenzo",
+      "Squadra": "NAP",
+      "R": "D",
+      "Fuori": 0
+    },
+    "5734": {
+      "Nome": "Soulè",
+      "Squadra": "ROM",
+      "R": "A",
+      "Fuori": 0
+    },
+    "7484": {
+      "Nome": "Adams A.",
+      "Squadra": "VEN",
+      "R": "A",
+      "Fuori": 0
+    },
+    "7078": {
+      "Nome": "Mastantuono",
+      "Squadra": "FIO",
+      "R": "C",
+      "Fuori": 0
+    },
+    "5982": {
+      "Nome": "Spence",
+      "Squadra": "INT",
+      "R": "D",
+      "Fuori": 0
+    },
+    "6372": {
+      "Nome": "Moreira",
+      "Squadra": "MIL",
+      "R": "C",
+      "Fuori": 0
+    },
+    "5172": {
+      "Nome": "Jones C.",
+      "Squadra": "INT",
+      "R": "C",
+      "Fuori": 0
+    },
+    "6844": {
+      "Nome": "Rowe",
+      "Squadra": "BOL",
+      "R": "C",
+      "Fuori": 0
+    },
+    "6967": {
+      "Nome": "Diao",
+      "Squadra": "COM",
+      "R": "A",
+      "Fuori": 0
+    },
+    "5750": {
+      "Nome": "Ostigard",
+      "Squadra": "GEN",
+      "R": "D",
+      "Fuori": 0
+    },
+    "5823": {
+      "Nome": "Baldanzi",
+      "Squadra": "GEN",
+      "R": "C",
+      "Fuori": 0
+    },
+    "4923": {
+      "Nome": "Colombo",
+      "Squadra": "GEN",
+      "R": "A",
+      "Fuori": 0
+    },
+    "152": {
+      "Nome": "Zielinski",
+      "Squadra": "INT",
+      "R": "C",
+      "Fuori": 0
+    },
+    "572": {
+      "Nome": "Meret",
+      "Squadra": "NAP",
+      "R": "P",
+      "Fuori": 0
+    },
+    "4220": {
+      "Nome": "Zambo Anguissa",
+      "Squadra": "NAP",
+      "R": "C",
+      "Fuori": 0
+    },
+    "6684": {
+      "Nome": "Ekkelenkamp",
+      "Squadra": "UDI",
+      "R": "C",
+      "Fuori": 0
+    },
+    "6229": {
+      "Nome": "Tourè E.",
+      "Squadra": "PAR",
+      "R": "A",
+      "Fuori": 0
+    },
+    "5526": {
+      "Nome": "Scalvini",
+      "Squadra": "ATA",
+      "R": "D",
+      "Fuori": 0
+    },
+    "133": {
+      "Nome": "Skorupski",
+      "Squadra": "BOL",
+      "R": "P",
+      "Fuori": 0
+    },
+    "4360": {
+      "Nome": "Caprile",
+      "Squadra": "CAG",
+      "R": "P",
+      "Fuori": 0
+    },
+    "6869": {
+      "Nome": "Ramon",
+      "Squadra": "COM",
+      "R": "D",
+      "Fuori": 0
+    },
+    "6151": {
+      "Nome": "Perrone",
+      "Squadra": "COM",
+      "R": "C",
+      "Fuori": 0
+    },
+    "5885": {
+      "Nome": "Dodò",
+      "Squadra": "FIO",
+      "R": "D",
+      "Fuori": 0
+    },
+    "5562": {
+      "Nome": "Thuram K.",
+      "Squadra": "JUV",
+      "R": "C",
+      "Fuori": 0
+    },
+    "6482": {
+      "Nome": "Mandas",
+      "Squadra": "LAZ",
+      "R": "P",
+      "Fuori": 0
+    },
+    "5672": {
+      "Nome": "Dia",
+      "Squadra": "LAZ",
+      "R": "A",
+      "Fuori": 0
+    },
+    "7313": {
+      "Nome": "Ratkov",
+      "Squadra": "LAZ",
+      "R": "A",
+      "Fuori": 0
+    },
+    "4892": {
+      "Nome": "Saelemaekers",
+      "Squadra": "MIL",
+      "R": "C",
+      "Fuori": 0
+    },
+    "536": {
+      "Nome": "Politano",
+      "Squadra": "NAP",
+      "R": "C",
+      "Fuori": 0
+    },
+    "7223": {
+      "Nome": "Vergara",
+      "Squadra": "NAP",
+      "R": "C",
+      "Fuori": 0
+    },
+    "2531": {
+      "Nome": "Lukaku",
+      "Squadra": "NAP",
+      "R": "A",
+      "Fuori": 0
+    },
+    "4807": {
+      "Nome": "Hermoso",
+      "Squadra": "ROM",
+      "R": "D",
+      "Fuori": 0
+    },
+    "5589": {
+      "Nome": "Konè M.",
+      "Squadra": "ROM",
+      "R": "C",
+      "Fuori": 0
+    },
+    "5844": {
+      "Nome": "Thorstvedt",
+      "Squadra": "SAS",
+      "R": "C",
+      "Fuori": 0
+    },
+    "7347": {
+      "Nome": "Bowie",
+      "Squadra": "SAS",
+      "R": "A",
+      "Fuori": 0
+    },
+    "5888": {
+      "Nome": "Casadei",
+      "Squadra": "TOR",
+      "R": "C",
+      "Fuori": 0
+    },
+    "6646": {
+      "Nome": "Adams C.",
+      "Squadra": "TOR",
+      "R": "A",
+      "Fuori": 0
+    },
+    "530": {
+      "Nome": "Pellegrini Lo.",
+      "Squadra": "ROM",
+      "R": "C",
+      "Fuori": 0
+    },
+    "7554": {
+      "Nome": "Romero D.",
+      "Squadra": "PAR",
+      "R": "A",
+      "Fuori": 0
+    },
+    "2077": {
+      "Nome": "Pasalic",
+      "Squadra": "ATA",
+      "R": "C",
+      "Fuori": 0
+    },
+    "184": {
+      "Nome": "Bernardeschi",
+      "Squadra": "BOL",
+      "R": "C",
+      "Fuori": 0
+    },
+    "1933": {
+      "Nome": "Mandragora",
+      "Squadra": "FIO",
+      "R": "C",
+      "Fuori": 0
+    },
+    "6530": {
+      "Nome": "Ghedjemis",
+      "Squadra": "FRO",
+      "R": "A",
+      "Fuori": 0
+    },
+    "5514": {
+      "Nome": "Vasquez",
+      "Squadra": "GEN",
+      "R": "D",
+      "Fuori": 0
+    },
+    "6274": {
+      "Nome": "Diouf",
+      "Squadra": "INT",
+      "R": "C",
+      "Fuori": 0
+    },
+    "2848": {
+      "Nome": "Frattesi",
+      "Squadra": "LAZ",
+      "R": "C",
+      "Fuori": 0
+    },
+    "5876": {
+      "Nome": "Di Gregorio",
+      "Squadra": "JUV",
+      "R": "P",
+      "Fuori": 0
+    },
+    "5520": {
+      "Nome": "Cambiaso",
+      "Squadra": "JUV",
+      "R": "D",
+      "Fuori": 0
+    },
+    "5544": {
+      "Nome": "David",
+      "Squadra": "JUV",
+      "R": "A",
+      "Fuori": 0
+    },
+    "5500": {
+      "Nome": "Cancellieri",
+      "Squadra": "LAZ",
+      "R": "C",
+      "Fuori": 0
+    },
+    "6398": {
+      "Nome": "Isaksen",
+      "Squadra": "LAZ",
+      "R": "C",
+      "Fuori": 0
+    },
+    "2134": {
+      "Nome": "Falcone",
+      "Squadra": "LEC",
+      "R": "P",
+      "Fuori": 0
+    },
+    "6989": {
+      "Nome": "Tiago Gabriel",
+      "Squadra": "LEC",
+      "R": "D",
+      "Fuori": 0
+    },
+    "5029": {
+      "Nome": "Geubbels",
+      "Squadra": "LEC",
+      "R": "A",
+      "Fuori": 0
+    },
+    "2155": {
+      "Nome": "Cutrone",
+      "Squadra": "MON",
+      "R": "A",
+      "Fuori": 0
+    },
+    "6717": {
+      "Nome": "Konè I.",
+      "Squadra": "SAS",
+      "R": "C",
+      "Fuori": 0
+    },
+    "6462": {
+      "Nome": "Okoye",
+      "Squadra": "UDI",
+      "R": "P",
+      "Fuori": 0
+    },
+    "5641": {
+      "Nome": "Chalobah T.",
+      "Squadra": "COM",
+      "R": "D",
+      "Fuori": 0
+    },
+    "7612": {
+      "Nome": "Bobcek",
+      "Squadra": "FRO",
+      "R": "A",
+      "Fuori": 0
+    },
+    "6046": {
+      "Nome": "Hien",
+      "Squadra": "ATA",
+      "R": "D",
+      "Fuori": 0
+    },
+    "554": {
+      "Nome": "Zappacosta",
+      "Squadra": "ATA",
+      "R": "D",
+      "Fuori": 0
+    },
+    "4364": {
+      "Nome": "Gaetano",
+      "Squadra": "ATA",
+      "R": "C",
+      "Fuori": 0
+    },
+    "6042": {
+      "Nome": "Lucumì",
+      "Squadra": "JUV",
+      "R": "D",
+      "Fuori": 0
+    },
+    "4734": {
+      "Nome": "Miranda J.",
+      "Squadra": "BOL",
+      "R": "D",
+      "Fuori": 0
+    },
+    "2765": {
+      "Nome": "Odgaard",
+      "Squadra": "BOL",
+      "R": "C",
+      "Fuori": 0
+    },
+    "4436": {
+      "Nome": "Cambiaghi",
+      "Squadra": "BOL",
+      "R": "C",
+      "Fuori": 0
+    },
+    "6643": {
+      "Nome": "Dallinga",
+      "Squadra": "BOL",
+      "R": "A",
+      "Fuori": 0
+    },
+    "4210": {
+      "Nome": "Mina",
+      "Squadra": "CAG",
+      "R": "D",
+      "Fuori": 0
+    },
+    "6531": {
+      "Nome": "Jimenez A.",
+      "Squadra": "FIO",
+      "R": "D",
+      "Fuori": 0
+    },
+    "4465": {
+      "Nome": "Fagioli",
+      "Squadra": "FIO",
+      "R": "C",
+      "Fuori": 0
+    },
+    "6294": {
+      "Nome": "Ndour",
+      "Squadra": "FIO",
+      "R": "C",
+      "Fuori": 0
+    },
+    "4359": {
+      "Nome": "Piccoli",
+      "Squadra": "BOL",
+      "R": "A",
+      "Fuori": 0
+    },
+    "7332": {
+      "Nome": "Bijlow",
+      "Squadra": "GEN",
+      "R": "P",
+      "Fuori": 0
+    },
+    "6814": {
+      "Nome": "Norton-Cuffy",
+      "Squadra": "GEN",
+      "R": "D",
+      "Fuori": 0
+    },
+    "6164": {
+      "Nome": "Vitinha O.",
+      "Squadra": "GEN",
+      "R": "A",
+      "Fuori": 0
+    },
+    "7070": {
+      "Nome": "Sucic P.",
+      "Squadra": "INT",
+      "R": "C",
+      "Fuori": 0
+    },
+    "4657": {
+      "Nome": "Celik",
+      "Squadra": "JUV",
+      "R": "D",
+      "Fuori": 0
+    },
+    "827": {
+      "Nome": "Locatelli",
+      "Squadra": "JUV",
+      "R": "C",
+      "Fuori": 0
+    },
+    "6320": {
+      "Nome": "Doekhi",
+      "Squadra": "LAZ",
+      "R": "D",
+      "Fuori": 0
+    },
+    "6496": {
+      "Nome": "Bartesaghi",
+      "Squadra": "MIL",
+      "R": "D",
+      "Fuori": 0
+    },
+    "5878": {
+      "Nome": "Colpani",
+      "Squadra": "MON",
+      "R": "C",
+      "Fuori": 0
+    },
+    "5427": {
+      "Nome": "Gutierrez",
+      "Squadra": "NAP",
+      "R": "D",
+      "Fuori": 0
+    },
+    "1852": {
+      "Nome": "Spinazzola",
+      "Squadra": "NAP",
+      "R": "D",
+      "Fuori": 0
+    },
+    "4287": {
+      "Nome": "Lobotka",
+      "Squadra": "NAP",
+      "R": "C",
+      "Fuori": 0
+    },
+    "6664": {
+      "Nome": "Delprato",
+      "Squadra": "PAR",
+      "R": "D",
+      "Fuori": 0
+    },
+    "5862": {
+      "Nome": "Valeri",
+      "Squadra": "PAR",
+      "R": "D",
+      "Fuori": 0
+    },
+    "7529": {
+      "Nome": "Koulierakis",
+      "Squadra": "ROM",
+      "R": "D",
+      "Fuori": 0
+    },
+    "779": {
+      "Nome": "Cristante",
+      "Squadra": "ROM",
+      "R": "C",
+      "Fuori": 0
+    },
+    "5735": {
+      "Nome": "Volpato",
+      "Squadra": "SAS",
+      "R": "C",
+      "Fuori": 0
+    },
+    "4994": {
+      "Nome": "Vojvoda",
+      "Squadra": "UDI",
+      "R": "D",
+      "Fuori": 0
+    },
+    "5555": {
+      "Nome": "Kamara H.",
+      "Squadra": "UDI",
+      "R": "D",
+      "Fuori": 0
+    },
+    "6904": {
+      "Nome": "Yeboah J.",
+      "Squadra": "VEN",
+      "R": "A",
+      "Fuori": 0
+    },
+    "7449": {
+      "Nome": "Rrahmani Al.",
+      "Squadra": "VEN",
+      "R": "A",
+      "Fuori": 0
+    },
+    "6727": {
+      "Nome": "Couto",
+      "Squadra": "COM",
+      "R": "D",
+      "Fuori": 0
+    },
+    "7551": {
+      "Nome": "Schmid",
+      "Squadra": "FRO",
+      "R": "C",
+      "Fuori": 0
+    },
+    "7600": {
+      "Nome": "Osmajic",
+      "Squadra": "GEN",
+      "R": "A",
+      "Fuori": 0
+    },
+    "787": {
+      "Nome": "Djimsiti",
+      "Squadra": "ATA",
+      "R": "D",
+      "Fuori": 0
+    },
+    "5858": {
+      "Nome": "Ferguson",
+      "Squadra": "BOL",
+      "R": "C",
+      "Fuori": 0
+    },
+    "5701": {
+      "Nome": "Obert",
+      "Squadra": "CAG",
+      "R": "D",
+      "Fuori": 0
+    },
+    "4870": {
+      "Nome": "Adopo",
+      "Squadra": "CAG",
+      "R": "C",
+      "Fuori": 0
+    },
+    "7311": {
+      "Nome": "Romano",
+      "Squadra": "CAG",
+      "R": "C",
+      "Fuori": 0
+    },
+    "6010": {
+      "Nome": "Fazzini",
+      "Squadra": "CAG",
+      "R": "C",
+      "Fuori": 0
+    },
+    "7414": {
+      "Nome": "Kaiki",
+      "Squadra": "COM",
+      "R": "D",
+      "Fuori": 0
+    },
+    "5365": {
+      "Nome": "Dragusin",
+      "Squadra": "FIO",
+      "R": "D",
+      "Fuori": 0
+    },
+    "7472": {
+      "Nome": "Calò",
+      "Squadra": "FRO",
+      "R": "C",
+      "Fuori": 0
+    },
+    "5436": {
+      "Nome": "Raimondo",
+      "Squadra": "FRO",
+      "R": "A",
+      "Fuori": 0
+    },
+    "5791": {
+      "Nome": "Frendrup",
+      "Squadra": "GEN",
+      "R": "C",
+      "Fuori": 0
+    },
+    "5877": {
+      "Nome": "Carlos Augusto",
+      "Squadra": "INT",
+      "R": "D",
+      "Fuori": 0
+    },
+    "6669": {
+      "Nome": "Bonny",
+      "Squadra": "INT",
+      "R": "A",
+      "Fuori": 0
+    },
+    "460": {
+      "Nome": "Romagnoli",
+      "Squadra": "LAZ",
+      "R": "D",
+      "Fuori": 0
+    },
+    "4459": {
+      "Nome": "Rovella",
+      "Squadra": "LAZ",
+      "R": "C",
+      "Fuori": 0
+    },
+    "5504": {
+      "Nome": "Coulibaly L.",
+      "Squadra": "LEC",
+      "R": "C",
+      "Fuori": 0
+    },
+    "7252": {
+      "Nome": "Stulic",
+      "Squadra": "LEC",
+      "R": "A",
+      "Fuori": 0
+    },
+    "4401": {
+      "Nome": "Gabbia",
+      "Squadra": "MIL",
+      "R": "D",
+      "Fuori": 0
+    },
+    "4751": {
+      "Nome": "Tomori",
+      "Squadra": "MIL",
+      "R": "D",
+      "Fuori": 0
+    },
+    "4856": {
+      "Nome": "Chukwueze",
+      "Squadra": "MIL",
+      "R": "C",
+      "Fuori": 0
+    },
+    "2741": {
+      "Nome": "Pessina",
+      "Squadra": "MON",
+      "R": "C",
+      "Fuori": 0
+    },
+    "2724": {
+      "Nome": "Buongiorno",
+      "Squadra": "NAP",
+      "R": "D",
+      "Fuori": 0
+    },
+    "7411": {
+      "Nome": "Daffara",
+      "Squadra": "PAR",
+      "R": "P",
+      "Fuori": 0
+    },
+    "6641": {
+      "Nome": "Suzuki",
+      "Squadra": "PAR",
+      "R": "P",
+      "Fuori": 0
+    },
+    "6666": {
+      "Nome": "Bernabè",
+      "Squadra": "PAR",
+      "R": "C",
+      "Fuori": 0
+    },
+    "6190": {
+      "Nome": "Pisilli",
+      "Squadra": "ROM",
+      "R": "C",
+      "Fuori": 0
+    },
+    "4236": {
+      "Nome": "Muric",
+      "Squadra": "SAS",
+      "R": "P",
+      "Fuori": 0
+    },
+    "6672": {
+      "Nome": "Idzes",
+      "Squadra": "SAS",
+      "R": "D",
+      "Fuori": 0
+    },
+    "6642": {
+      "Nome": "Coco",
+      "Squadra": "TOR",
+      "R": "D",
+      "Fuori": 0
+    },
+    "5010": {
+      "Nome": "Ismajli",
+      "Squadra": "TOR",
+      "R": "D",
+      "Fuori": 0
+    },
+    "6218": {
+      "Nome": "Oristanio",
+      "Squadra": "TOR",
+      "R": "C",
+      "Fuori": 0
+    },
+    "608": {
+      "Nome": "Zapata D.",
+      "Squadra": "TOR",
+      "R": "A",
+      "Fuori": 0
+    },
+    "6485": {
+      "Nome": "Kristensen T.",
+      "Squadra": "ATA",
+      "R": "D",
+      "Fuori": 0
+    },
+    "6680": {
+      "Nome": "Karlstrom",
+      "Squadra": "UDI",
+      "R": "C",
+      "Fuori": 0
+    },
+    "6783": {
+      "Nome": "Unai Gomez",
+      "Squadra": "UDI",
+      "R": "C",
+      "Fuori": 0
+    },
+    "5946": {
+      "Nome": "Sow",
+      "Squadra": "GEN",
+      "R": "C",
+      "Fuori": 0
+    },
+    "4479": {
+      "Nome": "Elmas",
+      "Squadra": "ATA",
+      "R": "C",
+      "Fuori": 0
+    },
+    "4664": {
+      "Nome": "Badiashile",
+      "Squadra": "NAP",
+      "R": "D",
+      "Fuori": 0
+    },
+    "7580": {
+      "Nome": "Sutalo J.",
+      "Squadra": "LAZ",
+      "R": "D",
+      "Fuori": 0
+    },
+    "6916": {
+      "Nome": "Ahanor",
+      "Squadra": "ATA",
+      "R": "D",
+      "Fuori": 0
+    },
+    "4887": {
+      "Nome": "Bellanova",
+      "Squadra": "ATA",
+      "R": "D",
+      "Fuori": 0
+    },
+    "7219": {
+      "Nome": "Bernasconi",
+      "Squadra": "ATA",
+      "R": "D",
+      "Fuori": 0
+    },
+    "5422": {
+      "Nome": "Zalewski",
+      "Squadra": "ATA",
+      "R": "C",
+      "Fuori": 0
+    },
+    "5918": {
+      "Nome": "Sulemana K.",
+      "Squadra": "ATA",
+      "R": "A",
+      "Fuori": 0
+    },
+    "7212": {
+      "Nome": "Heggem",
+      "Squadra": "BOL",
+      "R": "D",
+      "Fuori": 0
+    },
+    "4433": {
+      "Nome": "Zortea",
+      "Squadra": "BOL",
+      "R": "D",
+      "Fuori": 0
+    },
+    "5298": {
+      "Nome": "Pobega",
+      "Squadra": "BOL",
+      "R": "C",
+      "Fuori": 0
+    },
+    "4260": {
+      "Nome": "Winks",
+      "Squadra": "CAG",
+      "R": "C",
+      "Fuori": 0
+    },
+    "6598": {
+      "Nome": "Mutandwa",
+      "Squadra": "CAG",
+      "R": "A",
+      "Fuori": 0
+    },
+    "6867": {
+      "Nome": "Valle",
+      "Squadra": "COM",
+      "R": "D",
+      "Fuori": 0
+    },
+    "7412": {
+      "Nome": "Milla",
+      "Squadra": "COM",
+      "R": "C",
+      "Fuori": 0
+    },
+    "5036": {
+      "Nome": "Caqueret",
+      "Squadra": "COM",
+      "R": "C",
+      "Fuori": 0
+    },
+    "6678": {
+      "Nome": "Liberali",
+      "Squadra": "COM",
+      "R": "C",
+      "Fuori": 0
+    },
+    "7294": {
+      "Nome": "Valdepenas",
+      "Squadra": "FIO",
+      "R": "D",
+      "Fuori": 0
+    },
+    "7410": {
+      "Nome": "Viery",
+      "Squadra": "FIO",
+      "R": "D",
+      "Fuori": 0
+    },
+    "7464": {
+      "Nome": "Oulai",
+      "Squadra": "FIO",
+      "R": "C",
+      "Fuori": 0
+    },
+    "4952": {
+      "Nome": "Monterisi",
+      "Squadra": "FRO",
+      "R": "D",
+      "Fuori": 0
+    },
+    "6660": {
+      "Nome": "Marcandalli",
+      "Squadra": "GEN",
+      "R": "D",
+      "Fuori": 0
+    },
+    "6020": {
+      "Nome": "Ellertsson",
+      "Squadra": "GEN",
+      "R": "C",
+      "Fuori": 0
+    },
+    "4177": {
+      "Nome": "Pavard",
+      "Squadra": "INT",
+      "R": "D",
+      "Fuori": 0
+    },
+    "218": {
+      "Nome": "Perin",
+      "Squadra": "JUV",
+      "R": "P",
+      "Fuori": 0
+    },
+    "5761": {
+      "Nome": "Zhegrova",
+      "Squadra": "JUV",
+      "R": "C",
+      "Fuori": 0
+    },
+    "2832": {
+      "Nome": "Boga",
+      "Squadra": "JUV",
+      "R": "A",
+      "Fuori": 0
+    },
+    "5620": {
+      "Nome": "Tavares N.",
+      "Squadra": "LAZ",
+      "R": "D",
+      "Fuori": 0
+    },
+    "2188": {
+      "Nome": "Marusic",
+      "Squadra": "LAZ",
+      "R": "D",
+      "Fuori": 0
+    },
+    "6556": {
+      "Nome": "Noslin",
+      "Squadra": "LAZ",
+      "R": "A",
+      "Fuori": 0
+    },
+    "6632": {
+      "Nome": "Gaspar K.",
+      "Squadra": "LEC",
+      "R": "D",
+      "Fuori": 0
+    },
+    "6990": {
+      "Nome": "Veiga D.",
+      "Squadra": "LEC",
+      "R": "D",
+      "Fuori": 0
+    },
+    "4502": {
+      "Nome": "Gallo",
+      "Squadra": "LEC",
+      "R": "D",
+      "Fuori": 0
+    },
+    "6549": {
+      "Nome": "Pierotti",
+      "Squadra": "LEC",
+      "R": "C",
+      "Fuori": 0
+    },
+    "7008": {
+      "Nome": "Gimenez",
+      "Squadra": "MIL",
+      "R": "A",
+      "Fuori": 0
+    },
+    "7485": {
+      "Nome": "Mangas",
+      "Squadra": "MON",
+      "R": "D",
+      "Fuori": 0
+    },
+    "6593": {
+      "Nome": "Akinsanmiro",
+      "Squadra": "MON",
+      "R": "C",
+      "Fuori": 0
+    },
+    "6202": {
+      "Nome": "Beukema",
+      "Squadra": "NAP",
+      "R": "D",
+      "Fuori": 0
+    },
+    "6831": {
+      "Nome": "Neres",
+      "Squadra": "NAP",
+      "R": "A",
+      "Fuori": 0
+    },
+    "6663": {
+      "Nome": "Circati",
+      "Squadra": "PAR",
+      "R": "D",
+      "Fuori": 0
+    },
+    "4349": {
+      "Nome": "Nicolussi Caviglia",
+      "Squadra": "PAR",
+      "R": "C",
+      "Fuori": 0
+    },
+    "2528": {
+      "Nome": "Matic",
+      "Squadra": "SAS",
+      "R": "C",
+      "Fuori": 0
+    },
+    "6495": {
+      "Nome": "Comuzzo",
+      "Squadra": "TOR",
+      "R": "D",
+      "Fuori": 0
+    },
+    "6170": {
+      "Nome": "Gineitis",
+      "Squadra": "TOR",
+      "R": "C",
+      "Fuori": 0
+    },
+    "6248": {
+      "Nome": "Stankovic F.",
+      "Squadra": "VEN",
+      "R": "P",
+      "Fuori": 0
+    },
+    "7253": {
+      "Nome": "Bella-Kotchap",
+      "Squadra": "VEN",
+      "R": "D",
+      "Fuori": 0
+    },
+    "5674": {
+      "Nome": "Basic",
+      "Squadra": "VEN",
+      "R": "C",
+      "Fuori": 0
+    },
+    "7329": {
+      "Nome": "Obrador",
+      "Squadra": "SAS",
+      "R": "D",
+      "Fuori": 0
+    },
+    "7146": {
+      "Nome": "Tourè I.",
+      "Squadra": "MON",
+      "R": "C",
+      "Fuori": 0
+    },
+    "2640": {
+      "Nome": "Kolasinac",
+      "Squadra": "ATA",
+      "R": "D",
+      "Fuori": 0
+    },
+    "4896": {
+      "Nome": "Maldini",
+      "Squadra": "CAG",
+      "R": "A",
+      "Fuori": 0
+    },
+    "7068": {
+      "Nome": "Vitik",
+      "Squadra": "BOL",
+      "R": "D",
+      "Fuori": 0
+    },
+    "5678": {
+      "Nome": "Holm",
+      "Squadra": "BOL",
+      "R": "D",
+      "Fuori": 0
+    },
+    "7528": {
+      "Nome": "Amondarain",
+      "Squadra": "BOL",
+      "R": "C",
+      "Fuori": 0
+    },
+    "7532": {
+      "Nome": "Kofler",
+      "Squadra": "CAG",
+      "R": "D",
+      "Fuori": 0
+    },
+    "7274": {
+      "Nome": "Zè Pedro",
+      "Squadra": "CAG",
+      "R": "D",
+      "Fuori": 0
+    },
+    "6640": {
+      "Nome": "Felici",
+      "Squadra": "CAG",
+      "R": "C",
+      "Fuori": 0
+    },
+    "6893": {
+      "Nome": "Kempf",
+      "Squadra": "COM",
+      "R": "D",
+      "Fuori": 0
+    },
+    "7127": {
+      "Nome": "Addai",
+      "Squadra": "COM",
+      "R": "C",
+      "Fuori": 0
+    },
+    "5449": {
+      "Nome": "Parisi",
+      "Squadra": "FIO",
+      "R": "D",
+      "Fuori": 0
+    },
+    "6415": {
+      "Nome": "Palmisani",
+      "Squadra": "FRO",
+      "R": "P",
+      "Fuori": 0
+    },
+    "7469": {
+      "Nome": "Bracaglia",
+      "Squadra": "FRO",
+      "R": "D",
+      "Fuori": 0
+    },
+    "6238": {
+      "Nome": "Oyono A.",
+      "Squadra": "FRO",
+      "R": "D",
+      "Fuori": 0
+    },
+    "5998": {
+      "Nome": "Zerbin",
+      "Squadra": "FRO",
+      "R": "C",
+      "Fuori": 0
+    },
+    "2593": {
+      "Nome": "Martin",
+      "Squadra": "GEN",
+      "R": "D",
+      "Fuori": 0
+    },
+    "7341": {
+      "Nome": "Amorim",
+      "Squadra": "GEN",
+      "R": "C",
+      "Fuori": 0
+    },
+    "7409": {
+      "Nome": "Meichtry",
+      "Squadra": "GEN",
+      "R": "C",
+      "Fuori": 0
+    },
+    "2857": {
+      "Nome": "Traorè Hj.",
+      "Squadra": "GEN",
+      "R": "C",
+      "Fuori": 0
+    },
+    "2529": {
+      "Nome": "Mkhitaryan",
+      "Squadra": "INT",
+      "R": "C",
+      "Fuori": 0
+    },
+    "6766": {
+      "Nome": "Kelly L.",
+      "Squadra": "JUV",
+      "R": "D",
+      "Fuori": 0
+    },
+    "5685": {
+      "Nome": "Koopmeiners",
+      "Squadra": "JUV",
+      "R": "C",
+      "Fuori": 0
+    },
+    "4817": {
+      "Nome": "Pedraza",
+      "Squadra": "LAZ",
+      "R": "D",
+      "Fuori": 0
+    },
+    "6629": {
+      "Nome": "Dele-Bashiru",
+      "Squadra": "LAZ",
+      "R": "C",
+      "Fuori": 0
+    },
+    "7240": {
+      "Nome": "Siebert",
+      "Squadra": "LEC",
+      "R": "D",
+      "Fuori": 0
+    },
+    "6015": {
+      "Nome": "Berisha M.",
+      "Squadra": "LEC",
+      "R": "C",
+      "Fuori": 0
+    },
+    "7318": {
+      "Nome": "Gandelman",
+      "Squadra": "LEC",
+      "R": "C",
+      "Fuori": 0
+    },
+    "4686": {
+      "Nome": "Fofana Y.",
+      "Squadra": "MIL",
+      "R": "C",
+      "Fuori": 0
+    },
+    "7203": {
+      "Nome": "Jashari",
+      "Squadra": "MIL",
+      "R": "C",
+      "Fuori": 0
+    },
+    "6519": {
+      "Nome": "Camarda",
+      "Squadra": "MIL",
+      "R": "A",
+      "Fuori": 0
+    },
+    "4485": {
+      "Nome": "Thiam",
+      "Squadra": "MON",
+      "R": "P",
+      "Fuori": 0
+    },
+    "5882": {
+      "Nome": "Mota",
+      "Squadra": "MON",
+      "R": "A",
+      "Fuori": 0
+    },
+    "7523": {
+      "Nome": "Varela G.",
+      "Squadra": "MON",
+      "R": "A",
+      "Fuori": 0
+    },
+    "2170": {
+      "Nome": "Milinkovic-Savic V.",
+      "Squadra": "NAP",
+      "R": "P",
+      "Fuori": 0
+    },
+    "5840": {
+      "Nome": "Olivera",
+      "Squadra": "NAP",
+      "R": "D",
+      "Fuori": 0
+    },
+    "6898": {
+      "Nome": "Keita M.",
+      "Squadra": "PAR",
+      "R": "C",
+      "Fuori": 0
+    },
+    "6984": {
+      "Nome": "Ondrejka",
+      "Squadra": "PAR",
+      "R": "C",
+      "Fuori": 0
+    },
+    "7213": {
+      "Nome": "Frigan",
+      "Squadra": "PAR",
+      "R": "A",
+      "Fuori": 0
+    },
+    "6986": {
+      "Nome": "Rensch",
+      "Squadra": "ROM",
+      "R": "D",
+      "Fuori": 0
+    },
+    "6677": {
+      "Nome": "Adzic",
+      "Squadra": "SAS",
+      "R": "C",
+      "Fuori": 0
+    },
+    "7036": {
+      "Nome": "Bakola",
+      "Squadra": "SAS",
+      "R": "C",
+      "Fuori": 0
+    },
+    "6426": {
+      "Nome": "Pedersen",
+      "Squadra": "TOR",
+      "R": "D",
+      "Fuori": 0
+    },
+    "7060": {
+      "Nome": "Cacciamani",
+      "Squadra": "TOR",
+      "R": "C",
+      "Fuori": 0
+    },
+    "6827": {
+      "Nome": "Njie",
+      "Squadra": "TOR",
+      "R": "C",
+      "Fuori": 0
+    },
+    "7198": {
+      "Nome": "Piotrowski",
+      "Squadra": "UDI",
+      "R": "C",
+      "Fuori": 0
+    },
+    "6890": {
+      "Nome": "Moreno M.",
+      "Squadra": "VEN",
+      "R": "D",
+      "Fuori": 0
+    },
+    "4845": {
+      "Nome": "Correia T.",
+      "Squadra": "VEN",
+      "R": "D",
+      "Fuori": 0
+    },
+    "5695": {
+      "Nome": "Haps",
+      "Squadra": "VEN",
+      "R": "D",
+      "Fuori": 0
+    },
+    "5507": {
+      "Nome": "Busio",
+      "Squadra": "VEN",
+      "R": "C",
+      "Fuori": 0
+    },
+    "5319": {
+      "Nome": "Sohm",
+      "Squadra": "VEN",
+      "R": "C",
+      "Fuori": 0
+    },
+    "6994": {
+      "Nome": "Perez K.",
+      "Squadra": "VEN",
+      "R": "C",
+      "Fuori": 0
+    },
+    "4387": {
+      "Nome": "Adorante",
+      "Squadra": "VEN",
+      "R": "A",
+      "Fuori": 0
+    },
+    "7550": {
+      "Nome": "Grillitsch",
+      "Squadra": "FRO",
+      "R": "C",
+      "Fuori": 0
+    },
+    "2012": {
+      "Nome": "Milik",
+      "Squadra": "JUV",
+      "R": "A",
+      "Fuori": 0
+    },
+    "6618": {
+      "Nome": "Cissè A.",
+      "Squadra": "MIL",
+      "R": "C",
+      "Fuori": 0
+    },
+    "7069": {
+      "Nome": "Fortini",
+      "Squadra": "TOR",
+      "R": "D",
+      "Fuori": 0
+    },
+    "7564": {
+      "Nome": "Leysen F.",
+      "Squadra": "SAS",
+      "R": "D",
+      "Fuori": 0
+    },
+    "7610": {
+      "Nome": "Birligea",
+      "Squadra": "FRO",
+      "R": "A",
+      "Fuori": 0
+    },
+    "6145": {
+      "Nome": "Ngonge",
+      "Squadra": "MON",
+      "R": "A",
+      "Fuori": 0
+    },
+    "22": {
+      "Nome": "De Roon",
+      "Squadra": "ATA",
+      "R": "C",
+      "Fuori": 0
+    },
+    "6054": {
+      "Nome": "Moro N.",
+      "Squadra": "BOL",
+      "R": "C",
+      "Fuori": 0
+    },
+    "6895": {
+      "Nome": "Dominguez B.",
+      "Squadra": "SAS",
+      "R": "C",
+      "Fuori": 0
+    },
+    "7268": {
+      "Nome": "Rodriguez Ju.",
+      "Squadra": "CAG",
+      "R": "D",
+      "Fuori": 0
+    },
+    "4461": {
+      "Nome": "Zappa",
+      "Squadra": "CAG",
+      "R": "D",
+      "Fuori": 0
+    },
+    "1871": {
+      "Nome": "Deiola",
+      "Squadra": "CAG",
+      "R": "C",
+      "Fuori": 0
+    },
+    "6424": {
+      "Nome": "Prati",
+      "Squadra": "CAG",
+      "R": "C",
+      "Fuori": 0
+    },
+    "6243": {
+      "Nome": "Borrelli",
+      "Squadra": "CAG",
+      "R": "A",
+      "Fuori": 0
+    },
+    "7374": {
+      "Nome": "Mendy P.",
+      "Squadra": "CAG",
+      "R": "A",
+      "Fuori": 0
+    },
+    "7014": {
+      "Nome": "Smolcic I.",
+      "Squadra": "COM",
+      "R": "D",
+      "Fuori": 0
+    },
+    "313": {
+      "Nome": "Morata",
+      "Squadra": "COM",
+      "R": "A",
+      "Fuori": 0
+    },
+    "5603": {
+      "Nome": "Pongracic",
+      "Squadra": "FIO",
+      "R": "D",
+      "Fuori": 0
+    },
+    "6206": {
+      "Nome": "Fabbian",
+      "Squadra": "PAR",
+      "R": "C",
+      "Fuori": 0
+    },
+    "7467": {
+      "Nome": "Calvani",
+      "Squadra": "FRO",
+      "R": "D",
+      "Fuori": 0
+    },
+    "7473": {
+      "Nome": "Cichella",
+      "Squadra": "FRO",
+      "R": "C",
+      "Fuori": 0
+    },
+    "7474": {
+      "Nome": "Koutsoupias",
+      "Squadra": "FRO",
+      "R": "C",
+      "Fuori": 0
+    },
+    "6506": {
+      "Nome": "Fini",
+      "Squadra": "FRO",
+      "R": "C",
+      "Fuori": 0
+    },
+    "6204": {
+      "Nome": "Kvernadze",
+      "Squadra": "FRO",
+      "R": "A",
+      "Fuori": 0
+    },
+    "7537": {
+      "Nome": "Mitaj",
+      "Squadra": "GEN",
+      "R": "D",
+      "Fuori": 0
+    },
+    "4970": {
+      "Nome": "Messias",
+      "Squadra": "GEN",
+      "R": "C",
+      "Fuori": 0
+    },
+    "7453": {
+      "Nome": "Havel",
+      "Squadra": "GEN",
+      "R": "A",
+      "Fuori": 0
+    },
+    "5301": {
+      "Nome": "Luis Henrique",
+      "Squadra": "INT",
+      "R": "C",
+      "Fuori": 0
+    },
+    "5831": {
+      "Nome": "Gatti",
+      "Squadra": "JUV",
+      "R": "D",
+      "Fuori": 0
+    },
+    "4911": {
+      "Nome": "Douglas Luiz",
+      "Squadra": "JUV",
+      "R": "C",
+      "Fuori": 0
+    },
+    "333": {
+      "Nome": "Cataldi",
+      "Squadra": "LAZ",
+      "R": "C",
+      "Fuori": 0
+    },
+    "7322": {
+      "Nome": "Ngom",
+      "Squadra": "LEC",
+      "R": "C",
+      "Fuori": 0
+    },
+    "5739": {
+      "Nome": "De Winter",
+      "Squadra": "MIL",
+      "R": "D",
+      "Fuori": 0
+    },
+    "5273": {
+      "Nome": "Estupinan",
+      "Squadra": "MIL",
+      "R": "D",
+      "Fuori": 0
+    },
+    "5453": {
+      "Nome": "Ricci S.",
+      "Squadra": "MIL",
+      "R": "C",
+      "Fuori": 0
+    },
+    "4199": {
+      "Nome": "Loftus-Cheek",
+      "Squadra": "MIL",
+      "R": "C",
+      "Fuori": 0
+    },
+    "2115": {
+      "Nome": "Delli Carri",
+      "Squadra": "MON",
+      "R": "D",
+      "Fuori": 0
+    },
+    "6659": {
+      "Nome": "Lucchesi",
+      "Squadra": "MON",
+      "R": "D",
+      "Fuori": 0
+    },
+    "5838": {
+      "Nome": "Birindelli",
+      "Squadra": "MON",
+      "R": "D",
+      "Fuori": 0
+    },
+    "6252": {
+      "Nome": "Folorunsho",
+      "Squadra": "MON",
+      "R": "C",
+      "Fuori": 0
+    },
+    "7162": {
+      "Nome": "Giovane",
+      "Squadra": "NAP",
+      "R": "A",
+      "Fuori": 0
+    },
+    "7120": {
+      "Nome": "Lang",
+      "Squadra": "NAP",
+      "R": "A",
+      "Fuori": 0
+    },
+    "6215": {
+      "Nome": "Lucca",
+      "Squadra": "NAP",
+      "R": "A",
+      "Fuori": 0
+    },
+    "7235": {
+      "Nome": "Troilo",
+      "Squadra": "PAR",
+      "R": "D",
+      "Fuori": 0
+    },
+    "5307": {
+      "Nome": "Valenti",
+      "Squadra": "PAR",
+      "R": "D",
+      "Fuori": 0
+    },
+    "6207": {
+      "Nome": "Almqvist",
+      "Squadra": "PAR",
+      "R": "C",
+      "Fuori": 0
+    },
+    "7536": {
+      "Nome": "Diallo O.",
+      "Squadra": "PAR",
+      "R": "C",
+      "Fuori": 0
+    },
+    "6631": {
+      "Nome": "Ghilardi",
+      "Squadra": "ROM",
+      "R": "D",
+      "Fuori": 0
+    },
+    "6271": {
+      "Nome": "El Aynaoui",
+      "Squadra": "ROM",
+      "R": "C",
+      "Fuori": 0
+    },
+    "4374": {
+      "Nome": "Walukiewicz",
+      "Squadra": "SAS",
+      "R": "D",
+      "Fuori": 0
+    },
+    "5851": {
+      "Nome": "Doig",
+      "Squadra": "SAS",
+      "R": "D",
+      "Fuori": 0
+    },
+    "7526": {
+      "Nome": "Comert",
+      "Squadra": "TOR",
+      "R": "D",
+      "Fuori": 0
+    },
+    "7535": {
+      "Nome": "Fitz-Jim",
+      "Squadra": "TOR",
+      "R": "C",
+      "Fuori": 0
+    },
+    "6005": {
+      "Nome": "Ilkhan",
+      "Squadra": "TOR",
+      "R": "C",
+      "Fuori": 0
+    },
+    "7349": {
+      "Nome": "Kulenovic",
+      "Squadra": "TOR",
+      "R": "A",
+      "Fuori": 0
+    },
+    "4263": {
+      "Nome": "Kabasele",
+      "Squadra": "UDI",
+      "R": "D",
+      "Fuori": 0
+    },
+    "5820": {
+      "Nome": "Bertola",
+      "Squadra": "UDI",
+      "R": "D",
+      "Fuori": 0
+    },
+    "5527": {
+      "Nome": "Zanoli",
+      "Squadra": "UDI",
+      "R": "D",
+      "Fuori": 0
+    },
+    "7312": {
+      "Nome": "Arizala",
+      "Squadra": "UDI",
+      "R": "D",
+      "Fuori": 0
+    },
+    "7208": {
+      "Nome": "Miller L.",
+      "Squadra": "UDI",
+      "R": "C",
+      "Fuori": 0
+    },
+    "7272": {
+      "Nome": "Gueye",
+      "Squadra": "UDI",
+      "R": "A",
+      "Fuori": 0
+    },
+    "7538": {
+      "Nome": "Halhal",
+      "Squadra": "VEN",
+      "R": "D",
+      "Fuori": 0
+    },
+    "7546": {
+      "Nome": "Robinson J.",
+      "Squadra": "MON",
+      "R": "A",
+      "Fuori": 0
+    },
+    "4375": {
+      "Nome": "Terzic",
+      "Squadra": "FRO",
+      "R": "D",
+      "Fuori": 0
+    },
+    "7563": {
+      "Nome": "Favasuli",
+      "Squadra": "NAP",
+      "R": "D",
+      "Fuori": 0
+    },
+    "7602": {
+      "Nome": "Fatah",
+      "Squadra": "LEC",
+      "R": "A",
+      "Fuori": 0
+    },
+    "5578": {
+      "Nome": "Kossounou",
+      "Squadra": "ATA",
+      "R": "D",
+      "Fuori": 0
+    },
+    "6024": {
+      "Nome": "Sulemana I.",
+      "Squadra": "ATA",
+      "R": "C",
+      "Fuori": 0
+    },
+    "5498": {
+      "Nome": "Casale",
+      "Squadra": "BOL",
+      "R": "D",
+      "Fuori": 0
+    },
+    "7326": {
+      "Nome": "Helland",
+      "Squadra": "BOL",
+      "R": "D",
+      "Fuori": 0
+    },
+    "7125": {
+      "Nome": "Idrissi R.",
+      "Squadra": "CAG",
+      "R": "D",
+      "Fuori": 0
+    },
+    "7128": {
+      "Nome": "Kuhn",
+      "Squadra": "COM",
+      "R": "A",
+      "Fuori": 0
+    },
+    "4378": {
+      "Nome": "Ranieri L.",
+      "Squadra": "FIO",
+      "R": "D",
+      "Fuori": 0
+    },
+    "7175": {
+      "Nome": "Joao Mario",
+      "Squadra": "FIO",
+      "R": "D",
+      "Fuori": 0
+    },
+    "4947": {
+      "Nome": "Brescianini",
+      "Squadra": "FIO",
+      "R": "C",
+      "Fuori": 0
+    },
+    "7540": {
+      "Nome": "Akpoguma",
+      "Squadra": "FRO",
+      "R": "D",
+      "Fuori": 0
+    },
+    "5757": {
+      "Nome": "Cittadini",
+      "Squadra": "FRO",
+      "R": "D",
+      "Fuori": 0
+    },
+    "6241": {
+      "Nome": "Gelli F.",
+      "Squadra": "FRO",
+      "R": "C",
+      "Fuori": 0
+    },
+    "6903": {
+      "Nome": "Hasa",
+      "Squadra": "FRO",
+      "R": "C",
+      "Fuori": 0
+    },
+    "6917": {
+      "Nome": "Masini",
+      "Squadra": "FRO",
+      "R": "C",
+      "Fuori": 0
+    },
+    "6503": {
+      "Nome": "Stankovic A.",
+      "Squadra": "INT",
+      "R": "C",
+      "Fuori": 0
+    },
+    "5813": {
+      "Nome": "Miretti",
+      "Squadra": "JUV",
+      "R": "C",
+      "Fuori": 0
+    },
+    "6822": {
+      "Nome": "Ekhator",
+      "Squadra": "JUV",
+      "R": "A",
+      "Fuori": 0
+    },
+    "7012": {
+      "Nome": "Provstgaard",
+      "Squadra": "LAZ",
+      "R": "D",
+      "Fuori": 0
+    },
+    "7131": {
+      "Nome": "Floriani Mussolini",
+      "Squadra": "LAZ",
+      "R": "D",
+      "Fuori": 0
+    },
+    "7248": {
+      "Nome": "Gorter",
+      "Squadra": "LEC",
+      "R": "C",
+      "Fuori": 0
+    },
+    "5457": {
+      "Nome": "Maleh",
+      "Squadra": "LEC",
+      "R": "C",
+      "Fuori": 0
+    },
+    "7001": {
+      "Nome": "N'Dri",
+      "Squadra": "LEC",
+      "R": "A",
+      "Fuori": 0
+    },
+    "7211": {
+      "Nome": "Athekame",
+      "Squadra": "MIL",
+      "R": "D",
+      "Fuori": 0
+    },
+    "5295": {
+      "Nome": "Musah",
+      "Squadra": "MIL",
+      "R": "C",
+      "Fuori": 0
+    },
+    "7238": {
+      "Nome": "Kouadio",
+      "Squadra": "MON",
+      "R": "D",
+      "Fuori": 0
+    },
+    "4925": {
+      "Nome": "Carboni A.",
+      "Squadra": "MON",
+      "R": "D",
+      "Fuori": 0
+    },
+    "7477": {
+      "Nome": "Colombo L.",
+      "Squadra": "MON",
+      "R": "C",
+      "Fuori": 0
+    },
+    "5131": {
+      "Nome": "Gilmour",
+      "Squadra": "NAP",
+      "R": "C",
+      "Fuori": 0
+    },
+    "7255": {
+      "Nome": "Britschgi",
+      "Squadra": "PAR",
+      "R": "D",
+      "Fuori": 0
+    },
+    "7138": {
+      "Nome": "Ordonez C.",
+      "Squadra": "PAR",
+      "R": "C",
+      "Fuori": 0
+    },
+    "7209": {
+      "Nome": "Sorensen O.",
+      "Squadra": "PAR",
+      "R": "C",
+      "Fuori": 0
+    },
+    "7342": {
+      "Nome": "Elphege",
+      "Squadra": "PAR",
+      "R": "A",
+      "Fuori": 0
+    },
+    "4772": {
+      "Nome": "Angelino",
+      "Squadra": "ROM",
+      "R": "D",
+      "Fuori": 0
+    },
+    "6985": {
+      "Nome": "Candè",
+      "Squadra": "SAS",
+      "R": "D",
+      "Fuori": 0
+    },
+    "7183": {
+      "Nome": "Aboukhlal",
+      "Squadra": "TOR",
+      "R": "C",
+      "Fuori": 0
+    },
+    "6925": {
+      "Nome": "Palma",
+      "Squadra": "UDI",
+      "R": "D",
+      "Fuori": 0
+    },
+    "5994": {
+      "Nome": "Ebosse",
+      "Squadra": "UDI",
+      "R": "D",
+      "Fuori": 0
+    },
+    "6892": {
+      "Nome": "Schingtienne",
+      "Squadra": "VEN",
+      "R": "D",
+      "Fuori": 0
+    },
+    "6673": {
+      "Nome": "Sverko",
+      "Squadra": "VEN",
+      "R": "D",
+      "Fuori": 0
+    },
+    "6821": {
+      "Nome": "Hainaut",
+      "Squadra": "VEN",
+      "R": "D",
+      "Fuori": 0
+    },
+    "5872": {
+      "Nome": "Helgason",
+      "Squadra": "VEN",
+      "R": "C",
+      "Fuori": 0
+    },
+    "7154": {
+      "Nome": "Odenthal",
+      "Squadra": "SAS",
+      "R": "D",
+      "Fuori": 0
+    },
+    "7605": {
+      "Nome": "Tchato",
+      "Squadra": "FRO",
+      "R": "D",
+      "Fuori": 0
+    },
+    "6601": {
+      "Nome": "Kambwala",
+      "Squadra": "COM",
+      "R": "D",
+      "Fuori": 0
+    },
+    "7483": {
+      "Nome": "Alhassane",
+      "Squadra": "BOL",
+      "R": "D",
+      "Fuori": 0
+    },
+    "6225": {
+      "Nome": "El Azzouzi O.",
+      "Squadra": "BOL",
+      "R": "C",
+      "Fuori": 0
+    },
+    "6896": {
+      "Nome": "Van Der Brempt",
+      "Squadra": "COM",
+      "R": "D",
+      "Fuori": 0
+    },
+    "6815": {
+      "Nome": "Fadera",
+      "Squadra": "CAG",
+      "R": "C",
+      "Fuori": 0
+    },
+    "7463": {
+      "Nome": "Desplanches",
+      "Squadra": "FRO",
+      "R": "P",
+      "Fuori": 0
+    },
+    "6977": {
+      "Nome": "Otoa",
+      "Squadra": "GEN",
+      "R": "D",
+      "Fuori": 0
+    },
+    "7413": {
+      "Nome": "Puczka",
+      "Squadra": "GEN",
+      "R": "D",
+      "Fuori": 0
+    },
+    "791": {
+      "Nome": "Sabelli",
+      "Squadra": "GEN",
+      "R": "D",
+      "Fuori": 0
+    },
+    "6980": {
+      "Nome": "Venturino",
+      "Squadra": "GEN",
+      "R": "C",
+      "Fuori": 0
+    },
+    "2814": {
+      "Nome": "Provedel",
+      "Squadra": "INT",
+      "R": "P",
+      "Fuori": 0
+    },
+    "2263": {
+      "Nome": "Lazzari",
+      "Squadra": "LAZ",
+      "R": "D",
+      "Fuori": 0
+    },
+    "2728": {
+      "Nome": "Pellegrini Lu.",
+      "Squadra": "LAZ",
+      "R": "D",
+      "Fuori": 0
+    },
+    "6883": {
+      "Nome": "Jean",
+      "Squadra": "LEC",
+      "R": "D",
+      "Fuori": 0
+    },
+    "7182": {
+      "Nome": "Ndaba",
+      "Squadra": "LEC",
+      "R": "D",
+      "Fuori": 0
+    },
+    "7525": {
+      "Nome": "Diawara S.",
+      "Squadra": "MIL",
+      "R": "D",
+      "Fuori": 0
+    },
+    "7476": {
+      "Nome": "Bakoune",
+      "Squadra": "MON",
+      "R": "D",
+      "Fuori": 0
+    },
+    "5880": {
+      "Nome": "Ciurria",
+      "Squadra": "MON",
+      "R": "C",
+      "Fuori": 0
+    },
+    "383": {
+      "Nome": "Petagna",
+      "Squadra": "MON",
+      "R": "A",
+      "Fuori": 0
+    },
+    "6638": {
+      "Nome": "Marin R.",
+      "Squadra": "NAP",
+      "R": "D",
+      "Fuori": 0
+    },
+    "7202": {
+      "Nome": "Ndiaye",
+      "Squadra": "PAR",
+      "R": "D",
+      "Fuori": 0
+    },
+    "6219": {
+      "Nome": "Boloca",
+      "Squadra": "SAS",
+      "R": "C",
+      "Fuori": 0
+    },
+    "6246": {
+      "Nome": "Lipani",
+      "Squadra": "SAS",
+      "R": "C",
+      "Fuori": 0
+    },
+    "252": {
+      "Nome": "Biraghi",
+      "Squadra": "TOR",
+      "R": "D",
+      "Fuori": 0
+    },
+    "6021": {
+      "Nome": "Abankwah",
+      "Squadra": "UDI",
+      "R": "D",
+      "Fuori": 0
+    },
+    "7418": {
+      "Nome": "Chakvetadze",
+      "Squadra": "UDI",
+      "R": "C",
+      "Fuori": 0
+    },
+    "7249": {
+      "Nome": "Buksa",
+      "Squadra": "UDI",
+      "R": "A",
+      "Fuori": 0
+    },
+    "7478": {
+      "Nome": "Franjic",
+      "Squadra": "VEN",
+      "R": "D",
+      "Fuori": 0
+    },
+    "6681": {
+      "Nome": "Sagrado",
+      "Squadra": "VEN",
+      "R": "D",
+      "Fuori": 0
+    },
+    "526": {
+      "Nome": "Duncan",
+      "Squadra": "VEN",
+      "R": "C",
+      "Fuori": 0
+    },
+    "7548": {
+      "Nome": "Aurelio",
+      "Squadra": "CAG",
+      "R": "D",
+      "Fuori": 0
+    },
+    "7561": {
+      "Nome": "Lontani",
+      "Squadra": "PAR",
+      "R": "A",
+      "Fuori": 0
+    },
+    "6592": {
+      "Nome": "Forson O.",
+      "Squadra": "MON",
+      "R": "C",
+      "Fuori": 0
+    },
+    "7573": {
+      "Nome": "Cinquegrano",
+      "Squadra": "SAS",
+      "R": "D",
+      "Fuori": 0
+    },
+    "5812": {
+      "Nome": "Terracciano F.",
+      "Squadra": "MIL",
+      "R": "D",
+      "Fuori": 0
+    },
+    "2297": {
+      "Nome": "Rossi F.",
+      "Squadra": "ATA",
+      "R": "P",
+      "Fuori": 0
+    },
+    "4": {
+      "Nome": "Sportiello",
+      "Squadra": "ATA",
+      "R": "P",
+      "Fuori": 0
+    },
+    "7533": {
+      "Nome": "Happonen",
+      "Squadra": "BOL",
+      "R": "P",
+      "Fuori": 0
+    },
+    "7172": {
+      "Nome": "Pessina Mas.",
+      "Squadra": "BOL",
+      "R": "P",
+      "Fuori": 0
+    },
+    "487": {
+      "Nome": "De Silvestri",
+      "Squadra": "BOL",
+      "R": "D",
+      "Fuori": 0
+    },
+    "4929": {
+      "Nome": "Ciocci",
+      "Squadra": "CAG",
+      "R": "P",
+      "Fuori": 0
+    },
+    "6650": {
+      "Nome": "Sherri",
+      "Squadra": "CAG",
+      "R": "P",
+      "Fuori": 0
+    },
+    "7346": {
+      "Nome": "Raterink",
+      "Squadra": "CAG",
+      "R": "D",
+      "Fuori": 0
+    },
+    "7165": {
+      "Nome": "Liteta",
+      "Squadra": "CAG",
+      "R": "C",
+      "Fuori": 0
+    },
+    "7338": {
+      "Nome": "Albarracin",
+      "Squadra": "CAG",
+      "R": "A",
+      "Fuori": 0
+    },
+    "7317": {
+      "Nome": "Trepy",
+      "Squadra": "CAG",
+      "R": "A",
+      "Fuori": 0
+    },
+    "7301": {
+      "Nome": "Tornqvist",
+      "Squadra": "COM",
+      "R": "P",
+      "Fuori": 0
+    },
+    "2809": {
+      "Nome": "Vigorito",
+      "Squadra": "COM",
+      "R": "P",
+      "Fuori": 0
+    },
+    "418": {
+      "Nome": "Goldaniga",
+      "Squadra": "COM",
+      "R": "D",
+      "Fuori": 0
+    },
+    "7407": {
+      "Nome": "Cuenca A.",
+      "Squadra": "COM",
+      "R": "D",
+      "Fuori": 0
+    },
+    "7357": {
+      "Nome": "Lahdo",
+      "Squadra": "COM",
+      "R": "C",
+      "Fuori": 0
+    },
+    "7027": {
+      "Nome": "Azon",
+      "Squadra": "COM",
+      "R": "A",
+      "Fuori": 0
+    },
+    "6403": {
+      "Nome": "Christensen O.",
+      "Squadra": "FIO",
+      "R": "P",
+      "Fuori": 0
+    },
+    "158": {
+      "Nome": "Lezzerini",
+      "Squadra": "FIO",
+      "R": "P",
+      "Fuori": 0
+    },
+    "7466": {
+      "Nome": "Lolic",
+      "Squadra": "FRO",
+      "R": "P",
+      "Fuori": 0
+    },
+    "5424": {
+      "Nome": "Amey",
+      "Squadra": "FRO",
+      "R": "D",
+      "Fuori": 0
+    },
+    "7468": {
+      "Nome": "Gelli J.",
+      "Squadra": "FRO",
+      "R": "D",
+      "Fuori": 0
+    },
+    "7470": {
+      "Nome": "Oyono J.",
+      "Squadra": "FRO",
+      "R": "D",
+      "Fuori": 0
+    },
+    "7471": {
+      "Nome": "Corrado",
+      "Squadra": "FRO",
+      "R": "D",
+      "Fuori": 0
+    },
+    "7456": {
+      "Nome": "El Azzouzi A.",
+      "Squadra": "FRO",
+      "R": "C",
+      "Fuori": 0
+    },
+    "5725": {
+      "Nome": "Kone B.",
+      "Squadra": "FRO",
+      "R": "C",
+      "Fuori": 0
+    },
+    "219": {
+      "Nome": "Sommariva",
+      "Squadra": "GEN",
+      "R": "P",
+      "Fuori": 0
+    },
+    "6569": {
+      "Nome": "Stolz",
+      "Squadra": "GEN",
+      "R": "P",
+      "Fuori": 0
+    },
+    "6245": {
+      "Nome": "Vogliacco",
+      "Squadra": "GEN",
+      "R": "D",
+      "Fuori": 0
+    },
+    "6244": {
+      "Nome": "Matturro",
+      "Squadra": "GEN",
+      "R": "D",
+      "Fuori": 0
+    },
+    "1926": {
+      "Nome": "Di Gennaro",
+      "Squadra": "INT",
+      "R": "P",
+      "Fuori": 0
+    },
+    "1930": {
+      "Nome": "Pinsoglio",
+      "Squadra": "JUV",
+      "R": "P",
+      "Fuori": 0
+    },
+    "294": {
+      "Nome": "Rugani",
+      "Squadra": "JUV",
+      "R": "D",
+      "Fuori": 0
+    },
+    "6039": {
+      "Nome": "Cabal",
+      "Squadra": "JUV",
+      "R": "D",
+      "Fuori": 0
+    },
+    "7337": {
+      "Nome": "Motta",
+      "Squadra": "LAZ",
+      "R": "P",
+      "Fuori": 0
+    },
+    "7534": {
+      "Nome": "Renzetti",
+      "Squadra": "LAZ",
+      "R": "P",
+      "Fuori": 0
+    },
+    "327": {
+      "Nome": "Patric",
+      "Squadra": "LAZ",
+      "R": "D",
+      "Fuori": 0
+    },
+    "6191": {
+      "Nome": "Belahyane",
+      "Squadra": "LAZ",
+      "R": "C",
+      "Fuori": 0
+    },
+    "7345": {
+      "Nome": "Przyborek",
+      "Squadra": "LAZ",
+      "R": "C",
+      "Fuori": 0
+    },
+    "2401": {
+      "Nome": "Fruchtl",
+      "Squadra": "LEC",
+      "R": "P",
+      "Fuori": 0
+    },
+    "6523": {
+      "Nome": "Samooja",
+      "Squadra": "LEC",
+      "R": "P",
+      "Fuori": 0
+    },
+    "7164": {
+      "Nome": "Perez M.",
+      "Squadra": "LEC",
+      "R": "D",
+      "Fuori": 0
+    },
+    "6410": {
+      "Nome": "Kaba",
+      "Squadra": "LEC",
+      "R": "C",
+      "Fuori": 0
+    },
+    "7319": {
+      "Nome": "Fofana Sa.",
+      "Squadra": "LEC",
+      "R": "C",
+      "Fuori": 0
+    },
+    "2815": {
+      "Nome": "Terracciano",
+      "Squadra": "MIL",
+      "R": "P",
+      "Fuori": 0
+    },
+    "6813": {
+      "Nome": "Torriani",
+      "Squadra": "MIL",
+      "R": "P",
+      "Fuori": 0
+    },
+    "6682": {
+      "Nome": "Pizzignacco",
+      "Squadra": "MON",
+      "R": "P",
+      "Fuori": 0
+    },
+    "7475": {
+      "Nome": "Strajnar",
+      "Squadra": "MON",
+      "R": "P",
+      "Fuori": 0
+    },
+    "5399": {
+      "Nome": "Antov",
+      "Squadra": "MON",
+      "R": "D",
+      "Fuori": 0
+    },
+    "2845": {
+      "Nome": "Contini",
+      "Squadra": "NAP",
+      "R": "P",
+      "Fuori": 0
+    },
+    "6809": {
+      "Nome": "Marianucci",
+      "Squadra": "NAP",
+      "R": "D",
+      "Fuori": 0
+    },
+    "5481": {
+      "Nome": "Mazzocchi",
+      "Squadra": "NAP",
+      "R": "D",
+      "Fuori": 0
+    },
+    "6662": {
+      "Nome": "Corvi",
+      "Squadra": "PAR",
+      "R": "P",
+      "Fuori": 0
+    },
+    "6149": {
+      "Nome": "Carboni F.",
+      "Squadra": "PAR",
+      "R": "D",
+      "Fuori": 0
+    },
+    "7276": {
+      "Nome": "Cremaschi",
+      "Squadra": "PAR",
+      "R": "C",
+      "Fuori": 0
+    },
+    "7048": {
+      "Nome": "De Marzi",
+      "Squadra": "ROM",
+      "R": "P",
+      "Fuori": 0
+    },
+    "610": {
+      "Nome": "Gollini",
+      "Squadra": "ROM",
+      "R": "P",
+      "Fuori": 0
+    },
+    "7260": {
+      "Nome": "Ziolkowski",
+      "Squadra": "ROM",
+      "R": "D",
+      "Fuori": 0
+    },
+    "6981": {
+      "Nome": "Vaz",
+      "Squadra": "ROM",
+      "R": "A",
+      "Fuori": 0
+    },
+    "4518": {
+      "Nome": "Russo A.",
+      "Squadra": "SAS",
+      "R": "P",
+      "Fuori": 0
+    },
+    "4867": {
+      "Nome": "Turati",
+      "Squadra": "SAS",
+      "R": "P",
+      "Fuori": 0
+    },
+    "6189": {
+      "Nome": "Missori",
+      "Squadra": "SAS",
+      "R": "D",
+      "Fuori": 0
+    },
+    "7156": {
+      "Nome": "Pieragnolo",
+      "Squadra": "SAS",
+      "R": "D",
+      "Fuori": 0
+    },
+    "7157": {
+      "Nome": "Iannoni",
+      "Squadra": "SAS",
+      "R": "C",
+      "Fuori": 0
+    },
+    "7158": {
+      "Nome": "Moro L.",
+      "Squadra": "SAS",
+      "R": "A",
+      "Fuori": 0
+    },
+    "7457": {
+      "Nome": "Mascardi",
+      "Squadra": "TOR",
+      "R": "P",
+      "Fuori": 0
+    },
+    "5320": {
+      "Nome": "Paleari",
+      "Squadra": "TOR",
+      "R": "P",
+      "Fuori": 0
+    },
+    "7363": {
+      "Nome": "Siviero",
+      "Squadra": "TOR",
+      "R": "P",
+      "Fuori": 0
+    },
+    "5007": {
+      "Nome": "Ilic",
+      "Squadra": "LEC",
+      "R": "C",
+      "Fuori": 0
+    },
+    "6889": {
+      "Nome": "Anjorin",
+      "Squadra": "TOR",
+      "R": "C",
+      "Fuori": 0
+    },
+    "543": {
+      "Nome": "Padelli",
+      "Squadra": "UDI",
+      "R": "P",
+      "Fuori": 0
+    },
+    "5707": {
+      "Nome": "Piana",
+      "Squadra": "UDI",
+      "R": "P",
+      "Fuori": 0
+    },
+    "7356": {
+      "Nome": "Mlacic",
+      "Squadra": "UDI",
+      "R": "D",
+      "Fuori": 0
+    },
+    "7392": {
+      "Nome": "Camara A.",
+      "Squadra": "UDI",
+      "R": "C",
+      "Fuori": 0
+    },
+    "6212": {
+      "Nome": "Zarraga",
+      "Squadra": "UDI",
+      "R": "C",
+      "Fuori": 0
+    },
+    "7161": {
+      "Nome": "Bayo V.",
+      "Squadra": "UDI",
+      "R": "A",
+      "Fuori": 0
+    },
+    "6671": {
+      "Nome": "Grandi",
+      "Squadra": "VEN",
+      "R": "P",
+      "Fuori": 0
+    },
+    "7531": {
+      "Nome": "Pozzi",
+      "Squadra": "VEN",
+      "R": "P",
+      "Fuori": 0
+    },
+    "7454": {
+      "Nome": "Gomes",
+      "Squadra": "VEN",
+      "R": "D",
+      "Fuori": 0
+    },
+    "5485": {
+      "Nome": "Bjarkason",
+      "Squadra": "VEN",
+      "R": "C",
+      "Fuori": 0
+    },
+    "7481": {
+      "Nome": "Dagasso",
+      "Squadra": "VEN",
+      "R": "C",
+      "Fuori": 0
+    },
+    "7408": {
+      "Nome": "Lisman",
+      "Squadra": "VEN",
+      "R": "A",
+      "Fuori": 0
+    },
+    "7482": {
+      "Nome": "Lauberbach",
+      "Squadra": "VEN",
+      "R": "A",
+      "Fuori": 0
+    },
+    "7545": {
+      "Nome": "Vismara",
+      "Squadra": "ATA",
+      "R": "P",
+      "Fuori": 0
+    },
+    "2127": {
+      "Nome": "Satalino",
+      "Squadra": "SAS",
+      "R": "P",
+      "Fuori": 0
+    },
+    "7557": {
+      "Nome": "Penev",
+      "Squadra": "LEC",
+      "R": "P",
+      "Fuori": 0
+    },
+    "7560": {
+      "Nome": "Pisseri",
+      "Squadra": "FRO",
+      "R": "P",
+      "Fuori": 0
+    },
+    "3": {
+      "Nome": "Radunovic",
+      "Squadra": "CAG",
+      "R": "P",
+      "Fuori": 0
+    },
+    "7568": {
+      "Nome": "De Martis",
+      "Squadra": "PAR",
+      "R": "A",
+      "Fuori": 0
+    },
+    "4957": {
+      "Nome": "Montipò",
+      "Squadra": "VEN",
+      "R": "P",
+      "Fuori": 0
+    },
+    "7553": {
+      "Nome": "Omar Fayed",
+      "Squadra": "FRO",
+      "R": "D",
+      "Fuori": 0
+    },
+    "4468": {
+      "Nome": "Bleve",
+      "Squadra": "LEC",
+      "R": "P",
+      "Fuori": 0
+    },
+    "7571": {
+      "Nome": "Laerke",
+      "Squadra": "LEC",
+      "R": "C",
+      "Fuori": 0
+    },
+    "7572": {
+      "Nome": "Comotto",
+      "Squadra": "MIL",
+      "R": "C",
+      "Fuori": 0
+    },
+    "7396": {
+      "Nome": "Macchioni",
+      "Squadra": "SAS",
+      "R": "D",
+      "Fuori": 0
+    },
+    "7574": {
+      "Nome": "Foe Ondoa",
+      "Squadra": "MON",
+      "R": "C",
+      "Fuori": 0
+    },
+    "7575": {
+      "Nome": "Mout",
+      "Squadra": "MON",
+      "R": "C",
+      "Fuori": 0
+    },
+    "7599": {
+      "Nome": "Lulli",
+      "Squadra": "ROM",
+      "R": "D",
+      "Fuori": 0
+    },
+    "7603": {
+      "Nome": "Grabara",
+      "Squadra": "JUV",
+      "R": "P",
+      "Fuori": 0
+    },
+    "7604": {
+      "Nome": "Maye",
+      "Squadra": "MON",
+      "R": "D",
+      "Fuori": 0
+    },
+    "7611": {
+      "Nome": "Mrozek",
+      "Squadra": "UDI",
+      "R": "P",
+      "Fuori": 0
+    }
+  }
+}

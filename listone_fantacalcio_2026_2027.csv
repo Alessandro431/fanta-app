@@ -21,7 +21,7 @@ Fuori,Id,Nome,Squadra,R,RM,Qt.I,Qt.A,Qt.I M,Qt.A M,FVM,FVM M,Trasferimento
 0,5637,Davis K.,UDI,A,PC,19,19,19,19,109,109,
 0,7556,Mora,ROM,C,T,19,19,18,18,95,95,Porto -> Roma (Definitivo)
 0,5559,Da Cunha,COM,C,C;T,18,18,18,18,87,87,
-0,4510,Leao,MIL,A,A,18,18,19,19,75,75,
+1,4510,Leao,MIL,A,A,18,18,19,19,75,75,Milan -> Galatasaray (Definitivo)
 0,5841,Svilar,ROM,P,POR,18,18,18,18,75,75,
 0,531,Berardi,SAS,A,A,18,18,19,19,101,101,
 0,2766,Zaniolo,UDI,C,T;A,18,18,17,17,85,85,
@@ -53,7 +53,7 @@ Fuori,Id,Nome,Squadra,R,RM,Qt.I,Qt.A,Qt.I M,Qt.A M,FVM,FVM M,Trasferimento
 0,7351,Santos A.,NAP,A,W;A,14,14,15,15,62,62,
 0,7023,Pellegrino M.,FIO,A,PC,15,14,15,14,50,47,Parma -> Fiorentina (Definitivo)
 0,6572,Castro S.,ROM,A,PC,14,14,13,13,76,73,Bologna -> Roma (Definitivo)
-0,4463,Esposito Se.,SAS,A,A,13,13,14,14,40,40,
+0,4463,Esposito Se.,SAS,A,A,13,13,14,14,40,40,Cagliari -> Sassuolo (Prestito con Diritto Riscatto)
 0,5800,Gudmundsson A.,FIO,C,T;A,13,13,12,12,40,40,
 0,4976,Kalulu,JUV,D,DD;DC,13,13,14,14,46,48,
 0,7314,Taylor K.,LAZ,C,C;T,13,13,13,13,57,57,
@@ -80,6 +80,7 @@ Fuori,Id,Nome,Squadra,R,RM,Qt.I,Qt.A,Qt.I M,Qt.A M,FVM,FVM M,Trasferimento
 0,5982,Spence,INT,D,E,12,12,11,11,40,37,Tottenham -> Inter (Definitivo)
 0,6372,Moreira,MIL,C,W,12,12,12,12,50,47,Racing Strasburgo -> Milan (Definitivo)
 0,5172,Jones C.,INT,C,C,12,12,12,12,48,48,Liverpool -> Inter (Definitivo)
+0,1850,Kessiè,ATA,C,C,12,12,12,12,47,47,Al-Ahli -> Atalanta (Definitivo)
 0,6844,Rowe,BOL,C,W;T,11,11,11,11,44,47,
 0,6967,Diao,COM,A,W;A,11,11,12,12,47,50,
 0,5750,Ostigard,GEN,D,DC,11,11,11,11,43,43,
@@ -90,6 +91,7 @@ Fuori,Id,Nome,Squadra,R,RM,Qt.I,Qt.A,Qt.I M,Qt.A M,FVM,FVM M,Trasferimento
 0,4220,Zambo Anguissa,NAP,C,C,11,11,11,11,47,47,
 0,6684,Ekkelenkamp,UDI,C,C;T,10,11,10,11,45,45,
 0,6229,Tourè E.,PAR,A,PC,11,11,11,11,43,43,Atalanta -> Parma (Prestito con obbligo condizionato)
+0,4179,Gonzalez N.,JUV,C,W;A,11,11,10,10,41,38,Atletico Madrid -> Juventus (Fine Prestito)
 0,5526,Scalvini,ATA,D,DC,10,10,10,10,28,28,
 0,133,Skorupski,BOL,P,POR,10,10,10,10,36,36,
 0,4360,Caprile,CAG,P,POR,9,10,9,10,28,28,
@@ -132,6 +134,7 @@ Fuori,Id,Nome,Squadra,R,RM,Qt.I,Qt.A,Qt.I M,Qt.A M,FVM,FVM M,Trasferimento
 0,6462,Okoye,UDI,P,POR,9,9,9,9,29,29,
 0,5641,Chalobah T.,COM,D,DD;DC,9,9,10,10,30,32,Chelsea -> Como (Definitivo)
 0,7612,Bobcek,FRO,A,PC,9,9,9,9,38,38,Lechia Gdansk -> Frosinone (Definitivo)
+0,6534,Perri,TOR,P,POR,9,9,9,9,26,26,Leeds -> Torino (Prestito con Diritto Riscatto)
 0,6046,Hien,ATA,D,DC,8,8,8,8,11,11,
 0,554,Zappacosta,ATA,D,DD;E,8,8,8,8,19,19,
 0,4364,Gaetano,ATA,C,M;C,7,8,8,9,30,35,Cagliari -> Atalanta (Definitivo)
@@ -169,6 +172,7 @@ Fuori,Id,Nome,Squadra,R,RM,Qt.I,Qt.A,Qt.I M,Qt.A M,FVM,FVM M,Trasferimento
 0,6727,Couto,COM,D,DD;E,8,8,8,8,26,26,Borussia Dortmund -> Como (Prestito con Diritto Riscatto)
 0,7551,Schmid,FRO,C,W;T,8,8,8,8,28,30,Werder Brema -> Frosinone (Definitivo)
 0,7600,Osmajic,GEN,A,PC,8,8,7,7,30,27,Preston North End -> Genoa (Definitivo)
+0,5675,Theate,BOL,D,DS;DC,8,8,9,9,20,22,Eintracht -> Bologna (Prestito con Diritto Riscatto)
 1,787,Djimsiti,ATA,D,DC,7,7,7,7,16,16,Atalanta -> Al-Diriyah (Definitivo)
 0,5858,Ferguson,BOL,C,M;C,7,7,8,8,23,27,
 0,5701,Obert,CAG,D,B;DS;E,7,7,7,7,15,17,
@@ -254,6 +258,7 @@ Fuori,Id,Nome,Squadra,R,RM,Qt.I,Qt.A,Qt.I M,Qt.A M,FVM,FVM M,Trasferimento
 0,5674,Basic,VEN,C,M;C,6,6,7,7,19,20,Lazio -> Venezia (Definitivo)
 0,7329,Obrador,SAS,D,DS;E,6,6,6,6,15,15,Torino -> Benfica (Fine Prestito)
 0,7146,Tourè I.,MON,C,E;M,6,6,8,8,14,17,Pisa -> Monza (Definitivo)
+0,4705,Balerdi,ROM,D,DC,6,6,6,6,11,11,Olympique Marsiglia -> Roma (Prestito con Diritto Riscatto)
 0,2640,Kolasinac,ATA,D,DS;DC,5,5,6,6,8,10,
 0,4896,Maldini,CAG,A,T;A,5,5,6,6,21,21,Lazio -> Atalanta (Fine Prestito)
 0,7068,Vitik,BOL,D,DC,5,5,5,5,10,10,
@@ -295,7 +300,7 @@ Fuori,Id,Nome,Squadra,R,RM,Qt.I,Qt.A,Qt.I M,Qt.A M,FVM,FVM M,Trasferimento
 0,6986,Rensch,ROM,D,B;DD;E,5,5,6,6,14,16,
 0,6677,Adzic,SAS,C,C;T,5,5,5,5,16,16,Juventus -> Sassuolo (Prestito con diritto e controriscatto)
 0,7036,Bakola,SAS,C,C;T,5,5,5,5,14,14,
-0,6426,Pedersen,TOR,D,DD;E,5,5,5,5,12,12,
+1,6426,Pedersen,TOR,D,DD;E,5,5,5,5,12,12,Torino -> Olympiacos (Definitivo)
 0,7060,Cacciamani,TOR,C,E;W,5,5,6,6,20,23,Juve Stabia -> Torino (Fine Prestito)
 0,6827,Njie,TOR,C,W;A,4,5,3,4,14,16,
 0,7198,Piotrowski,UDI,C,M;C,5,5,6,6,15,17,
@@ -548,8 +553,9 @@ Fuori,Id,Nome,Squadra,R,RM,Qt.I,Qt.A,Qt.I M,Qt.A M,FVM,FVM M,Trasferimento
 0,7396,Macchioni,SAS,D,DC,1,1,1,1,1,1,
 0,7574,Foe Ondoa,MON,C,C,1,1,1,1,2,2,
 0,7575,Mout,MON,C,C,1,1,1,1,12,12,
-0,5462,Ciervo,CAG,C,W,1,1,1,1,1,1,
+0,5462,Ciervo,CAG,C,W,1,1,1,1,1,1,Sassuolo -> Cagliari (Prestito con Diritto Riscatto)
 0,7599,Lulli,ROM,D,E,1,1,1,1,3,2,
 0,7603,Grabara,JUV,P,POR,1,1,1,1,1,1,Wolfsburg -> Juventus (Prestito con Diritto Riscatto)
 0,7604,Maye,MON,D,DS;DC,1,1,1,1,1,1,Inter -> Monza (Prestito con diritto e controriscatto)
 0,7611,Mrozek,UDI,P,POR,1,1,1,1,1,1,Lech Poznan -> Udinese (Definitivo)
+0,7615,Drobnic,PAR,D,DC,1,1,1,1,1,1,

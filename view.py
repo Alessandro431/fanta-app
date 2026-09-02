@@ -72,8 +72,11 @@ st.markdown(
 ruoli_presenti = [r for r in NOME_RUOLO if r in blocchi]
 tabs = st.tabs([f"{NOME_RUOLO[r]} ({len(blocchi[r])} blocchi)" for r in ruoli_presenti])
 
-# Qt.A / FVM per etichetta dal listone (per arricchire i blocchi dove il giocatore è presente)
+# Qt.A / FVM per etichetta dal listone; in fallback per solo nome (se la squadra nel blocco differisce)
 val_per_label = df.set_index("Label")[["Qt.A", "FVM"]].to_dict("index")
+_conta_nome = df["Nome"].value_counts()
+_univoci = df[df["Nome"].map(_conta_nome) == 1]  # solo nomi univoci, per evitare omonimi
+val_per_nome = _univoci.set_index("Nome")[["Qt.A", "FVM"]].to_dict("index")
 
 
 def scomponi(label):
@@ -95,7 +98,7 @@ for tab, ruolo in zip(tabs, ruoli_presenti):
                     righe = []
                     for label in gruppo:  # ordine come nel blocco
                         nome, sq = scomponi(label)
-                        v = val_per_label.get(label, {})
+                        v = val_per_label.get(label) or val_per_nome.get(nome, {})
                         righe.append({"Nome": nome, "Squadra": sq,
                                       "Qt.A": v.get("Qt.A"), "FVM": v.get("FVM")})
                     sub = pd.DataFrame(righe, columns=["Nome", "Squadra", "Qt.A", "FVM"])

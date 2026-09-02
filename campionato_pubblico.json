@@ -1,5 +1,5 @@
 {
-  "nome": "test",
+  "nome": "asd",
   "blocchi": {
     "P": [
       [
@@ -15,7 +15,8 @@
         "De Marzi (ROM)",
         "Gollini (ROM)",
         "Thiam (MON)",
-        "Strajnar (MON)"
+        "Strajnar (MON)",
+        "Tornqvist (MON)"
       ],
       [
         "Martinez Jo. (INT)",
@@ -27,11 +28,11 @@
       ],
       [
         "Butez (COM)",
-        "Tornqvist (COM)",
         "Vigorito (COM)",
         "Stankovic F. (VEN)",
         "Grandi (VEN)",
-        "Pozzi (VEN)"
+        "Pozzi (VEN)",
+        "Sanchez Ro. (COM)"
       ],
       [
         "Carnesecchi (ATA)",
@@ -53,16 +54,17 @@
         "Meret (NAP)",
         "Milinkovic-Savic V. (NAP)",
         "Contini (NAP)",
-        "Okoye (UDI)",
-        "Padelli (UDI)",
-        "Piana (UDI)"
+        "Corvi (PAR)",
+        "Daffara (PAR)",
+        "Ghidotti (PAR)"
       ],
       [
         "Falcone (LEC)",
         "Penev (LEC)",
         "Bleve (LEC)",
-        "Daffara (PAR)",
-        "Corvi (PAR)"
+        "Padelli (UDI)",
+        "Okoye (UDI)",
+        "Piana (UDI)"
       ],
       [
         "De Gea (FIO)",
@@ -92,13 +94,13 @@
         "Mangas (MON)",
         "Kempf (COM)",
         "Doig (SAS)",
-        "Ziolkowski (ROM)"
+        "Ziolkowski (MON)"
       ],
       [
         "Wesley (ROM)",
         "Gila (MIL)",
         "Scalvini (ATA)",
-        "Dodò (FIO)",
+        "De Winter (MIL)",
         "Kristensen T. (ATA)",
         "Buongiorno (NAP)",
         "Obrador (SAS)",
@@ -114,25 +116,25 @@
         "Marusic (LAZ)",
         "Obert (CAG)",
         "Pedraza (LAZ)",
-        "De Winter (MIL)",
+        "Dodò (FIO)",
         "Pongracic (FIO)",
-        "Ranieri L. (FIO)"
+        "Hermoso (ROM)"
       ],
       [
         "Bremer (JUV)",
         "Ramon (COM)",
-        "Hermoso (ROM)",
-        "Badiashile (NAP)",
+        "Ranieri L. (FIO)",
+        "Diego Carlos (PAR)",
         "Zappacosta (ATA)",
         "Celik (JUV)",
         "Coco (TOR)",
         "Bella-Kotchap (VEN)",
-        "Pellegrini Lu. (LAZ)",
+        "Gabbia (MIL)",
         "Holm (BOL)"
       ],
       [
         "Akanji (INT)",
-        "Bisseck (INT)",
+        "Pellegrini Lu. (LAZ)",
         "Couto (COM)",
         "Delprato (PAR)",
         "Vojvoda (UDI)",
@@ -146,8 +148,8 @@
         "Rrahmani (NAP)",
         "Spence (INT)",
         "Cambiaso (JUV)",
-        "Norton-Cuffy (GEN)",
-        "Idzes (SAS)",
+        "Tomori (MIL)",
+        "Ismajli (TOR)",
         "Kelly L. (JUV)",
         "Marcandalli (GEN)",
         "Gallo (LEC)",
@@ -164,7 +166,7 @@
         "Pavard (INT)",
         "Monterisi (FRO)",
         "Birindelli (MON)",
-        "Beukema (NAP)"
+        "Juan Jesus (VEN)"
       ],
       [
         "Pavlovic (MIL)",
@@ -174,7 +176,7 @@
         "Zortea (BOL)",
         "Bellanova (ATA)",
         "Kolasinac (ATA)",
-        "Ismajli (TOR)",
+        "Idzes (SAS)",
         "Comert (TOR)",
         "Veiga D. (LEC)"
       ],
@@ -184,7 +186,7 @@
         "Miranda J. (BOL)",
         "Jimenez A. (FIO)",
         "Lucumì (JUV)",
-        "Koulierakis (ROM)",
+        "Haps (VEN)",
         "Rodriguez Ju. (CAG)",
         "Estupinan (MIL)",
         "Rensch (ROM)",
@@ -194,7 +196,7 @@
         "Solet (UDI)",
         "N'Dicka (ROM)",
         "Valeri (PAR)",
-        "Gabbia (MIL)",
+        "Bisseck (INT)",
         "Bernasconi (ATA)",
         "Valdepenas (FIO)",
         "Troilo (PAR)",
@@ -212,9 +214,9 @@
         "Locatelli (JUV)",
         "Isaksen (LAZ)",
         "Fagioli (FIO)",
-        "El Aynaoui (ROM)",
         "Fitz-Jim (TOR)",
-        "Musah (MIL)"
+        "Musah (MIL)",
+        "Vergara (NAP)"
       ],
       [
         "Calhanoglu (INT)",
@@ -232,13 +234,13 @@
         "McTominay (NAP)",
         "Conceicao (JUV)",
         "Ederson D.S. (ATA)",
-        "Thuram K. (JUV)",
+        "Cambiaghi (BOL)",
         "Rodriguez Je. (COM)",
-        "Volpato (SAS)",
+        "Fazzini (CAG)",
         "Chukwueze (MIL)",
         "Messias (GEN)",
         "Coulibaly L. (LEC)",
-        "Mandragora (FIO)"
+        "Mandragora (TOR)"
       ],
       [
         "Orsolini (BOL)",
@@ -247,7 +249,7 @@
         "Perrone (COM)",
         "Baldanzi (GEN)",
         "Dele-Bashiru (LAZ)",
-        "Cambiaghi (BOL)",
+        "Sarr P. (JUV)",
         "Basic (VEN)",
         "Pisilli (ROM)",
         "Piotrowski (UDI)"
@@ -258,7 +260,7 @@
         "Zambo Anguissa (NAP)",
         "Thorstvedt (SAS)",
         "Bernardeschi (BOL)",
-        "Fazzini (CAG)",
+        "Volpato (SAS)",
         "Sucic P. (INT)",
         "Pierotti (LEC)",
         "Luis Henrique (INT)",
@@ -268,11 +270,11 @@
         "Rabiot (MIL)",
         "Vlasic (TOR)",
         "Modric (MIL)",
-        "Vergara (NAP)",
-        "Gaetano (ATA)",
+        "Mbangula (BOL)",
+        "Gudmundsson A. (LAZ)",
         "Pasalic (ATA)",
         "Liberali (COM)",
-        "Cacciamani (TOR)",
+        "Elmas (ATA)",
         "Busio (VEN)",
         "Mkhitaryan (INT)"
       ],
@@ -283,7 +285,7 @@
         "Jashari (MIL)",
         "Cristante (ROM)",
         "Cissè A. (MIL)",
-        "De Roon (ATA)",
+        "De Roon (ROM)",
         "Zhegrova (JUV)",
         "Folorunsho (MON)",
         "Fini (FRO)"
@@ -292,7 +294,7 @@
         "Baturina (COM)",
         "Zaniolo (UDI)",
         "Ekkelenkamp (UDI)",
-        "Gudmundsson A. (FIO)",
+        "Gaetano (ATA)",
         "Cancellieri (LAZ)",
         "Calò (FRO)",
         "Romano (CAG)",
@@ -303,12 +305,12 @@
       [
         "Mora (ROM)",
         "Atta (FIO)",
-        "Rowe (BOL)",
+        "Adzic (SAS)",
         "Samardzic (ATA)",
         "Schmid (FRO)",
         "Ndour (FIO)",
-        "Frendrup (GEN)",
-        "Milla (COM)",
+        "Goncalves P. (FIO)",
+        "Colpani (MON)",
         "Politano (NAP)",
         "Gonzalez N. (JUV)"
       ],
@@ -317,12 +319,12 @@
         "Da Cunha (COM)",
         "Diouf (INT)",
         "Konè M. (ROM)",
-        "Elmas (ATA)",
+        "Hutchinson (MIL)",
         "Pellegrini Lo. (ROM)",
         "Karlstrom (UDI)",
         "Zalewski (ATA)",
-        "Adzic (SAS)",
-        "Colpani (MON)"
+        "Rowe (ATA)",
+        "Milla (COM)"
       ]
     ],
     "A": [
@@ -341,15 +343,15 @@
         "Santos A. (NAP)",
         "Esposito Se. (SAS)",
         "Yeboah J. (VEN)",
-        "Ratkov (LAZ)",
-        "Giovane (NAP)"
+        "Adams A. (VEN)",
+        "Bonny (INT)"
       ],
       [
         "Pellegrino M. (FIO)",
         "Simeone (TOR)",
         "Castro S. (ROM)",
         "Ghedjemis (FRO)",
-        "N'Dri (LEC)",
+        "Giovane (NAP)",
         "Raimondo (FRO)",
         "Geubbels (LEC)"
       ],
@@ -360,23 +362,23 @@
         "Piccoli (BOL)",
         "Varela G. (MON)",
         "Vitinha O. (GEN)",
-        "Gueye (UDI)"
+        "Lucca (NAP)"
       ],
       [
         "Ramos G. (MIL)",
         "Dybala (ROM)",
         "Pinamonti (LAZ)",
-        "David (JUV)",
+        "Milik (JUV)",
         "Adams C. (TOR)",
         "Sulemana K. (ATA)",
-        "Ekhator (JUV)"
+        "Zeballos (MON)"
       ],
       [
         "Kolo Muani (JUV)",
-        "De Ketelaere (ATA)",
+        "Zapata D. (TOR)",
         "Thuram (INT)",
         "Romero D. (PAR)",
-        "Elphege (PAR)",
+        "Berardi (SAS)",
         "Kvernadze (FRO)",
         "Lang (NAP)"
       ],
@@ -387,33 +389,33 @@
         "Kevin Carlos (CAG)",
         "Maldini (CAG)",
         "Neres (NAP)",
-        "Lucca (NAP)"
+        "Gueye (UDI)"
       ],
       [
         "Douvikas (COM)",
-        "Berardi (SAS)",
-        "Kean (FIO)",
-        "Vaz (ROM)",
+        "Elphege (PAR)",
+        "De Ketelaere (ATA)",
+        "Beto (FIO)",
         "Camarda (MIL)",
         "Noslin (LAZ)",
-        "Milik (JUV)"
+        "Nzola (CAG)"
       ],
       [
         "Yildiz (JUV)",
         "Esposito F.P. (INT)",
-        "Adams A. (VEN)",
+        "Gnonto (FIO)",
         "Bowie (SAS)",
         "Boga (JUV)",
-        "Zapata D. (TOR)",
-        "Bonny (INT)"
+        "Kean (COM)",
+        "Robinho Junior (GEN)"
       ],
       [
         "Scamacca (ATA)",
         "Davis K. (UDI)",
         "Tourè E. (PAR)",
-        "Dia (LAZ)",
+        "N'Dri (LEC)",
         "Bayo V. (UDI)",
-        "Kuhn (COM)",
+        "Woltemade (JUV)",
         "Stulic (LEC)"
       ]
     ]
@@ -1129,6 +1131,330 @@
       null,
       "Thuram K. (JUV)",
       "30/08 14:30"
+    ],
+    [
+      "scambio",
+      "P",
+      6,
+      "Okoye (UDI)",
+      7,
+      "Corvi (PAR)",
+      "01/09 19:10"
+    ],
+    [
+      "scambio",
+      "P",
+      7,
+      "Daffara (PAR)",
+      6,
+      "Padelli (UDI)",
+      "01/09 19:11"
+    ],
+    [
+      "sostituzione",
+      "A",
+      7,
+      "Vaz (ROM)",
+      null,
+      "Beto (FIO)",
+      "01/09 19:22"
+    ],
+    [
+      "sostituzione",
+      "A",
+      9,
+      "Kuhn (COM)",
+      null,
+      "Woltemade (JUV)",
+      "01/09 19:24"
+    ],
+    [
+      "sostituzione",
+      "A",
+      4,
+      "David (JUV)",
+      null,
+      "Nzola (CAG)",
+      "01/09 19:28"
+    ],
+    [
+      "sostituzione",
+      "A",
+      4,
+      "Ekhator (JUV)",
+      null,
+      "Zeballos (MON)",
+      "01/09 19:29"
+    ],
+    [
+      "scambio",
+      "A",
+      4,
+      "Nzola (CAG)",
+      7,
+      "Milik (JUV)",
+      "01/09 19:29"
+    ],
+    [
+      "sostituzione",
+      "A",
+      1,
+      "Ratkov (LAZ)",
+      null,
+      "Gnonto (FIO)",
+      "01/09 19:32"
+    ],
+    [
+      "scambio",
+      "A",
+      5,
+      "Elphege (PAR)",
+      7,
+      "Berardi (SAS)",
+      "01/09 19:37"
+    ],
+    [
+      "scambio",
+      "A",
+      7,
+      "Kean (COM)",
+      8,
+      "Zapata D. (TOR)",
+      "01/09 19:40"
+    ],
+    [
+      "scambio",
+      "A",
+      5,
+      "De Ketelaere (ATA)",
+      7,
+      "Zapata D. (TOR)",
+      "01/09 19:42"
+    ],
+    [
+      "sostituzione",
+      "A",
+      9,
+      "Dia (LAZ)",
+      null,
+      "Robinho Junior (GEN)",
+      "01/09 19:46"
+    ],
+    [
+      "scambio",
+      "A",
+      1,
+      "Giovane (NAP)",
+      2,
+      "N'Dri (LEC)",
+      "01/09 19:49"
+    ],
+    [
+      "scambio",
+      "A",
+      6,
+      "Lucca (NAP)",
+      3,
+      "Gueye (UDI)",
+      "01/09 19:51"
+    ],
+    [
+      "scambio",
+      "A",
+      8,
+      "Bonny (INT)",
+      1,
+      "N'Dri (LEC)",
+      "01/09 19:53"
+    ],
+    [
+      "scambio",
+      "A",
+      1,
+      "Gnonto (FIO)",
+      8,
+      "Adams A. (VEN)",
+      "01/09 20:01"
+    ],
+    [
+      "scambio",
+      "A",
+      8,
+      "N'Dri (LEC)",
+      9,
+      "Robinho Junior (GEN)",
+      "01/09 20:04"
+    ],
+    [
+      "sostituzione",
+      "C",
+      2,
+      "Thuram K. (JUV)",
+      null,
+      "Sarr P. (JUV)",
+      "01/09 20:06"
+    ],
+    [
+      "scambio",
+      "C",
+      2,
+      "Sarr P. (JUV)",
+      3,
+      "Cambiaghi (BOL)",
+      "01/09 20:07"
+    ],
+    [
+      "scambio",
+      "C",
+      8,
+      "Rowe (ATA)",
+      9,
+      "Adzic (SAS)",
+      "01/09 20:09"
+    ],
+    [
+      "sostituzione",
+      "C",
+      5,
+      "Cacciamani (TOR)",
+      null,
+      "Hutchinson (MIL)",
+      "01/09 20:13"
+    ],
+    [
+      "scambio",
+      "C",
+      5,
+      "Hutchinson (MIL)",
+      9,
+      "Elmas (ATA)",
+      "01/09 20:17"
+    ],
+    [
+      "sostituzione",
+      "C",
+      8,
+      "Frendrup (GEN)",
+      null,
+      "Goncalves P. (FIO)",
+      "01/09 20:18"
+    ],
+    [
+      "sostituzione",
+      "C",
+      5,
+      "Vergara (NAP)",
+      null,
+      "Mbangula (BOL)",
+      "01/09 20:19"
+    ],
+    [
+      "scambio",
+      "C",
+      5,
+      "Gaetano (ATA)",
+      7,
+      "Gudmundsson A. (LAZ)",
+      "01/09 20:20"
+    ],
+    [
+      "scambio",
+      "C",
+      8,
+      "Milla (COM)",
+      9,
+      "Colpani (MON)",
+      "01/09 20:25"
+    ],
+    [
+      "scambio",
+      "C",
+      2,
+      "Volpato (SAS)",
+      4,
+      "Fazzini (CAG)",
+      "01/09 20:28"
+    ],
+    [
+      "sostituzione",
+      "D",
+      8,
+      "Koulierakis (ROM)",
+      null,
+      "Haps (VEN)",
+      "01/09 20:35"
+    ],
+    [
+      "sostituzione",
+      "D",
+      6,
+      "Beukema (NAP)",
+      null,
+      "Juan Jesus (VEN)",
+      "01/09 20:36"
+    ],
+    [
+      "scambio",
+      "D",
+      4,
+      "Bisseck (INT)",
+      9,
+      "Gabbia (MIL)",
+      "01/09 20:38"
+    ],
+    [
+      "sostituzione",
+      "D",
+      5,
+      "Norton-Cuffy (GEN)",
+      null,
+      "Tomori (MIL)",
+      "01/09 20:40"
+    ],
+    [
+      "scambio",
+      "D",
+      5,
+      "Idzes (SAS)",
+      7,
+      "Ismajli (TOR)",
+      "01/09 20:43"
+    ],
+    [
+      "scambio",
+      "D",
+      2,
+      "Ranieri L. (FIO)",
+      3,
+      "Hermoso (ROM)",
+      "01/09 20:45"
+    ],
+    [
+      "sostituzione",
+      "D",
+      3,
+      "Badiashile (NAP)",
+      null,
+      "Diego Carlos (PAR)",
+      "01/09 20:51"
+    ],
+    [
+      "scambio",
+      "D",
+      2,
+      "De Winter (MIL)",
+      1,
+      "Dodò (FIO)",
+      "01/09 20:57"
+    ],
+    [
+      "scambio",
+      "D",
+      4,
+      "Gabbia (MIL)",
+      3,
+      "Pellegrini Lu. (LAZ)",
+      "01/09 20:59"
     ]
   ],
   "listone_rif": {

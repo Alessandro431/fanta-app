@@ -131,30 +131,50 @@ for nome_p, codici in ROSE.items():
     rose_calc.append((nome_p, codici, dfp, int(dfp["FVM"].fillna(0).sum()), int(dfp["Qt.A"].fillna(0).sum())))
 rose_calc.sort(key=lambda t: t[3], reverse=True)
 
+INTESTAZIONE = "Fantasquadra;Calciatore;Ruolo;Prezzo"
+
+
 def righe_rosa(nome_p, dfr):
-    """Righe 'Calciatore;Fantasquadra;Prezzo' col nome squadra registrato su Leghe (Prezzo=1)."""
+    """Righe 'Fantasquadra;Calciatore;Ruolo;Prezzo' col nome squadra registrato su Leghe (Prezzo=1)."""
     squadra = NOME_LEGA.get(nome_p, nome_p)
-    return [f"{r.Nome};{squadra};1" for r in dfr.itertuples()]
+    return [f"{squadra};{r.Nome};{r.Ruolo};1" for r in dfr.itertuples()]
 
 
 def csv_tutte(rose):
-    righe = ["Calciatore;Fantasquadra;Prezzo"]
+    righe = [INTESTAZIONE]
     for nome_p, _cod, dfr, *_ in rose:
         righe += righe_rosa(nome_p, dfr)
     return ("\r\n".join(righe) + "\r\n").encode("utf-8")
 
 
 def csv_singola(nome_p, dfr):
-    return ("\r\n".join(["Calciatore;Fantasquadra;Prezzo"] + righe_rosa(nome_p, dfr)) + "\r\n").encode("utf-8")
+    return ("\r\n".join([INTESTAZIONE] + righe_rosa(nome_p, dfr)) + "\r\n").encode("utf-8")
+
+
+def xlsx_tutte(rose):
+    """Stesse informazioni in formato Excel (spesso più affidabile all'import di Leghe)."""
+    import io
+    righe = []
+    for nome_p, _cod, dfr, *_ in rose:
+        squadra = NOME_LEGA.get(nome_p, nome_p)
+        for r in dfr.itertuples():
+            righe.append({"Fantasquadra": squadra, "Calciatore": r.Nome, "Ruolo": r.Ruolo, "Prezzo": 1})
+    buf = io.BytesIO()
+    pd.DataFrame(righe).to_excel(buf, index=False, sheet_name="Rose")
+    return buf.getvalue()
 
 
 nomi_ordinati = [n for n, *_ in rose_calc]
 cd1, cd2 = st.columns(2)
-cd1.download_button("⬇️ Scarica tutte le rose (un unico CSV per Leghe Fantacalcio)",
+cd1.download_button("⬇️ Tutte le rose — CSV",
                     data=csv_tutte(rose_calc), file_name="rose_lega.csv", mime="text/csv",
                     width="stretch",
-                    help="Un solo file con tutte le squadre. Tracciato Calciatore;Fantasquadra;Prezzo (Prezzo=1); "
-                         "la colonna Fantasquadra usa i nomi registrati nella lega.")
+                    help="Un solo file con tutte le squadre. Tracciato Calciatore;Fantasquadra;Prezzo (Prezzo=1).")
+cd1.download_button("⬇️ Tutte le rose — Excel (.xlsx)",
+                    data=xlsx_tutte(rose_calc), file_name="rose_lega.xlsx",
+                    mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+                    width="stretch",
+                    help="Formato Excel: se il CSV dà 'file non riconosciuto', prova con questo.")
 
 scelto = st.selectbox("Mostra la rosa di", nomi_ordinati, key="rosa_scelta")
 nome_p, codici, dfp, fvm, qta = next(t for t in rose_calc if t[0] == scelto)

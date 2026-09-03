@@ -182,9 +182,9 @@ cd2.download_button(f"⬇️ Scarica solo la rosa di {scelto} (CSV)",
                     file_name=f"rosa_{scelto.lower()}.csv", mime="text/csv", width="stretch")
 
 if mancanti:
-    st.warning("⚠️ Questi giocatori non sono nel listone (nessun Id) e NON sono nel CSV: "
-               "vanno aggiunti a mano su Leghe Fantacalcio. "
-               + " · ".join(f"{n} ({p})" for p, n in mancanti))
+    with st.expander(f"⚠️ {len(mancanti)} giocatori senza Id (non nel CSV — da aggiungere a mano su Leghe)"):
+        st.dataframe(pd.DataFrame([{"Squadra": NOME_LEGA.get(p, p), "Giocatore": n} for p, n in mancanti]),
+                     hide_index=True, width="stretch")
 st.markdown(f"### 🧑 {nome_p} — FVM **{fvm}** · Qt.A **{qta}** · {len(dfp)} giocatori")
 ICONA = {"P": "🧤 Portieri", "D": "🛡️ Difensori", "C": "🎯 Centrocampisti", "A": "⚽ Attaccanti"}
 colonne = st.columns(4)

@@ -117,27 +117,37 @@ for nome_p, codici in ROSE.items():
     rose_calc.append((nome_p, codici, dfp, int(dfp["FVM"].fillna(0).sum()), int(dfp["Qt.A"].fillna(0).sum())))
 rose_calc.sort(key=lambda t: t[3], reverse=True)
 
-def csv_leghe(rose):
+def csv_rosa(nome_p, dfr):
     """Tracciato import Leghe Fantacalcio: Calciatore;Ruolo;Prezzo;Squadra_Fanta (Prezzo=1)."""
     righe = ["Calciatore;Ruolo;Prezzo;Squadra_Fanta"]
-    for nome_p, _cod, dfr, *_ in rose:
-        for r in dfr.itertuples():
-            righe.append(f"{r.Nome};{r.Ruolo};1;{nome_p}")
+    for r in dfr.itertuples():
+        righe.append(f"{r.Nome};{r.Ruolo};1;{nome_p}")
     return ("\r\n".join(righe) + "\r\n").encode("utf-8-sig")
+
+
+def zip_tutte(rose):
+    """Un archivio ZIP con un CSV per squadra, nominato col proprietario."""
+    import io
+    import zipfile
+    buf = io.BytesIO()
+    with zipfile.ZipFile(buf, "w", zipfile.ZIP_DEFLATED) as z:
+        for nome_p, _cod, dfr, *_ in rose:
+            z.writestr(f"rosa_{nome_p.lower()}.csv", csv_rosa(nome_p, dfr))
+    return buf.getvalue()
 
 
 nomi_ordinati = [n for n, *_ in rose_calc]
 cd1, cd2 = st.columns(2)
-cd1.download_button("⬇️ Scarica tutte le rose (CSV per Leghe Fantacalcio)",
-                    data=csv_leghe(rose_calc), file_name="rose_lega.csv", mime="text/csv",
+cd1.download_button("⬇️ Scarica tutte le rose (ZIP: un CSV per squadra)",
+                    data=zip_tutte(rose_calc), file_name="rose_lega.zip", mime="application/zip",
                     width="stretch",
-                    help="Formato Leghe Fantacalcio: Calciatore;Ruolo;Prezzo;Squadra_Fanta. "
-                         "Prezzo impostato a 1 per ogni giocatore (asta a blocchi, senza prezzo singolo).")
+                    help="Archivio ZIP con un file CSV per ogni partecipante (rosa_<nome>.csv), "
+                         "nel tracciato Leghe Fantacalcio Calciatore;Ruolo;Prezzo;Squadra_Fanta (Prezzo=1).")
 
 scelto = st.selectbox("Mostra la rosa di", nomi_ordinati, key="rosa_scelta")
 nome_p, codici, dfp, fvm, qta = next(t for t in rose_calc if t[0] == scelto)
 cd2.download_button(f"⬇️ Scarica solo la rosa di {scelto} (CSV)",
-                    data=csv_leghe([(nome_p, codici, dfp, fvm, qta)]),
+                    data=csv_rosa(nome_p, dfp),
                     file_name=f"rosa_{scelto.lower()}.csv", mime="text/csv", width="stretch")
 st.markdown(f"### 🧑 {nome_p} — FVM **{fvm}** · Qt.A **{qta}** · {len(dfp)} giocatori")
 ICONA = {"P": "🧤 Portieri", "D": "🛡️ Difensori", "C": "🎯 Centrocampisti", "A": "⚽ Attaccanti"}

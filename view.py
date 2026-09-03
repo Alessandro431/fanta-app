@@ -115,8 +115,6 @@ ruoli_presenti = [r for r in NOME_RUOLO if r in blocchi]
 tabs = st.tabs([f"{NOME_RUOLO[r]} ({len(blocchi[r])} blocchi)" for r in ruoli_presenti] + ["👥 Rose (squadre)"])
 
 with tabs[-1]:
-    st.caption("Rosa completa di ogni partecipante (P + D + C + A). "
-               "Ordina le rose per FVM totale, dalla più forte alla più debole.")
     rose_calc = []
     for nome_p, codici in ROSE.items():
         righe = [r for c in codici for r in giocatori_blocco(c)]
@@ -124,16 +122,26 @@ with tabs[-1]:
         rose_calc.append((nome_p, codici, dfp, int(dfp["FVM"].fillna(0).sum()), int(dfp["Qt.A"].fillna(0).sum())))
     rose_calc.sort(key=lambda t: t[3], reverse=True)
 
-    st.dataframe(pd.DataFrame([{"Partecipante": n, "Blocchi": " · ".join(c),
-                                "Giocatori": len(d), "FVM totale": fvm, "Qt.A totale": qta}
-                               for n, c, d, fvm, qta in rose_calc]),
-                 hide_index=True, width="stretch")
+    nomi_ordinati = [n for n, *_ in rose_calc]
+    scelto = st.selectbox("Mostra la rosa di", nomi_ordinati, key="rosa_scelta")
+    nome_p, codici, dfp, fvm, qta = next(t for t in rose_calc if t[0] == scelto)
+    st.markdown(f"### 🧑 {nome_p} — FVM **{fvm}** · Qt.A **{qta}** · {len(dfp)} giocatori")
+    ICONA = {"P": "🧤 Portieri", "D": "🛡️ Difensori", "C": "🎯 Centrocampisti", "A": "⚽ Attaccanti"}
+    colonne = st.columns(4)
+    for col, ruolo in zip(colonne, "PDCA"):
+        with col:
+            parte = (dfp[dfp["Ruolo"] == ruolo][["Nome", "Squadra", "Qt.A", "FVM"]]
+                     .sort_values("FVM", ascending=False))
+            st.markdown(f"**{ICONA[ruolo]} ({len(parte)})**")
+            st.dataframe(parte, hide_index=True, width="stretch",
+                         height=38 + 35 * max(len(parte), 1),  # niente scroll interno
+                         column_config=COLONNE)
 
-    for nome_p, codici, dfp, fvm, qta in rose_calc:
-        with st.expander(f"🧑 {nome_p} — {' · '.join(codici)} — FVM {fvm} · Qt.A {qta} · {len(dfp)} giocatori"):
-            dfp = dfp.sort_values(["Ruolo", "FVM"], ascending=[True, False],
-                                  key=lambda s: s.map({"P": 0, "D": 1, "C": 2, "A": 3}) if s.name == "Ruolo" else s)
-            st.dataframe(dfp, hide_index=True, width="stretch", column_config=COLONNE)
+    with st.expander("📊 Classifica rose per FVM totale"):
+        st.dataframe(pd.DataFrame([{"Partecipante": n, "Blocchi": " · ".join(c),
+                                    "Giocatori": len(d), "FVM totale": fvm, "Qt.A totale": qta}
+                                   for n, c, d, fvm, qta in rose_calc]),
+                     hide_index=True, width="stretch")
 
 
 for tab, ruolo in zip(tabs, ruoli_presenti):

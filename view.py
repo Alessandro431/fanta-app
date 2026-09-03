@@ -69,8 +69,19 @@ st.markdown(
     "Centrocampisti, Attaccanti) sono **scorrevoli lateralmente**: trascina o usa la rotellina per vederle tutte."
 )
 
-ruoli_presenti = [r for r in NOME_RUOLO if r in blocchi]
-tabs = st.tabs([f"{NOME_RUOLO[r]} ({len(blocchi[r])} blocchi)" for r in ruoli_presenti])
+# Rose: ogni partecipante ha un blocco per ruolo (P, D, C, A)
+ROSE = {
+    "Fabio": ("P1", "D1", "C3", "A10"),
+    "Marco": ("P4", "D2", "C2", "A4"),
+    "Leo": ("P5", "D10", "C10", "A3"),
+    "Guido": ("P3", "D6", "C9", "A2"),
+    "Arianna": ("P7", "D5", "C7", "A6"),
+    "Paola": ("P6", "D3", "C6", "A8"),
+    "Alex": ("P8", "D9", "C4", "A1"),
+    "Giulia": ("P10", "D7", "C1", "A7"),
+    "Francy": ("P2", "D8", "C5", "A9"),
+    "Marty": ("P9", "D4", "C8", "A5"),
+}
 
 # Qt.A / FVM per etichetta dal listone; in fallback per solo nome (se la squadra nel blocco differisce)
 val_per_label = df.set_index("Label")[["Qt.A", "FVM"]].to_dict("index")
@@ -86,6 +97,43 @@ def scomponi(label):
         nome, sq = label.rsplit(" (", 1)
         return nome, sq[:-1]
     return label, ""
+
+
+def giocatori_blocco(codice):
+    """Dato un codice tipo 'D6' ritorna le righe (Ruolo, Nome, Squadra, Qt.A, FVM) del blocco."""
+    ruolo, idx = codice[0], int(codice[1:]) - 1
+    righe = []
+    for label in blocchi.get(ruolo, [[]] * (idx + 1))[idx]:
+        nome, sq = scomponi(label)
+        v = val_per_label.get(label) or val_per_nome.get(nome, {})
+        righe.append({"Ruolo": ruolo, "Nome": nome, "Squadra": sq,
+                      "Qt.A": v.get("Qt.A"), "FVM": v.get("FVM")})
+    return righe
+
+
+ruoli_presenti = [r for r in NOME_RUOLO if r in blocchi]
+tabs = st.tabs([f"{NOME_RUOLO[r]} ({len(blocchi[r])} blocchi)" for r in ruoli_presenti] + ["👥 Rose (squadre)"])
+
+with tabs[-1]:
+    st.caption("Rosa completa di ogni partecipante (P + D + C + A). "
+               "Ordina le rose per FVM totale, dalla più forte alla più debole.")
+    rose_calc = []
+    for nome_p, codici in ROSE.items():
+        righe = [r for c in codici for r in giocatori_blocco(c)]
+        dfp = pd.DataFrame(righe, columns=["Ruolo", "Nome", "Squadra", "Qt.A", "FVM"])
+        rose_calc.append((nome_p, codici, dfp, int(dfp["FVM"].fillna(0).sum()), int(dfp["Qt.A"].fillna(0).sum())))
+    rose_calc.sort(key=lambda t: t[3], reverse=True)
+
+    st.dataframe(pd.DataFrame([{"Partecipante": n, "Blocchi": " · ".join(c),
+                                "Giocatori": len(d), "FVM totale": fvm, "Qt.A totale": qta}
+                               for n, c, d, fvm, qta in rose_calc]),
+                 hide_index=True, width="stretch")
+
+    for nome_p, codici, dfp, fvm, qta in rose_calc:
+        with st.expander(f"🧑 {nome_p} — {' · '.join(codici)} — FVM {fvm} · Qt.A {qta} · {len(dfp)} giocatori"):
+            dfp = dfp.sort_values(["Ruolo", "FVM"], ascending=[True, False],
+                                  key=lambda s: s.map({"P": 0, "D": 1, "C": 2, "A": 3}) if s.name == "Ruolo" else s)
+            st.dataframe(dfp, hide_index=True, width="stretch", column_config=COLONNE)
 
 
 for tab, ruolo in zip(tabs, ruoli_presenti):

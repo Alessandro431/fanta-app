@@ -118,11 +118,12 @@ for nome_p, codici in ROSE.items():
 rose_calc.sort(key=lambda t: t[3], reverse=True)
 
 def csv_rosa(nome_p, dfr):
-    """Tracciato import Leghe Fantacalcio: Calciatore;Ruolo;Prezzo;Squadra_Fanta (Prezzo=1)."""
-    righe = ["Calciatore;Ruolo;Prezzo;Squadra_Fanta"]
+    """Tracciato import Leghe Fantacalcio (intestazioni riconosciute, senza BOM):
+    Calciatore;Fantasquadra;Prezzo. Prezzo=1 (asta a blocchi)."""
+    righe = ["Calciatore;Fantasquadra;Prezzo"]
     for r in dfr.itertuples():
-        righe.append(f"{r.Nome};{r.Ruolo};1;{nome_p}")
-    return ("\r\n".join(righe) + "\r\n").encode("utf-8-sig")
+        righe.append(f"{r.Nome};{nome_p};1")
+    return ("\r\n".join(righe) + "\r\n").encode("utf-8")
 
 
 def zip_tutte(rose):

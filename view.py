@@ -82,6 +82,20 @@ ROSE = {
     "Marty": ("P9", "D4", "C8", "A5"),
 }
 
+# Nome della fantasquadra registrata su Leghe Fantacalcio (per l'import CSV automatico)
+NOME_LEGA = {
+    "Alex": "Real Essandro",
+    "Fabio": "Divano Kiev",
+    "Paola": "NON CI RESTA CHE PJANIC",
+    "Giulia": "San Diego",
+    "Guido": "Guienz",
+    "Marty": "In mano a Christensen",
+    "Francy": "FC bellinGAS",
+    "Leo": "fenice academy",
+    "Arianna": "Tanto pe Kante",
+    "Marco": "Marco",  # squadra non ancora registrata: associare a mano in fase di import
+}
+
 # Qt.A / FVM per etichetta dal listone; in fallback per solo nome (se la squadra nel blocco differisce)
 val_per_label = df.set_index("Label")[["Qt.A", "FVM"]].to_dict("index")
 _conta_nome = df["Nome"].value_counts()
@@ -117,38 +131,35 @@ for nome_p, codici in ROSE.items():
     rose_calc.append((nome_p, codici, dfp, int(dfp["FVM"].fillna(0).sum()), int(dfp["Qt.A"].fillna(0).sum())))
 rose_calc.sort(key=lambda t: t[3], reverse=True)
 
-def csv_rosa(nome_p, dfr):
-    """Tracciato import Leghe Fantacalcio (intestazioni riconosciute, senza BOM):
-    Calciatore;Fantasquadra;Prezzo. Prezzo=1 (asta a blocchi)."""
+def righe_rosa(nome_p, dfr):
+    """Righe 'Calciatore;Fantasquadra;Prezzo' col nome squadra registrato su Leghe (Prezzo=1)."""
+    squadra = NOME_LEGA.get(nome_p, nome_p)
+    return [f"{r.Nome};{squadra};1" for r in dfr.itertuples()]
+
+
+def csv_tutte(rose):
     righe = ["Calciatore;Fantasquadra;Prezzo"]
-    for r in dfr.itertuples():
-        righe.append(f"{r.Nome};{nome_p};1")
+    for nome_p, _cod, dfr, *_ in rose:
+        righe += righe_rosa(nome_p, dfr)
     return ("\r\n".join(righe) + "\r\n").encode("utf-8")
 
 
-def zip_tutte(rose):
-    """Un archivio ZIP con un CSV per squadra, nominato col proprietario."""
-    import io
-    import zipfile
-    buf = io.BytesIO()
-    with zipfile.ZipFile(buf, "w", zipfile.ZIP_DEFLATED) as z:
-        for nome_p, _cod, dfr, *_ in rose:
-            z.writestr(f"rosa_{nome_p.lower()}.csv", csv_rosa(nome_p, dfr))
-    return buf.getvalue()
+def csv_singola(nome_p, dfr):
+    return ("\r\n".join(["Calciatore;Fantasquadra;Prezzo"] + righe_rosa(nome_p, dfr)) + "\r\n").encode("utf-8")
 
 
 nomi_ordinati = [n for n, *_ in rose_calc]
 cd1, cd2 = st.columns(2)
-cd1.download_button("⬇️ Scarica tutte le rose (ZIP: un CSV per squadra)",
-                    data=zip_tutte(rose_calc), file_name="rose_lega.zip", mime="application/zip",
+cd1.download_button("⬇️ Scarica tutte le rose (un unico CSV per Leghe Fantacalcio)",
+                    data=csv_tutte(rose_calc), file_name="rose_lega.csv", mime="text/csv",
                     width="stretch",
-                    help="Archivio ZIP con un file CSV per ogni partecipante (rosa_<nome>.csv), "
-                         "nel tracciato Leghe Fantacalcio Calciatore;Ruolo;Prezzo;Squadra_Fanta (Prezzo=1).")
+                    help="Un solo file con tutte le squadre. Tracciato Calciatore;Fantasquadra;Prezzo (Prezzo=1); "
+                         "la colonna Fantasquadra usa i nomi registrati nella lega.")
 
 scelto = st.selectbox("Mostra la rosa di", nomi_ordinati, key="rosa_scelta")
 nome_p, codici, dfp, fvm, qta = next(t for t in rose_calc if t[0] == scelto)
 cd2.download_button(f"⬇️ Scarica solo la rosa di {scelto} (CSV)",
-                    data=csv_rosa(nome_p, dfp),
+                    data=csv_singola(nome_p, dfp),
                     file_name=f"rosa_{scelto.lower()}.csv", mime="text/csv", width="stretch")
 st.markdown(f"### 🧑 {nome_p} — FVM **{fvm}** · Qt.A **{qta}** · {len(dfp)} giocatori")
 ICONA = {"P": "🧤 Portieri", "D": "🛡️ Difensori", "C": "🎯 Centrocampisti", "A": "⚽ Attaccanti"}

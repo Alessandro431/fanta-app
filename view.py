@@ -150,7 +150,10 @@ def righe_rosa(nome_p, dfr):
     out, senza = [], []
     for r in dfr.itertuples():
         i = id_di(r.Nome, r.Squadra)
-        (out.append(f"{squadra},{i},0") if i else senza.append(r.Nome))
+        if i:
+            out.append(f"{squadra},{i},0")
+        else:
+            senza.append(r.Nome)
     return out, senza
 
 
